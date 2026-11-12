@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{E6: decision modules on ambiguous glitches ($2\le|C(x)|\le4$). Accuracy w.r.t.\ the final label and w.r.t.\ the independent
+volunteer majority (Vol.); escalated glitches count as not correct. $^\dagger$Run on the first 300 test glitches.}\label{tab:e6}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}\toprule
+Method & n & Accuracy & Escalated & Acc.\ (decided) & Acc.\ (Vol.)\\\midrule
+Classifier (argmax in set) & 589 & 0.722 & 0.000 & 0.722 & 0.580\\
+Retrieval tool only (in set) & 589 & 0.716 & 0.000 & 0.716 & 0.624\\
+Retrieval tool, unrestricted & 589 & 0.676 & 0.000 & 0.676 & 0.600\\
+\textbf{Classifier + retrieval fusion (in set)} & 589 & 0.752 & 0.000 & 0.752 & 0.623\\
+LLM agent over tools$^\dagger$ & 300 & 0.653 & 0.067 & 0.700 & 0.517\\
+LLM agent over tools, no scores$^\dagger$ & 300 & 0.580 & 0.137 & 0.672 & 0.503\\
+\bottomrule
+\end{tabular}
+\end{table}

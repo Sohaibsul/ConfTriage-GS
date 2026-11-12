@@ -1,0 +1,9 @@
+policy,human_frac,error
+"CP: singleton auto, rest human",0.8432735981501362,0.011268477991576514
+CP + classifier_inset on ambiguous,0.6142332149640763,0.07504203120467301
+CP + retrieval_inset on ambiguous,0.6142332149640763,0.07620862059271745
+CP + retrieval_unrestricted on ambiguous,0.6142332149640763,0.08554133569707303
+CP + fusion_inset on ambiguous,0.6142332149640763,0.06804249487640632
+CP + agent_tools on ambiguous,0.629502573843147,0.0753997852836733
+CP + agent_tools_noscores on ambiguous,0.6455354006661712,0.07616325322762683
+"CP + verifier: fusion agrees with classifier -> auto, else human",0.6422313602771431,0.052099106573132194

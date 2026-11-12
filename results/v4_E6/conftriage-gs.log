@@ -1,0 +1,330 @@
+[{"stream_name":"stderr","time":6.724170067,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.724229755,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.72423994,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.724244326,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.274248704,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.274280414,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.274289027,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.2742918549999995,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":8.989128048,"data":"{\n"}
+,{"stream_name":"stdout","time":8.9891557,"data":" \"ALPHA\": 0.1,\n"}
+,{"stream_name":"stdout","time":8.989161118,"data":" \"N_SEEDS\": 10,\n"}
+,{"stream_name":"stdout","time":8.989164728,"data":" \"RUN_E0\": true,\n"}
+,{"stream_name":"stdout","time":8.989168134,"data":" \"RUN_E1\": true,\n"}
+,{"stream_name":"stdout","time":8.989171369,"data":" \"RUN_E2\": true,\n"}
+,{"stream_name":"stdout","time":8.98917463,"data":" \"RUN_E3\": true,\n"}
+,{"stream_name":"stdout","time":8.989177825,"data":" \"RUN_E4\": true,\n"}
+,{"stream_name":"stdout","time":8.989181177,"data":" \"RUN_E5\": false,\n"}
+,{"stream_name":"stdout","time":8.989184526,"data":" \"RUN_E6\": true,\n"}
+,{"stream_name":"stdout","time":8.989189241,"data":" \"E6_BANK_PER_CLASS\": 120,\n"}
+,{"stream_name":"stdout","time":8.989196691,"data":" \"E6_N_TEST\": 600,\n"}
+,{"stream_name":"stdout","time":8.989199038,"data":" \"E6_N_LLM\": 300,\n"}
+,{"stream_name":"stdout","time":8.989228448,"data":" \"VLM_MODEL\": \"Qwen/Qwen2.5-VL-7B-Instruct\",\n"}
+,{"stream_name":"stdout","time":8.989235711,"data":" \"VLM_FALLBACK\": \"Qwen/Qwen2.5-VL-3B-Instruct\",\n"}
+,{"stream_name":"stdout","time":8.989240141,"data":" \"N_VLM\": 300,\n"}
+,{"stream_name":"stdout","time":8.989244043,"data":" \"N_REF\": 2,\n"}
+,{"stream_name":"stdout","time":8.989247685,"data":" \"VLM_MAX_PIXELS\": 200704,\n"}
+,{"stream_name":"stdout","time":8.989251042,"data":" \"E3_REPEATS\": 10,\n"}
+,{"stream_name":"stdout","time":8.989254241,"data":" \"SYNTH\": false\n"}
+,{"stream_name":"stdout","time":8.989257633,"data":"}\n"}
+,{"stream_name":"stdout","time":384.591375639,"data":"[   6.3 min] retired (809247, 31)\n"}
+,{"stream_name":"stdout","time":386.600521925,"data":"[   6.3 min] tracks[0] argmax == ml_label for 0.9989 of rows (checks class order of tracks)\n"}
+,{"stream_name":"stdout","time":404.795713365,"data":"[   6.6 min] meta H1_O1 (15305, 15)\n"}
+,{"stream_name":"stdout","time":427.30913712,"data":"[   7.0 min] meta L1_O1 (26412, 15)\n"}
+,{"stream_name":"stdout","time":490.848076994,"data":"[   8.0 min] meta H1_O2 (70871, 15)\n"}
+,{"stream_name":"stdout","time":508.226895076,"data":"[   8.3 min] meta L1_O2 (63501, 15)\n"}
+,{"stream_name":"stdout","time":540.063503445,"data":"[   8.9 min] meta H1_O3a (80763, 15)\n"}
+,{"stream_name":"stdout","time":583.128943061,"data":"[   9.6 min] meta L1_O3a (127500, 15)\n"}
+,{"stream_name":"stdout","time":679.861086516,"data":"[  11.2 min] meta H1_O3b (99568, 15)\n"}
+,{"stream_name":"stdout","time":758.51438105,"data":"[  12.5 min] meta L1_O3b (192693, 15)\n"}
+,{"stream_name":"stdout","time":761.526271756,"data":"[  12.5 min] joined (809247, 44) with run info: 0.5987\n"}
+,{"stream_name":"stdout","time":761.660598126,"data":"[  12.5 min] dropping 5 rows with missing/invalid classifier scores (0.0000)\n"}
+,{"stream_name":"stdout","time":761.662294488,"data":"[  12.5 min] rows with run info among dropped: 1.0\n"}
+,{"stream_name":"stdout","time":762.902057264,"data":"[  12.6 min] ml_label == final_label: 0.6463\n"}
+,{"stream_name":"stdout","time":763.37845685,"data":"[  12.6 min] N = 809242  K = 22  top-1 acc vs final_label: 0.6452  vs volunteer majority: 0.5879\n"}
+,{"stream_name":"stdout","time":763.790221268,"data":"run                     O1      O2     O3a     O3b  unknown\n"}
+,{"stream_name":"stdout","time":763.790249413,"data":"final_label                                                \n"}
+,{"stream_name":"stdout","time":763.790253763,"data":"1080Lines               12   28445     143     746    25030\n"}
+,{"stream_name":"stdout","time":763.790256437,"data":"1400Ripples           1326     227      53     170    17725\n"}
+,{"stream_name":"stdout","time":763.790258964,"data":"Air_Compressor         355     451     537     649      152\n"}
+,{"stream_name":"stdout","time":763.790261573,"data":"Blip                  2761   17011   14951   13843    18220\n"}
+,{"stream_name":"stdout","time":763.790268735,"data":"Chirp                   89     632     333     325     2543\n"}
+,{"stream_name":"stdout","time":763.790271179,"data":"Extremely_Loud         316    1307    5429    7880     2816\n"}
+,{"stream_name":"stdout","time":763.790273641,"data":"Helix                  355     843     262     354      155\n"}
+,{"stream_name":"stdout","time":763.790276306,"data":"Koi_Fish               815    6105   14993    9513     3044\n"}
+,{"stream_name":"stdout","time":763.790278827,"data":"Light_Modulation       489     269     408     263       93\n"}
+,{"stream_name":"stdout","time":763.790281329,"data":"Low_Frequency_Burst  11695   10901   15138   18274    36833\n"}
+,{"stream_name":"stdout","time":763.790283715,"data":"Low_Frequency_Lines   6459   19038    8301   14153     8431\n"}
+,{"stream_name":"stdout","time":763.790286081,"data":"No_Glitch             2702    4888    8541    1848     3469\n"}
+,{"stream_name":"stdout","time":763.790288453,"data":"None_of_the_Above        0      11      50    2276      306\n"}
+,{"stream_name":"stdout","time":763.790290906,"data":"Paired_Doves           279     517     194     545      132\n"}
+,{"stream_name":"stdout","time":763.790293267,"data":"Power_Line            3228    2490    1794    2617      925\n"}
+,{"stream_name":"stdout","time":763.790295641,"data":"Repeating_Blips        379    2154    4286    2911      644\n"}
+,{"stream_name":"stdout","time":763.790298006,"data":"Scattered_Light       4315   12950   18081  109257   182659\n"}
+,{"stream_name":"stdout","time":763.790300366,"data":"Scratchy              1330    1783    1295     865      709\n"}
+,{"stream_name":"stdout","time":763.790302741,"data":"Tomte                  180    2639   10444   19802     1195\n"}
+,{"stream_name":"stdout","time":763.790305111,"data":"Violin_Mode            212    3439     844    2390    17212\n"}
+,{"stream_name":"stdout","time":763.790307458,"data":"Wandering_Line         249     358      67      52      441\n"}
+,{"stream_name":"stdout","time":763.790309829,"data":"Whistle                321    1718    7202    6387     1999\n"}
+,{"stream_name":"stdout","time":763.790312239,"data":"TOTAL                37867  118176  113346  215120   324733\n"}
+,{"stream_name":"stdout","time":765.450566087,"data":"[  12.6 min] saved E0_malz_reproduction.csv (20, 32)\n"}
+,{"stream_name":"stdout","time":765.862591845,"data":"[  12.6 min] E0 at alpha~0.1: {'coverage': 0.8847802130525285, 'set_size': 4.510530182441533, 'singleton': 0.19664503489653484, 'macro_f1': 0.4783833768761397}\n"}
+,{"stream_name":"stdout","time":781.644298584,"data":"[  12.9 min] E1 done balanced1500\n"}
+,{"stream_name":"stdout","time":822.805943085,"data":"[  13.6 min] E1 done full\n"}
+,{"stream_name":"stdout","time":822.809480036,"data":"[  13.6 min] saved E1_all_runs.csv (180, 13)\n"}
+,{"stream_name":"stdout","time":822.830402701,"data":"[  13.6 min] saved E1_summary.csv (18, 17)\n"}
+,{"stream_name":"stdout","time":822.831483783,"data":"          regime score       cond  coverage_mean  coverage_std  worst_class_cov_mean  worst_class_cov_std  covgap_mean  covgap_std  set_size_mean  set_size_std  singleton_mean  singleton_std  singleton_acc_mean  singleton_acc_std  macro_f1_mean  macro_f1_std\n"}
+,{"stream_name":"stdout","time":822.831505014,"data":"0   balanced1500   aps  clustered         0.9005        0.0034                0.7626               0.0261       4.4628      0.4065         9.1303        0.2080          0.0854         0.0042              0.8614             0.0182         0.2502        0.0047\n"}
+,{"stream_name":"stdout","time":822.831512393,"data":"1   balanced1500   aps   marginal         0.9009        0.0020                0.5262               0.0124       9.7481      0.1856        11.6716        0.1892          0.0868         0.0038              0.9038             0.0056         0.1445        0.0020\n"}
+,{"stream_name":"stdout","time":822.831518978,"data":"2   balanced1500   aps   mondrian         0.8999        0.0025                0.8721               0.0072       1.1255      0.1825         8.9594        0.1094          0.0713         0.0040              0.8558             0.0116         0.2612        0.0026\n"}
+,{"stream_name":"stdout","time":822.831525429,"data":"3   balanced1500   lac  clustered         0.9010        0.0043                0.7183               0.0240       5.1393      0.5344         9.1453        0.3150          0.0797         0.0071              0.8801             0.0110         0.2763        0.0083\n"}
+,{"stream_name":"stdout","time":822.831531028,"data":"4   balanced1500   lac   marginal         0.9004        0.0022                0.5209               0.0127       9.9142      0.1874        11.5890        0.1874          0.0721         0.0031              0.9133             0.0080         0.1451        0.0020\n"}
+,{"stream_name":"stdout","time":822.831536206,"data":"5   balanced1500   lac   mondrian         0.9004        0.0022                0.8700               0.0065       1.1817      0.1107         8.5597        0.0942          0.0697         0.0042              0.8707             0.0113         0.3020        0.0029\n"}
+,{"stream_name":"stdout","time":822.83154223,"data":"6   balanced1500  raps  clustered         0.9018        0.0026                0.7958               0.0182       4.5545      0.5954         9.0773        0.2546          0.0000         0.0000                 NaN                NaN         0.2698        0.0050\n"}
+,{"stream_name":"stdout","time":822.831547455,"data":"7   balanced1500  raps   marginal         0.9001        0.0037                0.4974               0.0172      11.0655      0.3136        13.1017        0.1208          0.0000         0.0000                 NaN                NaN         0.1354        0.0009\n"}
+,{"stream_name":"stdout","time":822.831552535,"data":"8   balanced1500  raps   mondrian         0.9014        0.0032                0.8709               0.0081       1.2197      0.2497         9.3526        0.0793          0.0000         0.0000                 NaN                NaN         0.2665        0.0021\n"}
+,{"stream_name":"stdout","time":822.831562154,"data":"9           full   aps  clustered         0.8999        0.0008                0.7940               0.0057       3.8343      0.2606         8.3561        0.1526          0.1252         0.0065              0.9310             0.0082         0.2320        0.0049\n"}
+,{"stream_name":"stdout","time":822.831572882,"data":"10          full   aps   marginal         0.8999        0.0008                0.3944               0.0042      11.8168      0.1576         6.7482        0.0248          0.2276         0.0010              0.9125             0.0012         0.1672        0.0004\n"}
+,{"stream_name":"stdout","time":822.831575949,"data":"11          full   aps   mondrian         0.9000        0.0005                0.8826               0.0104       0.5392      0.1189         7.5457        0.0332          0.1310         0.0016              0.9085             0.0014         0.2462        0.0005\n"}
+,{"stream_name":"stdout","time":822.831578817,"data":"12          full   lac  clustered         0.9001        0.0008                0.6455               0.0049       6.0549      0.2960         6.9210        0.1178          0.1716         0.0016              0.9351             0.0010         0.2762        0.0064\n"}
+,{"stream_name":"stdout","time":822.831581717,"data":"13          full   lac   marginal         0.9000        0.0009                0.3653               0.0039      12.4589      0.1651         6.3120        0.0272          0.2027         0.0010              0.9237             0.0012         0.1764        0.0005\n"}
+,{"stream_name":"stdout","time":822.831584928,"data":"14          full   lac   mondrian         0.9000        0.0006                0.8832               0.0085       0.4924      0.1110         7.2458        0.0285          0.1335         0.0016              0.9164             0.0013         0.2820        0.0004\n"}
+,{"stream_name":"stdout","time":822.831588244,"data":"15          full  raps  clustered         0.8998        0.0008                0.6916               0.0368       5.1308      0.2989         7.0619        0.2991          0.0001         0.0001              0.9520             0.0296         0.2714        0.0035\n"}
+,{"stream_name":"stdout","time":822.831606811,"data":"16          full  raps   marginal         0.9000        0.0008                0.1381               0.0054      18.2962      0.1661         5.9075        0.0103          0.0000         0.0000                 NaN                NaN         0.2005        0.0002\n"}
+,{"stream_name":"stdout","time":822.831612052,"data":"17          full  raps   mondrian         0.8999        0.0004                0.8824               0.0116       0.5440      0.0715         9.1595        0.0485          0.0000         0.0000                 NaN                NaN         0.2441        0.0008\n"}
+,{"stream_name":"stdout","time":836.16409908,"data":"[  13.8 min] E2 done O1+O2 -\u003e O3a\n"}
+,{"stream_name":"stdout","time":858.162138677,"data":"[  14.2 min] E2 done O1+O2 -\u003e O3b\n"}
+,{"stream_name":"stdout","time":880.326552718,"data":"[  14.5 min] E2 done O3a -\u003e O3b\n"}
+,{"stream_name":"stdout","time":893.223437828,"data":"[  14.7 min] E2 done O1 -\u003e O2\n"}
+,{"stream_name":"stdout","time":893.235924238,"data":"[  14.7 min] saved E2_shift.csv (52, 14)\n"}
+,{"stream_name":"stdout","time":893.418272767,"data":"   source target               method  coverage  worst_class_cov   covgap  set_size  singleton\n"}
+,{"stream_name":"stdout","time":893.418294698,"data":"0   O1+O2    O3a       split_marginal    0.9032           0.0601  26.7186    2.4244     0.3904\n"}
+,{"stream_name":"stdout","time":893.418299984,"data":"1   O1+O2    O3a       split_mondrian    0.8959           0.0839  15.5015    6.4092     0.0608\n"}
+,{"stream_name":"stdout","time":893.418304576,"data":"2   O1+O2    O3a    weighted_marginal    0.9056           0.0631  26.3948    2.4951     0.3789\n"}
+,{"stream_name":"stdout","time":893.418309104,"data":"3   O1+O2    O3a    weighted_mondrian    0.9416           0.1119  12.1454   16.2442     0.0000\n"}
+,{"stream_name":"stdout","time":893.41832372,"data":"4   O1+O2    O3a           aci_g0.001    0.9005           0.0781  25.0230    2.7055     0.4258\n"}
+,{"stream_name":"stdout","time":893.418327499,"data":"5   O1+O2    O3a           aci_g0.005    0.9002           0.0811  23.8656    2.8902     0.4343\n"}
+,{"stream_name":"stdout","time":893.418331016,"data":"6   O1+O2    O3a            aci_g0.02    0.9000           0.0931  22.5464    3.2499     0.4387\n"}
+,{"stream_name":"stdout","time":893.418334616,"data":"7   O1+O2    O3a     rolling_marginal    0.8977           0.0751  25.1304    2.7199     0.4232\n"}
+,{"stream_name":"stdout","time":893.41833816,"data":"8   O1+O2    O3a  mondrian_aci_g0.005    0.9010           0.5472   4.4733    7.2433     0.0532\n"}
+,{"stream_name":"stdout","time":893.418341728,"data":"9   O1+O2    O3a   mondrian_aci_g0.02    0.9005           0.8113   1.9138    7.8611     0.0126\n"}
+,{"stream_name":"stdout","time":893.418345213,"data":"10  O1+O2    O3a     rolling_mondrian    0.8967           0.2075   6.5425    6.3939     0.0914\n"}
+,{"stream_name":"stdout","time":893.418348637,"data":"11  O1+O2    O3a      oracle_marginal    0.8972           0.0382  29.2955    2.2896     0.4154\n"}
+,{"stream_name":"stdout","time":893.418352023,"data":"12  O1+O2    O3a      oracle_mondrian    0.8990           0.8421   2.0165    6.7357     0.1270\n"}
+,{"stream_name":"stdout","time":893.418355375,"data":"13  O1+O2    O3b       split_marginal    0.8800           0.0523  29.9470    1.4818     0.7169\n"}
+,{"stream_name":"stdout","time":893.418358659,"data":"14  O1+O2    O3b       split_mondrian    0.8741           0.0706  19.8097    2.9301     0.4798\n"}
+,{"stream_name":"stdout","time":893.418362043,"data":"15  O1+O2    O3b    weighted_marginal    0.8816           0.0554  29.7024    1.5001     0.7102\n"}
+,{"stream_name":"stdout","time":893.418365555,"data":"16  O1+O2    O3b    weighted_mondrian    0.9008           0.4593  14.0612   14.9930     0.0000\n"}
+,{"stream_name":"stdout","time":893.418369056,"data":"17  O1+O2    O3b           aci_g0.001    0.8997           0.1908  22.8293    2.5211     0.6691\n"}
+,{"stream_name":"stdout","time":893.418372521,"data":"18  O1+O2    O3b           aci_g0.005    0.8999           0.1969  22.3419    2.6977     0.6641\n"}
+,{"stream_name":"stdout","time":893.418375983,"data":"19  O1+O2    O3b            aci_g0.02    0.9000           0.2154  21.9511    2.9841     0.6626\n"}
+,{"stream_name":"stdout","time":893.418380068,"data":"20  O1+O2    O3b     rolling_marginal    0.8849           0.2123  26.0451    2.4844     0.6538\n"}
+,{"stream_name":"stdout","time":893.418383483,"data":"21  O1+O2    O3b  mondrian_aci_g0.005    0.9006           0.7882   2.4791    6.7842     0.0311\n"}
+,{"stream_name":"stdout","time":893.418386786,"data":"22  O1+O2    O3b   mondrian_aci_g0.02    0.9003           0.8706   0.7756    7.9068     0.0062\n"}
+,{"stream_name":"stdout","time":893.418390164,"data":"23  O1+O2    O3b     rolling_mondrian    0.8895           0.4882   4.8185    5.7329     0.1732\n"}
+,{"stream_name":"stdout","time":893.41839349,"data":"24  O1+O2    O3b      oracle_marginal    0.9008           0.0667  25.2934    1.7783     0.6274\n"}
+,{"stream_name":"stdout","time":893.418396699,"data":"25  O1+O2    O3b      oracle_mondrian    0.9006           0.8822   1.3639    6.8590     0.1573\n"}
+,{"stream_name":"stdout","time":893.418399903,"data":"26    O3a    O3b       split_marginal    0.8773           0.0523  30.1848    1.4551     0.7273\n"}
+,{"stream_name":"stdout","time":893.418403176,"data":"27    O3a    O3b       split_mondrian    0.8525           0.4435  15.8065    2.6228     0.5740\n"}
+,{"stream_name":"stdout","time":893.418406405,"data":"28    O3a    O3b    weighted_marginal    0.8636           0.0462  32.1192    1.3290     0.7802\n"}
+,{"stream_name":"stdout","time":893.418412399,"data":"29    O3a    O3b    weighted_mondrian    0.8827           0.6099   8.0735   12.4910     0.0054\n"}
+,{"stream_name":"stdout","time":893.418415758,"data":"30    O3a    O3b           aci_g0.001    0.8997           0.1846  22.9460    2.5046     0.6696\n"}
+,{"stream_name":"stdout","time":893.418419005,"data":"31    O3a    O3b           aci_g0.005    0.8999           0.2092  22.4058    2.7073     0.6646\n"}
+,{"stream_name":"stdout","time":893.418422227,"data":"32    O3a    O3b            aci_g0.02    0.9000           0.1938  22.0317    2.9768     0.6629\n"}
+,{"stream_name":"stdout","time":893.41842545,"data":"33    O3a    O3b     rolling_marginal    0.8849           0.2123  26.0805    2.4827     0.6539\n"}
+,{"stream_name":"stdout","time":893.41842868,"data":"34    O3a    O3b  mondrian_aci_g0.005    0.9009           0.7692   2.9293    6.0747     0.0374\n"}
+,{"stream_name":"stdout","time":893.418431928,"data":"35    O3a    O3b   mondrian_aci_g0.02    0.9003           0.8269   0.9916    7.5421     0.0141\n"}
+,{"stream_name":"stdout","time":893.418435171,"data":"36    O3a    O3b     rolling_mondrian    0.8899           0.7692   3.7263    5.4331     0.1881\n"}
+,{"stream_name":"stdout","time":893.4184384,"data":"37    O3a    O3b      oracle_marginal    0.8992           0.0795  24.7168    1.7644     0.6303\n"}
+,{"stream_name":"stdout","time":893.418441627,"data":"38    O3a    O3b      oracle_mondrian    0.9000           0.8751   1.3100    6.9533     0.1506\n"}
+,{"stream_name":"stdout","time":893.41844484,"data":"39     O1     O2       split_marginal    0.8915           0.0190  25.4359    1.9213     0.5378\n"}
+,{"stream_name":"stdout","time":893.41844813,"data":"40     O1     O2       split_mondrian    0.8860           0.2669  15.2994    5.1609     0.0000\n"}
+,{"stream_name":"stdout","time":893.418451326,"data":"41     O1     O2    weighted_marginal    0.9146           0.0380  22.9337    2.4245     0.4344\n"}
+,{"stream_name":"stdout","time":893.418454951,"data":"42     O1     O2    weighted_mondrian    0.9538           0.8547   5.8011   14.7116     0.0000\n"}
+,{"stream_name":"stdout","time":893.41845835,"data":"43     O1     O2           aci_g0.001    0.8999           0.0665  19.1263    2.6458     0.5672\n"}
+,{"stream_name":"stdout","time":893.418461678,"data":"44     O1     O2           aci_g0.005    0.9000           0.0981  17.8940    2.7398     0.5608\n"}
+,{"stream_name":"stdout","time":893.418465075,"data":"45     O1     O2            aci_g0.02    0.9000           0.1535  16.4884    2.9811     0.5582\n"}
+,{"stream_name":"stdout","time":893.418468434,"data":"46     O1     O2     rolling_marginal    0.8806           0.0981  22.9457    2.4214     0.5607\n"}
+,{"stream_name":"stdout","time":893.418471829,"data":"47     O1     O2  mondrian_aci_g0.005    0.9004           0.8150   1.3226    6.9406     0.0002\n"}
+,{"stream_name":"stdout","time":893.418475198,"data":"48     O1     O2   mondrian_aci_g0.02    0.9001           0.8811   0.3234    8.0374     0.0000\n"}
+,{"stream_name":"stdout","time":893.418478536,"data":"49     O1     O2     rolling_mondrian    0.8967           0.7797   2.6203    6.1641     0.0001\n"}
+,{"stream_name":"stdout","time":893.418482301,"data":"50     O1     O2      oracle_marginal    0.9000           0.0205  24.1095    2.0889     0.4976\n"}
+,{"stream_name":"stdout","time":893.41848601,"data":"51     O1     O2      oracle_mondrian    0.9005           0.8785   0.9498    6.2520     0.0000\n"}
+,{"stream_name":"stdout","time":898.716918163,"data":"[  14.8 min] E3 done k = 1\n"}
+,{"stream_name":"stdout","time":902.828005446,"data":"[  14.9 min] E3 done k = 3\n"}
+,{"stream_name":"stdout","time":902.831812988,"data":"[  14.9 min] saved E3_openset_all.csv (80, 9)\n"}
+,{"stream_name":"stdout","time":902.841252133,"data":"[  14.9 min] saved E3_openset_summary.csv (8, 10)\n"}
+,{"stream_name":"stdout","time":902.842330997,"data":"                         auroc_mean  auroc_std  fpr95_mean  fpr95_std  \\\n"}
+,{"stream_name":"stdout","time":902.842347474,"data":"k_out method                                                            \n"}
+,{"stream_name":"stdout","time":902.842352237,"data":"1     MSP                    0.6871     0.0748      0.7536     0.1129   \n"}
+,{"stream_name":"stdout","time":902.842355791,"data":"      conformal_pmax         0.5283     0.1163      0.8478     0.0573   \n"}
+,{"stream_name":"stdout","time":902.842359333,"data":"      entropy                0.6927     0.0734      0.7514     0.1151   \n"}
+,{"stream_name":"stdout","time":902.842362792,"data":"      set_size_or_empty      0.6610     0.0693      0.7826     0.0908   \n"}
+,{"stream_name":"stdout","time":902.842366234,"data":"3     MSP                    0.6700     0.0345      0.7887     0.0407   \n"}
+,{"stream_name":"stdout","time":902.842369553,"data":"      conformal_pmax         0.4981     0.0714      0.9100     0.0174   \n"}
+,{"stream_name":"stdout","time":902.842372974,"data":"      entropy                0.6725     0.0370      0.7874     0.0413   \n"}
+,{"stream_name":"stdout","time":902.842376287,"data":"      set_size_or_empty      0.6327     0.0418      0.8500     0.0451   \n"}
+,{"stream_name":"stdout","time":902.842381341,"data":"\n"}
+,{"stream_name":"stdout","time":902.842388936,"data":"                         known_cov_mean  known_cov_std  novel_empty_rate_mean  \\\n"}
+,{"stream_name":"stdout","time":902.842391436,"data":"k_out method                                                                    \n"}
+,{"stream_name":"stdout","time":902.842393908,"data":"1     MSP                        0.9008         0.0019                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842396674,"data":"      conformal_pmax             0.9008         0.0019                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842399159,"data":"      entropy                    0.9008         0.0019                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842401519,"data":"      set_size_or_empty          0.9008         0.0019                    0.0   \n"}
+,{"stream_name":"stdout","time":902.84240387,"data":"3     MSP                        0.9001         0.0011                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842406221,"data":"      conformal_pmax             0.9001         0.0011                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842408487,"data":"      entropy                    0.9001         0.0011                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842410767,"data":"      set_size_or_empty          0.9001         0.0011                    0.0   \n"}
+,{"stream_name":"stdout","time":902.842413082,"data":"\n"}
+,{"stream_name":"stdout","time":902.842415232,"data":"                         novel_empty_rate_std  \n"}
+,{"stream_name":"stdout","time":902.842417451,"data":"k_out method                                   \n"}
+,{"stream_name":"stdout","time":902.842419692,"data":"1     MSP                                 0.0  \n"}
+,{"stream_name":"stdout","time":902.842421884,"data":"      conformal_pmax                      0.0  \n"}
+,{"stream_name":"stdout","time":902.842424091,"data":"      entropy                             0.0  \n"}
+,{"stream_name":"stdout","time":902.842426296,"data":"      set_size_or_empty                   0.0  \n"}
+,{"stream_name":"stdout","time":902.842428501,"data":"3     MSP                                 0.0  \n"}
+,{"stream_name":"stdout","time":902.842438636,"data":"      conformal_pmax                      0.0  \n"}
+,{"stream_name":"stdout","time":902.842441079,"data":"      entropy                             0.0  \n"}
+,{"stream_name":"stdout","time":902.842443347,"data":"      set_size_or_empty                   0.0  \n"}
+,{"stream_name":"stdout","time":910.638716115,"data":"[  15.0 min] saved E4_label_source_all.csv (120, 15)\n"}
+,{"stream_name":"stdout","time":910.6470032,"data":"[  15.0 min] saved E4_label_source_summary.csv (24, 8)\n"}
+,{"stream_name":"stdout","time":910.648039837,"data":"                                                       coverage  \\\n"}
+,{"stream_name":"stdout","time":910.648057926,"data":"score calibrated_on      evaluated_on       stratum               \n"}
+,{"stream_name":"stdout","time":910.64806194,"data":"aps   final_label        final_label        all          0.8999   \n"}
+,{"stream_name":"stdout","time":910.648065371,"data":"                                            contested    0.9020   \n"}
+,{"stream_name":"stdout","time":910.648068733,"data":"                                            unanimous    0.8213   \n"}
+,{"stream_name":"stdout","time":910.648072076,"data":"                         volunteer_majority all          0.8771   \n"}
+,{"stream_name":"stdout","time":910.648075454,"data":"                                            contested    0.8562   \n"}
+,{"stream_name":"stdout","time":910.648078799,"data":"                                            unanimous    0.8213   \n"}
+,{"stream_name":"stdout","time":910.648082011,"data":"      volunteer_majority final_label        all          0.9160   \n"}
+,{"stream_name":"stdout","time":910.648085221,"data":"                                            contested    0.9193   \n"}
+,{"stream_name":"stdout","time":910.648088525,"data":"                                            unanimous    0.8385   \n"}
+,{"stream_name":"stdout","time":910.648091803,"data":"                         volunteer_majority all          0.8994   \n"}
+,{"stream_name":"stdout","time":910.648095003,"data":"                                            contested    0.8862   \n"}
+,{"stream_name":"stdout","time":910.648098257,"data":"                                            unanimous    0.8385   \n"}
+,{"stream_name":"stdout","time":910.648101348,"data":"lac   final_label        final_label        all          0.8998   \n"}
+,{"stream_name":"stdout","time":910.648106185,"data":"                                            contested    0.8996   \n"}
+,{"stream_name":"stdout","time":910.648114026,"data":"                                            unanimous    0.8270   \n"}
+,{"stream_name":"stdout","time":910.648134054,"data":"                         volunteer_majority all          0.8762   \n"}
+,{"stream_name":"stdout","time":910.648137763,"data":"                                            contested    0.8523   \n"}
+,{"stream_name":"stdout","time":910.648141442,"data":"                                            unanimous    0.8270   \n"}
+,{"stream_name":"stdout","time":910.648144818,"data":"      volunteer_majority final_label        all          0.9165   \n"}
+,{"stream_name":"stdout","time":910.648148423,"data":"                                            contested    0.9183   \n"}
+,{"stream_name":"stdout","time":910.648152419,"data":"                                            unanimous    0.8435   \n"}
+,{"stream_name":"stdout","time":910.648156246,"data":"                         volunteer_majority all          0.8996   \n"}
+,{"stream_name":"stdout","time":910.648160177,"data":"                                            contested    0.8843   \n"}
+,{"stream_name":"stdout","time":910.648176113,"data":"                                            unanimous    0.8435   \n"}
+,{"stream_name":"stdout","time":910.648180362,"data":"\n"}
+,{"stream_name":"stdout","time":910.648184421,"data":"                                                       worst_class_cov  \\\n"}
+,{"stream_name":"stdout","time":910.648188703,"data":"score calibrated_on      evaluated_on       stratum                      \n"}
+,{"stream_name":"stdout","time":910.648192381,"data":"aps   final_label        final_label        all                 0.8707   \n"}
+,{"stream_name":"stdout","time":910.648195788,"data":"                                            contested           0.8268   \n"}
+,{"stream_name":"stdout","time":910.648200428,"data":"                                            unanimous           0.5879   \n"}
+,{"stream_name":"stdout","time":910.648203783,"data":"                         volunteer_majority all                 0.8031   \n"}
+,{"stream_name":"stdout","time":910.648207493,"data":"                                            contested           0.7588   \n"}
+,{"stream_name":"stdout","time":910.648213438,"data":"                                            unanimous           0.5879   \n"}
+,{"stream_name":"stdout","time":910.64823336,"data":"      volunteer_majority final_label        all                 0.8849   \n"}
+,{"stream_name":"stdout","time":910.648237198,"data":"                                            contested           0.8382   \n"}
+,{"stream_name":"stdout","time":910.648240555,"data":"                                            unanimous           0.7435   \n"}
+,{"stream_name":"stdout","time":910.648243795,"data":"                         volunteer_majority all                 0.8732   \n"}
+,{"stream_name":"stdout","time":910.648247142,"data":"                                            contested           0.7984   \n"}
+,{"stream_name":"stdout","time":910.648250411,"data":"                                            unanimous           0.7435   \n"}
+,{"stream_name":"stdout","time":910.64825375,"data":"lac   final_label        final_label        all                 0.8703   \n"}
+,{"stream_name":"stdout","time":910.648257728,"data":"                                            contested           0.8237   \n"}
+,{"stream_name":"stdout","time":910.648262274,"data":"                                            unanimous           0.5786   \n"}
+,{"stream_name":"stdout","time":910.648266296,"data":"                         volunteer_majority all                 0.8011   \n"}
+,{"stream_name":"stdout","time":910.648269265,"data":"                                            contested           0.7590   \n"}
+,{"stream_name":"stdout","time":910.648272318,"data":"                                            unanimous           0.5786   \n"}
+,{"stream_name":"stdout","time":910.648275474,"data":"      volunteer_majority final_label        all                 0.8878   \n"}
+,{"stream_name":"stdout","time":910.648278991,"data":"                                            contested           0.8418   \n"}
+,{"stream_name":"stdout","time":910.648282053,"data":"                                            unanimous           0.7464   \n"}
+,{"stream_name":"stdout","time":910.648285288,"data":"                         volunteer_majority all                 0.8772   \n"}
+,{"stream_name":"stdout","time":910.648288895,"data":"                                            contested           0.7904   \n"}
+,{"stream_name":"stdout","time":910.648291982,"data":"                                            unanimous           0.7464   \n"}
+,{"stream_name":"stdout","time":910.64829525,"data":"\n"}
+,{"stream_name":"stdout","time":910.648298173,"data":"                                                       set_size         n  \n"}
+,{"stream_name":"stdout","time":910.648306884,"data":"score calibrated_on      evaluated_on       stratum                        \n"}
+,{"stream_name":"stdout","time":910.648310715,"data":"aps   final_label        final_label        all         10.5811  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648314246,"data":"                                            contested   10.8189   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648317412,"data":"                                            unanimous   10.7384   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648321411,"data":"                         volunteer_majority all         10.5811  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648324711,"data":"                                            contested   10.8189   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648328055,"data":"                                            unanimous   10.7384   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648331453,"data":"      volunteer_majority final_label        all         11.4221  140661.0  \n"}
+,{"stream_name":"stdout","time":910.64833512,"data":"                                            contested   11.7004   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648338266,"data":"                                            unanimous   11.5048   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648341646,"data":"                         volunteer_majority all         11.4221  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648344972,"data":"                                            contested   11.7004   70175.4  \n"}
+,{"stream_name":"stdout","time":910.64834827,"data":"                                            unanimous   11.5048   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648351411,"data":"lac   final_label        final_label        all         10.2520  140661.0  \n"}
+,{"stream_name":"stdout","time":910.64835468,"data":"                                            contested   10.4689   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648357966,"data":"                                            unanimous   10.5394   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648361299,"data":"                         volunteer_majority all         10.2520  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648364803,"data":"                                            contested   10.4689   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648368372,"data":"                                            unanimous   10.5394   11490.2  \n"}
+,{"stream_name":"stdout","time":910.648371818,"data":"      volunteer_majority final_label        all         11.0692  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648375235,"data":"                                            contested   11.3319   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648378278,"data":"                                            unanimous   11.2280   11490.2  \n"}
+,{"stream_name":"stdout","time":910.64838188,"data":"                         volunteer_majority all         11.0692  140661.0  \n"}
+,{"stream_name":"stdout","time":910.648385174,"data":"                                            contested   11.3319   70175.4  \n"}
+,{"stream_name":"stdout","time":910.648388526,"data":"                                            unanimous   11.2280   11490.2  \n"}
+,{"stream_name":"stdout","time":910.704805983,"data":"[  15.0 min] E5 skipped (SYNTH mode, disabled, or no image URLs)\n"}
+,{"stream_name":"stdout","time":916.671951041,"data":"[  15.1 min] E6 strata (glitches with images) {'singleton': np.float64(0.15672640184986375), 'ambiguous': np.float64(0.22904038318605996), 'escalate': np.float64(0.6142332149640763), 'singleton_err': np.float64(0.07189904099483613)}\n"}
+,{"stream_name":"stdout","time":916.864495373,"data":"[  15.1 min] E6 downloading 14116 images\n"}
+,{"stream_name":"stdout","time":1244.445456968,"data":"[  20.6 min] E6 downloaded 14116 / 14116\n"}
+,{"stream_name":"stderr","time":1262.840113613,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":1262.840142738,"data":"\n"}
+,{"stream_name":"stderr","time":1262.840146311,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":1262.977901037,"data":"[transformers] `torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stderr","time":1262.977929762,"data":"\n"}
+,{"stream_name":"stderr","time":1262.97793457,"data":"[transformers] `torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":1531.165789294,"data":"[  25.4 min] E6 embedded: bank 2639 val 300 test 589\n"}
+,{"stream_name":"stdout","time":1531.267997741,"data":"[  25.4 min] E6 fusion weight on validation: {np.float64(0.0): np.float64(0.843), np.float64(0.1): np.float64(0.887), np.float64(0.2): np.float64(0.897), np.float64(0.3): np.float64(0.897), np.float64(0.4): np.float64(0.883), np.float64(0.5): np.float64(0.877), np.float64(0.6): np.float64(0.88), np.float64(0.7): np.float64(0.88), np.float64(0.8): np.float64(0.88), np.float64(0.9): np.float64(0.877), np.float64(1.0): np.float64(0.877)} -\u003e w* = 0.2\n"}
+,{"stream_name":"stdout","time":1670.499678855,"data":"[  27.7 min] E6 LLM: Qwen/Qwen2.5-VL-7B-Instruct\n"}
+,{"stream_name":"stdout","time":1678.906877097,"data":"[  27.8 min] E6 0/589\n"}
+,{"stream_name":"stdout","time":2130.237688618,"data":"[  35.4 min] E6 50/589\n"}
+,{"stream_name":"stdout","time":2582.55700073,"data":"[  42.9 min] E6 100/589\n"}
+,{"stream_name":"stdout","time":3023.917321115,"data":"[  50.2 min] E6 150/589\n"}
+,{"stream_name":"stdout","time":3472.165880939,"data":"[  57.7 min] E6 200/589\n"}
+,{"stream_name":"stdout","time":3920.986725478,"data":"[  65.2 min] E6 250/589\n"}
+,{"stream_name":"stdout","time":4358.59577179,"data":"[  72.5 min] E6 300/589\n"}
+,{"stream_name":"stdout","time":4358.599466399,"data":"[  72.5 min] E6 350/589\n"}
+,{"stream_name":"stdout","time":4358.607505309,"data":"[  72.5 min] E6 400/589\n"}
+,{"stream_name":"stdout","time":4358.619199082,"data":"[  72.5 min] E6 450/589\n"}
+,{"stream_name":"stdout","time":4358.630111044,"data":"[  72.5 min] E6 500/589\n"}
+,{"stream_name":"stdout","time":4358.638879292,"data":"[  72.5 min] E6 550/589\n"}
+,{"stream_name":"stdout","time":4358.6617235,"data":"[  72.5 min] saved E6_records.csv (589, 14)\n"}
+,{"stream_name":"stdout","time":4358.692088167,"data":"[  72.5 min] saved E6_summary.csv (12, 7)\n"}
+,{"stream_name":"stdout","time":4358.693634492,"data":"    reference                  method    n  escalation_rate  acc_all  acc_decided  wrong_rate\n"}
+,{"stream_name":"stdout","time":4358.693652011,"data":"0        true        classifier_inset  589           0.0000   0.7216       0.7216      0.2784\n"}
+,{"stream_name":"stdout","time":4358.693657127,"data":"1        true         retrieval_inset  589           0.0000   0.7165       0.7165      0.2835\n"}
+,{"stream_name":"stdout","time":4358.693661993,"data":"2        true  retrieval_unrestricted  589           0.0000   0.6757       0.6757      0.3243\n"}
+,{"stream_name":"stdout","time":4358.693668015,"data":"3        true            fusion_inset  589           0.0000   0.7521       0.7521      0.2479\n"}
+,{"stream_name":"stdout","time":4358.693704903,"data":"4        true             agent_tools  300           0.0667   0.6533       0.7000      0.2800\n"}
+,{"stream_name":"stdout","time":4358.69372088,"data":"5        true    agent_tools_noscores  300           0.1367   0.5800       0.6718      0.2833\n"}
+,{"stream_name":"stdout","time":4358.693724743,"data":"6   vol_major        classifier_inset  567           0.0000   0.5802       0.5802      0.4198\n"}
+,{"stream_name":"stdout","time":4358.693728168,"data":"7   vol_major         retrieval_inset  567           0.0000   0.6243       0.6243      0.3757\n"}
+,{"stream_name":"stdout","time":4358.693731488,"data":"8   vol_major  retrieval_unrestricted  567           0.0000   0.5996       0.5996      0.4004\n"}
+,{"stream_name":"stdout","time":4358.693734863,"data":"9   vol_major            fusion_inset  567           0.0000   0.6226       0.6226      0.3774\n"}
+,{"stream_name":"stdout","time":4358.693738259,"data":"10  vol_major             agent_tools  286           0.0664   0.5175       0.5543      0.4161\n"}
+,{"stream_name":"stdout","time":4358.69374179,"data":"11  vol_major    agent_tools_noscores  286           0.1399   0.5035       0.5854      0.3566\n"}
+,{"stream_name":"stdout","time":4358.693746868,"data":"[  72.5 min] saved E6_workload_policies.csv (8, 3)\n"}
+,{"stream_name":"stdout","time":4358.697557836,"data":"                                                             policy  human_frac   error\n"}
+,{"stream_name":"stdout","time":4358.69757574,"data":"0                                    CP: singleton auto, rest human      0.8433  0.0113\n"}
+,{"stream_name":"stdout","time":4358.697580266,"data":"1                                CP + classifier_inset on ambiguous      0.6142  0.0750\n"}
+,{"stream_name":"stdout","time":4358.697584345,"data":"2                                 CP + retrieval_inset on ambiguous      0.6142  0.0762\n"}
+,{"stream_name":"stdout","time":4358.697588151,"data":"3                          CP + retrieval_unrestricted on ambiguous      0.6142  0.0855\n"}
+,{"stream_name":"stdout","time":4358.697592006,"data":"4                                    CP + fusion_inset on ambiguous      0.6142  0.0680\n"}
+,{"stream_name":"stdout","time":4358.697597379,"data":"5                                     CP + agent_tools on ambiguous      0.6295  0.0754\n"}
+,{"stream_name":"stdout","time":4358.697605477,"data":"6                            CP + agent_tools_noscores on ambiguous      0.6455  0.0762\n"}
+,{"stream_name":"stdout","time":4358.697608668,"data":"7  CP + verifier: fusion agrees with classifier -\u003e auto, else human      0.6422  0.0521\n"}
+,{"stream_name":"stdout","time":4358.82348329,"data":"[  72.5 min] ALL DONE. Outputs: ['E0_malz_reproduction.csv', 'E1_all_runs.csv', 'E1_summary.csv', 'E2_curves.csv', 'E2_shift.csv', 'E3_openset_all.csv', 'E3_openset_summary.csv', 'E4_label_source_all.csv', 'E4_label_source_summary.csv', 'E6_meta.json', 'E6_records.csv', 'E6_summary.csv', 'E6_workload_policies.csv', '__notebook__.ipynb', 'data_summary.csv', 'figs']\n"}
+,{"stream_name":"stderr","time":4364.593049466,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4364.593091468,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4364.75327694,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4364.753298519,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4365.474858611,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":4365.586469236,"data":"[NbConvertApp] Writing 313736 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":4367.9909346,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4368.8252579,"data":"[NbConvertApp] Writing 812245 bytes to __results__.html\n"}
+]

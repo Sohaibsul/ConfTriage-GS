@@ -1,0 +1,13 @@
+policy,human_frac,error
+classifier top-1 only,0.0,0.23077875960029726
+"CP: singleton auto, rest human",0.8432735981501362,0.011268477991576514
+CP + classifier top-1 on ambiguous,0.6142332149640763,0.06492479153516398
+CP + VLM decides (constrained_noscores),0.6142332149640763,0.1714365781216884
+"CP + VLM decides, high conf only (constrained_noscores)",0.6158348959653774,0.17063573762103781
+"CP + VLM verifier: agree->auto, disagree->human (constrained_noscores)",0.7639903885857309,0.02808612850523826
+CP + VLM decides (constrained_scores),0.6142332149640763,0.09375504955858412
+"CP + VLM decides, high conf only (constrained_scores)",0.6222416199705819,0.08654748505272908
+"CP + VLM verifier: agree->auto, disagree->human (constrained_scores)",0.6518727184946527,0.058518067529959514
+CP + VLM decides (constrained_refs_noscores),0.6142332149640763,0.17463994012429063
+"CP + VLM decides, high conf only (constrained_refs_noscores)",0.6142332149640763,0.17463994012429063
+"CP + VLM verifier: agree->auto, disagree->human (constrained_refs_noscores)",0.7631895480850803,0.02968780950653938

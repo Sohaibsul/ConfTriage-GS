@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{E6: end-to-end triage policies on the deployment split (glitches with images). Human fraction = share of all glitches
+sent to an expert; error = share of all glitches labelled automatically and wrongly.}\label{tab:e6pol}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{6.2cm}cc}\toprule
+Policy & Human fraction & Error\\\midrule
+CP: singleton auto, rest human & 0.843 & 0.0113\\
+CP + classifier inset on ambiguous & 0.614 & 0.0750\\
+CP + retrieval inset on ambiguous & 0.614 & 0.0762\\
+CP + retrieval unrestricted on ambiguous & 0.614 & 0.0855\\
+CP + fusion inset on ambiguous & 0.614 & 0.0680\\
+CP + agent tools on ambiguous & 0.630 & 0.0754\\
+CP + agent tools noscores on ambiguous & 0.646 & 0.0762\\
+CP + verifier: fusion agrees with classifier $\rightarrow$ auto, else human & 0.642 & 0.0521\\
+\bottomrule
+\end{tabular}
+\end{table}

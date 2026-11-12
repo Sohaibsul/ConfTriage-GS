@@ -1,0 +1,6 @@
+policy,human_frac,error
+classifier top-1 only,0.0,0.23077875960029726
+"CP: singleton auto, rest human",0.8432735981501362,0.011268477991576514
+CP + classifier top-1 on ambiguous,0.6142332149640763,0.06563664975796449
+CP + VLM agent on ambiguous,0.6142332149640763,0.09629104447731089
+CP + VLM agent (high conf only),0.631006374338813,0.08067465471462501

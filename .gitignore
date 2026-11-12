@@ -1,0 +1,7 @@
+kaggle.json
+*.json.bak
+.kaggle_cfg/
+__pycache__/
+*.pyc
+kaggle/kernel-metadata.json
+kaggle/*.ipynb
