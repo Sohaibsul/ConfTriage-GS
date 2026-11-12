@@ -1,21 +1,15 @@
-\begin{table}[t]
-\caption{E4: sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label source, on glitches with at least three volunteer votes
-(mean of 5 splits). Unanimous: all volunteers agree; contested: majority share $<0.7$.}\label{tab:e4}
+\begin{table}[!htbp]
+\caption{E4: sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label used for calibration and for evaluation, on glitches with at
+least three volunteer votes (mean of 5 random splits). Coverage is given for all glitches and for two strata: contested (majority
+share below 0.7) and unanimous (all volunteers agree). Worst-class coverage and set size refer to all glitches.}\label{tab:e4}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lllccc}\toprule
-Calibrated on & Evaluated on & Stratum & Coverage & Worst-class & Set size\\\midrule
-final label & final label & all & 0.900 & 0.870 & 10.25\\
-final label & final label & contested & 0.900 & 0.824 & 10.47\\
-final label & final label & unanimous & 0.827 & 0.579 & 10.54\\
-final label & volunteer majority & all & 0.876 & 0.801 & 10.25\\
-final label & volunteer majority & contested & 0.852 & 0.759 & 10.47\\
-final label & volunteer majority & unanimous & 0.827 & 0.579 & 10.54\\
-volunteer majority & final label & all & 0.916 & 0.888 & 11.07\\
-volunteer majority & final label & contested & 0.918 & 0.842 & 11.33\\
-volunteer majority & final label & unanimous & 0.844 & 0.746 & 11.23\\
-volunteer majority & volunteer majority & all & 0.900 & 0.877 & 11.07\\
-volunteer majority & volunteer majority & contested & 0.884 & 0.790 & 11.33\\
-volunteer majority & volunteer majority & unanimous & 0.844 & 0.746 & 11.23\\
+\begin{tabular}{llccccc}\toprule
+ & & \multicolumn{3}{c}{Coverage} & & \\\cmidrule(lr){3-5}
+Calibrated on & Evaluated on & All & Contested & Unanimous & Worst-class & Set size\\\midrule
+Final label & Final label & 0.900 & 0.900 & 0.827 & 0.870 & 10.25\\
+Final label & Volunteer majority & 0.876 & 0.852 & 0.827 & 0.801 & 10.25\\
+Volunteer majority & Final label & 0.916 & 0.918 & 0.844 & 0.888 & 11.07\\
+Volunteer majority & Volunteer majority & 0.900 & 0.884 & 0.844 & 0.877 & 11.07\\
 \bottomrule
 \end{tabular}
 \end{table}

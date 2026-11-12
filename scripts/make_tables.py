@@ -23,7 +23,7 @@ def write(name, s):
 d = pd.read_csv(os.path.join(R3, "data_summary.csv")).set_index("final_label")
 d = d[["O1", "O2", "O3a", "O3b", "unknown"]]
 rows = [f"{nice(c)} & " + " & ".join(f"{int(v):,}" for v in d.loc[c]) + r" \\" for c in d.index if c != "TOTAL"]
-write("tab_data.tex", r"""\begin{table}[t]
+write("tab_data.tex", r"""\begin{table}[!htbp]
 \caption{Glitches per class and observing run after joining the volunteer-classification release with the
 machine-learning catalogue. ``Unmatched'' glitches have no run information and are used only in E0, E1, E3 and E4.}\label{tab:data}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -38,46 +38,69 @@ Total & """ + " & ".join(f"{int(v):,}" for v in d.loc["TOTAL"]) + r""" \\\bottom
 
 # ---------- E1 ----------
 e1 = pd.read_csv(os.path.join(R3, "E1_summary.csv"))
+SC_ORDER = [("lac", "LAC"), ("aps", "APS"), ("raps", "RAPS")]
+CO_ORDER = [("marginal", "Marginal"), ("clustered", "Clustered"), ("mondrian", "Mondrian")]
 lines = []
-for regime, lab in [("full", "Full data (809,242 glitches)"), ("balanced1500", "Balanced, 1500 per class (as in Malz et al.)")]:
+for regime, lab in [("full", "(a) Full data, 809\\,242 glitches"), ("balanced1500", "(b) Balanced subsample, 1500 glitches per class (setup of Malz et al.)")]:
+    g = e1[e1.regime == regime].set_index(["score", "cond"])
+    best_wc = g.worst_class_cov_mean.max(); best_gap = g.covgap_mean.min(); best_f1 = g.macro_f1_mean.max()
+    B = lambda v, best, txt: (r"\textbf{" + txt + "}") if abs(v - best) < 1e-9 else txt
     lines.append(r"\multicolumn{8}{l}{\emph{" + lab + r"}}\\")
-    for _, r in e1[e1.regime == regime].iterrows():
-        lines.append(f"{r['score'].upper()} & {r['cond']} & {pm(r.coverage_mean, r.coverage_std)} & "
-                     f"{pm(r.worst_class_cov_mean, r.worst_class_cov_std)} & {r.covgap_mean:.2f} & "
-                     f"{r.set_size_mean:.2f} & {r.singleton_mean:.3f} & {r.macro_f1_mean:.3f}" + r"\\")
-write("tab_e1.tex", r"""\begin{table*}[t]
-\caption{E1: score functions and conditioning at $\alpha=0.1$ (mean$\pm$std over 10 random 50/50 calibration/test splits).
-Worst-class coverage and CovGap (mean absolute deviation of class-wise coverage from $1-\alpha$, in percentage points) are computed over
-classes with at least 30 test glitches.}\label{tab:e1}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
+    for si, (sc, scl) in enumerate(SC_ORDER):
+        for ci, (co, col) in enumerate(CO_ORDER):
+            r = g.loc[(sc, co)]
+            lines.append(f"{scl if ci == 0 else ''} & {col} & {r.coverage_mean:.3f} & "
+                         f"{B(r.worst_class_cov_mean, best_wc, pm(r.worst_class_cov_mean, r.worst_class_cov_std))} & "
+                         f"{B(r.covgap_mean, best_gap, f'{r.covgap_mean:.2f}')} & {r.set_size_mean:.2f} & "
+                         f"{r.singleton_mean:.3f} & {B(r.macro_f1_mean, best_f1, f'{r.macro_f1_mean:.3f}')}" + r"\\")
+        if si < 2: lines.append(r"\addlinespace[2pt]")
+    if regime == "full": lines.append(r"\midrule")
+write("tab_e1.tex", r"""\begin{table}[!htbp]
+\caption{E1: score functions and conditioning strategies at $\alpha=0.1$ (mean over 10 random 50/50 calibration/test splits;
+worst-class coverage as mean$\pm$std). Coverage: fraction of test glitches whose reference label lies in the set; worst-class:
+lowest class-wise coverage; CovGap: mean absolute deviation of class-wise coverage from $1-\alpha$ in percentage points (both over
+classes with at least 30 test glitches); set size: average number of labels; singleton: fraction of sets with one label; set F1:
+class-averaged F1 of set membership. Best value per block in bold.}\label{tab:e1}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{llcccccc}\toprule
-Score & Conditioning & Coverage & Worst-class cov. & CovGap & Set size & Singleton rate & Set F1\\\midrule
+Score & Conditioning & Coverage & Worst-class & CovGap & Set size & Singleton & Set F1\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 """)
 
 # ---------- E2 ----------
 e2 = pd.read_csv(os.path.join(R3, "E2_shift.csv"))
 keep = [("split_marginal", "Split CP, marginal"), ("split_mondrian", "Split CP, Mondrian"),
-        ("weighted_mondrian", "Weighted CP, Mondrian"), ("aci_g0.005", "ACI ($\\gamma$=0.005)"),
-        ("rolling_mondrian", "Rolling Mondrian"), ("mondrian_aci_g0.005", "\\textbf{Mondrian-ACI} ($\\gamma$=0.005)"),
-        ("mondrian_aci_g0.02", "\\textbf{Mondrian-ACI} ($\\gamma$=0.02)"), ("oracle_mondrian", "Oracle Mondrian (in-run cal.)")]
+        ("weighted_mondrian", "Weighted CP, Mondrian"), ("aci_g0.005", "ACI, marginal ($\\gamma=0.005$)"),
+        ("rolling_mondrian", "Rolling recalibration, Mondrian"), ("mondrian_aci_g0.005", "Mondrian-ACI ($\\gamma=0.005$)"),
+        ("mondrian_aci_g0.02", "\\textbf{Mondrian-ACI} ($\\gamma=0.02$)"), ("oracle_mondrian", "\\emph{Oracle Mondrian (target calibration)}")]
+scen = [(s, t) for (s, t), _ in e2.groupby(["source", "target"], sort=False)]
+blocks = [("coverage", "(a) Marginal coverage", "{:.3f}"), ("worst_class_cov", "(b) Worst-class coverage", "{:.3f}"),
+          ("covgap", "(c) Class-coverage gap CovGap (percentage points)", "{:.2f}"), ("set_size", "(d) Average set size", "{:.2f}")]
 lines = []
-for (s, t), g in e2.groupby(["source", "target"], sort=False):
-    lines.append(r"\multicolumn{5}{l}{\emph{Calibrate on " + s + r" $\rightarrow$ deploy on " + t + r"}}\\")
-    g = g.set_index("method")
-    for m, lab in keep:
-        if m in g.index:
-            r = g.loc[m]
-            lines.append(f"{lab} & {r.coverage:.3f} & {r.worst_class_cov:.3f} & {r.covgap:.2f} & {r.set_size:.2f}" + r"\\")
-write("tab_e2.tex", r"""\begin{table}[t]
-\caption{E2: coverage when CP calibrated on earlier observing runs is deployed on a later run ($\alpha=0.1$, LAC score).
-The oracle is calibrated on half of the target run and evaluated on the other half.}\label{tab:e2}
+for bi, (col, lab, fmt) in enumerate(blocks):
+    lines.append(r"\multicolumn{5}{l}{\emph{" + lab + r"}}\\")
+    for m, ml in keep:
+        vals = []
+        for s, t in scen:
+            v = e2[(e2.source == s) & (e2.target == t) & (e2.method == m)][col].values[0]
+            txt = fmt.format(v)
+            if m == "mondrian_aci_g0.02": txt = r"\textbf{" + txt + "}"
+            vals.append(txt)
+        if m == "oracle_mondrian": lines.append(r"\cmidrule(l){1-5}")
+        lines.append(ml + " & " + " & ".join(vals) + r"\\")
+    if bi < len(blocks) - 1: lines.append(r"\midrule")
+hdr = " & ".join(f"{s}$\\rightarrow${t}" for s, t in scen)
+write("tab_e2.tex", r"""\begin{table}[!htbp]
+\caption{E2: conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
+order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. The oracle is calibrated on a random half
+of the target run and evaluated on the other half; it is not available in practice and serves as a reference. Rows for the proposed
+method in bold.}\label{tab:e2}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lcccc}\toprule
-Method & Coverage & Worst-class & CovGap & Set size\\\midrule
+Method & """ + hdr + r"""\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}
@@ -112,14 +135,22 @@ plt.legend(fontsize=8); plt.tight_layout(); plt.savefig(os.path.join(FIG, "fig_e
 print("wrote fig_e2_time.png")
 
 # ---------- E3 ----------
-e3 = pd.read_csv(os.path.join(R3, "E3_openset_summary.csv"))
-lines = [f"{int(r.k_out)} & {nice(r.method)} & {pm(r.auroc_mean, r.auroc_std)} & {pm(r.fpr95_mean, r.fpr95_std)}" + r"\\"
-         for _, r in e3.iterrows()]
-write("tab_e3.tex", r"""\begin{table}[t]
-\caption{E3: detection of held-out glitch classes (10 random class subsets; score-level simulation).}\label{tab:e3}
+e3 = pd.read_csv(os.path.join(R3, "E3_openset_summary.csv")).set_index(["method", "k_out"])
+NOV = [("MSP", "Maximum softmax probability (MSP)"), ("entropy", "Predictive entropy"),
+       ("set_size_or_empty", "Conformal set size"), ("conformal_pmax", "Conformal $p$-value, $1-\\max_y p_y(x)$")]
+lines = []
+for m, lab in NOV:
+    lines.append(lab + " & " + " & ".join(f"{pm(e3.loc[(m, k)].auroc_mean, e3.loc[(m, k)].auroc_std)} & "
+                                          f"{pm(e3.loc[(m, k)].fpr95_mean, e3.loc[(m, k)].fpr95_std)}" for k in [1, 3]) + r"\\")
+write("tab_e3.tex", r"""\begin{table}[!htbp]
+\caption{E3: detection of held-out glitch classes (mean$\pm$std over 10 random choices of the held-out classes; score-level
+simulation in which the held-out score columns are removed and the remaining scores renormalized). AUROC: area under the ROC
+curve for separating held-out from known glitches (0.5 = chance); FPR@95: false-positive rate on known glitches at 95\% recall
+of held-out glitches. Coverage of the known classes stays at 0.90 and no held-out glitch receives an empty set.}\label{tab:e3}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{clcc}\toprule
-Held out & Novelty score & AUROC & FPR@95\\\midrule
+\begin{tabular}{lcccc}\toprule
+ & \multicolumn{2}{c}{1 class held out} & \multicolumn{2}{c}{3 classes held out}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Novelty score & AUROC & FPR@95 & AUROC & FPR@95\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}
@@ -128,15 +159,23 @@ Held out & Novelty score & AUROC & FPR@95\\\midrule
 
 # ---------- E4 ----------
 e4 = pd.read_csv(os.path.join(R3, "E4_label_source_summary.csv"))
-e4 = e4[e4.score == "lac"]
-lines = [f"{nice(r.calibrated_on)} & {nice(r.evaluated_on)} & {r.stratum} & {r.coverage:.3f} & {r.worst_class_cov:.3f} & {r.set_size:.2f}" + r"\\"
-         for _, r in e4.iterrows()]
-write("tab_e4.tex", r"""\begin{table}[t]
-\caption{E4: sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label source, on glitches with at least three volunteer votes
-(mean of 5 splits). Unanimous: all volunteers agree; contested: majority share $<0.7$.}\label{tab:e4}
+e4 = e4[e4.score == "lac"].set_index(["calibrated_on", "evaluated_on", "stratum"])
+LB = {"final_label": "Final label", "vol_major": "Volunteer majority", "volunteer_majority": "Volunteer majority"}
+lines = []
+for cal_ in e4.index.get_level_values(0).unique():
+    for ev_ in e4.index.get_level_values(1).unique():
+        if (cal_, ev_, "all") not in e4.index: continue
+        r = lambda st: e4.loc[(cal_, ev_, st)]
+        lines.append(f"{LB.get(cal_, nice(cal_))} & {LB.get(ev_, nice(ev_))} & {r('all').coverage:.3f} & {r('contested').coverage:.3f} & "
+                     f"{r('unanimous').coverage:.3f} & {r('all').worst_class_cov:.3f} & {r('all').set_size:.2f}" + r"\\")
+write("tab_e4.tex", r"""\begin{table}[!htbp]
+\caption{E4: sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label used for calibration and for evaluation, on glitches with at
+least three volunteer votes (mean of 5 random splits). Coverage is given for all glitches and for two strata: contested (majority
+share below 0.7) and unanimous (all volunteers agree). Worst-class coverage and set size refer to all glitches.}\label{tab:e4}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lllccc}\toprule
-Calibrated on & Evaluated on & Stratum & Coverage & Worst-class & Set size\\\midrule
+\begin{tabular}{llccccc}\toprule
+ & & \multicolumn{3}{c}{Coverage} & & \\\cmidrule(lr){3-5}
+Calibrated on & Evaluated on & All & Contested & Unanimous & Worst-class & Set size\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}
@@ -156,7 +195,7 @@ rows = [
 ]
 f = lambda v: "--" if pd.isna(v) else f"{v:.3f}"
 lines = [f"{a} & {f(b)} & {f(c)}" + r"\\" for a, b, c in rows]
-write("tab_e5.tex", r"""\begin{table}[t]
+write("tab_e5.tex", r"""\begin{table}[!htbp]
 \caption{E5: accuracy of a general-purpose vision--language model (Qwen2.5-VL) on ambiguous glitches
 ($2\le|C(x)|\le4$), w.r.t.\ the final label. Chance level for a set of size 2--4 is about 0.33.
 n = """ + f"{int(v2.n)}" + r""" (3B) and """ + f"{int(v3.n)}" + r""" (7B, 4-bit).}\label{tab:e5}
@@ -172,34 +211,68 @@ Condition & 3B & 7B\\\midrule
 # ---------- E6 (tool agent), if available ----------
 p6 = os.path.join(R4, "E6_summary.csv")
 if os.path.exists(p6):
-    e6all = pd.read_csv(p6); e6 = e6all[e6all.reference == "true"]
+    e6all = pd.read_csv(p6)
+    e6 = e6all[e6all.reference == "true"].set_index("method")
     vm = e6all[e6all.reference == "vol_major"].set_index("method")
-    names = {"classifier_inset": "Classifier (argmax in set)", "retrieval_inset": "Retrieval tool only (in set)",
-             "retrieval_unrestricted": "Retrieval tool, unrestricted", "fusion_inset": r"\textbf{Classifier + retrieval fusion (in set)}",
-             "agent_tools": r"LLM agent over tools$^\dagger$", "agent_tools_noscores": r"LLM agent over tools, no scores$^\dagger$"}
-    lines = [f"{names.get(r.method, nice(r.method))} & {int(r.n)} & {r.acc_all:.3f} & {r.escalation_rate:.3f} & "
-             f"{r.acc_decided:.3f} & {vm.loc[r.method, 'acc_all']:.3f}" + r"\\" for _, r in e6.iterrows()]
-    write("tab_e6.tex", r"""\begin{table}[t]
-\caption{E6: decision modules on ambiguous glitches ($2\le|C(x)|\le4$). Accuracy w.r.t.\ the final label and w.r.t.\ the independent
-volunteer majority (Vol.); escalated glitches count as not correct. $^\dagger$Run on the first 300 test glitches.}\label{tab:e6}
+    groups = [("Single sources of evidence", [("classifier_inset", "Classifier top label in the set"),
+                                             ("retrieval_inset", "Retrieval tool, restricted to the set"),
+                                             ("retrieval_unrestricted", "Retrieval tool, all 22 classes")]),
+              ("Combinations of evidence", [("fusion_inset", r"\textbf{Classifier + retrieval fusion} (proposed)"),
+                                           ("agent_tools", r"LLM agent over three tools$^\dagger$"),
+                                           ("agent_tools_noscores", r"LLM agent over tools, no classifier scores$^\dagger$")])]
+    bA = e6.acc_all.max(); bV = vm.acc_all.max()
+    lines = []
+    for gi, (glab, ms) in enumerate(groups):
+        lines.append(r"\multicolumn{6}{l}{\emph{" + glab + r"}}\\")
+        for m, lab in ms:
+            r = e6.loc[m]; v = vm.loc[m].acc_all
+            acc = f"{r.acc_all:.3f}"; acc = r"\textbf{" + acc + "}" if abs(r.acc_all - bA) < 1e-9 else acc
+            vv = f"{v:.3f}"; vv = r"\textbf{" + vv + "}" if abs(v - bV) < 1e-9 else vv
+            esc = "--" if r.escalation_rate == 0 else f"{r.escalation_rate:.3f}"
+            dec = "--" if r.escalation_rate == 0 else f"{r.acc_decided:.3f}"
+            lines.append(f"{lab} & {int(r.n)} & {acc} & {vv} & {esc} & {dec}" + r"\\")
+        if gi == 0: lines.append(r"\midrule")
+    write("tab_e6.tex", r"""\begin{table}[!htbp]
+\caption{E6: decision modules for ambiguous glitches ($2\le|C(x)|\le4$; class-stratified sample of the deployment split).
+Accuracy is measured against the final label and against the independent volunteer majority; escalated glitches count as not
+correct. Escalated: fraction sent to a human by the agent; Acc.\ (decided): accuracy on the glitches the agent did not escalate.
+Best accuracy in bold. $^\dagger$Run on the first 300 test glitches; on the same 300 glitches the classifier reaches 0.700 and
+the fusion 0.727.}\label{tab:e6}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lccccc}\toprule
-Method & n & Accuracy & Escalated & Acc.\ (decided) & Acc.\ (Vol.)\\\midrule
+ & & \multicolumn{2}{c}{Accuracy} & & \\\cmidrule(lr){3-4}
+Decision module & $n$ & Final label & Volunteers & Escalated & Acc.\ (decided)\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}
 \end{table}
 """)
     pol = pd.read_csv(os.path.join(R4, "E6_workload_policies.csv"))
-    ARROW = r"$\rightarrow$"
-    lines = [r.policy.replace("_", " ").replace("->", ARROW) + f" & {r.human_frac:.3f} & {r.error:.4f}" + r"\\"
-             for _, r in pol.iterrows()]
-    write("tab_e6_policy.tex", r"""\begin{table}[t]
-\caption{E6: end-to-end triage policies on the deployment split (glitches with images). Human fraction = share of all glitches
-sent to an expert; error = share of all glitches labelled automatically and wrongly.}\label{tab:e6pol}
+    PN = [("singleton auto, rest human", "Singletons automatic, every other set to a human"),
+          ("classifier_inset", "+ classifier top label for ambiguous sets"),
+          ("retrieval_inset", "+ retrieval (in set) for ambiguous sets"),
+          ("retrieval_unrestricted", "+ retrieval (all classes) for ambiguous sets"),
+          ("fusion_inset", "+ classifier--retrieval fusion for ambiguous sets"),
+          ("agent_tools_noscores", "+ LLM agent over tools, no scores"),
+          ("agent_tools on", "+ LLM agent over tools"),
+          ("verifier", r"\textbf{+ verifier: automatic only if fusion and classifier agree}")]
+    def pname(p):
+        for k, v in PN:
+            if k in p: return v
+        return nice(p)
+    lines = []
+    for i, r in pol.iterrows():
+        e = f"{100 * r.error:.1f}"; e = r"\textbf{" + e + "}" if "verifier" in r.policy else e
+        lines.append(pname(r.policy) + f" & {100 * r.human_frac:.1f} & {e}" + r"\\")
+        if i == 0: lines.append(r"\midrule")
+    write("tab_e6_policy.tex", r"""\begin{table}[!htbp]
+\caption{E6: end-to-end triage policies on all deployment glitches with images. Singleton sets are always labelled automatically
+and sets with more than four labels always go to a human; the policies differ only in how ambiguous sets are handled. Human:
+percentage of all glitches sent to an expert; error: percentage of all glitches that are labelled automatically and wrongly
+(w.r.t.\ the final label).}\label{tab:e6pol}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{p{6.2cm}cc}\toprule
-Policy & Human fraction & Error\\\midrule
+\begin{tabular}{lcc}\toprule
+Policy & Human (\%) & Error (\%)\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
 \end{tabular}

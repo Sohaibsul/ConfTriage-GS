@@ -1,45 +1,54 @@
-\begin{table}[t]
-\caption{E2: coverage when CP calibrated on earlier observing runs is deployed on a later run ($\alpha=0.1$, LAC score).
-The oracle is calibrated on half of the target run and evaluated on the other half.}\label{tab:e2}
+\begin{table}[!htbp]
+\caption{E2: conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
+order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. The oracle is calibrated on a random half
+of the target run and evaluated on the other half; it is not available in practice and serves as a reference. Rows for the proposed
+method in bold.}\label{tab:e2}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lcccc}\toprule
-Method & Coverage & Worst-class & CovGap & Set size\\\midrule
-\multicolumn{5}{l}{\emph{Calibrate on O1+O2 $\rightarrow$ deploy on O3a}}\\
-Split CP, marginal & 0.903 & 0.060 & 26.72 & 2.42\\
-Split CP, Mondrian & 0.896 & 0.084 & 15.50 & 6.41\\
-Weighted CP, Mondrian & 0.942 & 0.112 & 12.15 & 16.24\\
-ACI ($\gamma$=0.005) & 0.900 & 0.081 & 23.87 & 2.89\\
-Rolling Mondrian & 0.897 & 0.208 & 6.54 & 6.39\\
-\textbf{Mondrian-ACI} ($\gamma$=0.005) & 0.901 & 0.547 & 4.47 & 7.24\\
-\textbf{Mondrian-ACI} ($\gamma$=0.02) & 0.900 & 0.811 & 1.91 & 7.86\\
-Oracle Mondrian (in-run cal.) & 0.899 & 0.842 & 2.02 & 6.74\\
-\multicolumn{5}{l}{\emph{Calibrate on O1+O2 $\rightarrow$ deploy on O3b}}\\
-Split CP, marginal & 0.880 & 0.052 & 29.95 & 1.48\\
-Split CP, Mondrian & 0.874 & 0.071 & 19.81 & 2.93\\
-Weighted CP, Mondrian & 0.901 & 0.459 & 14.06 & 14.99\\
-ACI ($\gamma$=0.005) & 0.900 & 0.197 & 22.34 & 2.70\\
-Rolling Mondrian & 0.889 & 0.488 & 4.82 & 5.73\\
-\textbf{Mondrian-ACI} ($\gamma$=0.005) & 0.901 & 0.788 & 2.48 & 6.78\\
-\textbf{Mondrian-ACI} ($\gamma$=0.02) & 0.900 & 0.871 & 0.78 & 7.91\\
-Oracle Mondrian (in-run cal.) & 0.901 & 0.882 & 1.36 & 6.86\\
-\multicolumn{5}{l}{\emph{Calibrate on O3a $\rightarrow$ deploy on O3b}}\\
-Split CP, marginal & 0.877 & 0.052 & 30.18 & 1.46\\
-Split CP, Mondrian & 0.852 & 0.444 & 15.81 & 2.62\\
-Weighted CP, Mondrian & 0.883 & 0.610 & 8.07 & 12.49\\
-ACI ($\gamma$=0.005) & 0.900 & 0.209 & 22.41 & 2.71\\
-Rolling Mondrian & 0.890 & 0.769 & 3.73 & 5.43\\
-\textbf{Mondrian-ACI} ($\gamma$=0.005) & 0.901 & 0.769 & 2.93 & 6.07\\
-\textbf{Mondrian-ACI} ($\gamma$=0.02) & 0.900 & 0.827 & 0.99 & 7.54\\
-Oracle Mondrian (in-run cal.) & 0.900 & 0.875 & 1.31 & 6.95\\
-\multicolumn{5}{l}{\emph{Calibrate on O1 $\rightarrow$ deploy on O2}}\\
-Split CP, marginal & 0.891 & 0.019 & 25.44 & 1.92\\
-Split CP, Mondrian & 0.886 & 0.267 & 15.30 & 5.16\\
-Weighted CP, Mondrian & 0.954 & 0.855 & 5.80 & 14.71\\
-ACI ($\gamma$=0.005) & 0.900 & 0.098 & 17.89 & 2.74\\
-Rolling Mondrian & 0.897 & 0.780 & 2.62 & 6.16\\
-\textbf{Mondrian-ACI} ($\gamma$=0.005) & 0.900 & 0.815 & 1.32 & 6.94\\
-\textbf{Mondrian-ACI} ($\gamma$=0.02) & 0.900 & 0.881 & 0.32 & 8.04\\
-Oracle Mondrian (in-run cal.) & 0.901 & 0.878 & 0.95 & 6.25\\
+Method & O1+O2$\rightarrow$O3a & O1+O2$\rightarrow$O3b & O3a$\rightarrow$O3b & O1$\rightarrow$O2\\\midrule
+\multicolumn{5}{l}{\emph{(a) Marginal coverage}}\\
+Split CP, marginal & 0.903 & 0.880 & 0.877 & 0.891\\
+Split CP, Mondrian & 0.896 & 0.874 & 0.852 & 0.886\\
+Weighted CP, Mondrian & 0.942 & 0.901 & 0.883 & 0.954\\
+ACI, marginal ($\gamma=0.005$) & 0.900 & 0.900 & 0.900 & 0.900\\
+Rolling recalibration, Mondrian & 0.897 & 0.889 & 0.890 & 0.897\\
+Mondrian-ACI ($\gamma=0.005$) & 0.901 & 0.901 & 0.901 & 0.900\\
+\textbf{Mondrian-ACI} ($\gamma=0.02$) & \textbf{0.900} & \textbf{0.900} & \textbf{0.900} & \textbf{0.900}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian (target calibration)} & 0.899 & 0.901 & 0.900 & 0.901\\
+\midrule
+\multicolumn{5}{l}{\emph{(b) Worst-class coverage}}\\
+Split CP, marginal & 0.060 & 0.052 & 0.052 & 0.019\\
+Split CP, Mondrian & 0.084 & 0.071 & 0.444 & 0.267\\
+Weighted CP, Mondrian & 0.112 & 0.459 & 0.610 & 0.855\\
+ACI, marginal ($\gamma=0.005$) & 0.081 & 0.197 & 0.209 & 0.098\\
+Rolling recalibration, Mondrian & 0.208 & 0.488 & 0.769 & 0.780\\
+Mondrian-ACI ($\gamma=0.005$) & 0.547 & 0.788 & 0.769 & 0.815\\
+\textbf{Mondrian-ACI} ($\gamma=0.02$) & \textbf{0.811} & \textbf{0.871} & \textbf{0.827} & \textbf{0.881}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian (target calibration)} & 0.842 & 0.882 & 0.875 & 0.878\\
+\midrule
+\multicolumn{5}{l}{\emph{(c) Class-coverage gap CovGap (percentage points)}}\\
+Split CP, marginal & 26.72 & 29.95 & 30.18 & 25.44\\
+Split CP, Mondrian & 15.50 & 19.81 & 15.81 & 15.30\\
+Weighted CP, Mondrian & 12.15 & 14.06 & 8.07 & 5.80\\
+ACI, marginal ($\gamma=0.005$) & 23.87 & 22.34 & 22.41 & 17.89\\
+Rolling recalibration, Mondrian & 6.54 & 4.82 & 3.73 & 2.62\\
+Mondrian-ACI ($\gamma=0.005$) & 4.47 & 2.48 & 2.93 & 1.32\\
+\textbf{Mondrian-ACI} ($\gamma=0.02$) & \textbf{1.91} & \textbf{0.78} & \textbf{0.99} & \textbf{0.32}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian (target calibration)} & 2.02 & 1.36 & 1.31 & 0.95\\
+\midrule
+\multicolumn{5}{l}{\emph{(d) Average set size}}\\
+Split CP, marginal & 2.42 & 1.48 & 1.46 & 1.92\\
+Split CP, Mondrian & 6.41 & 2.93 & 2.62 & 5.16\\
+Weighted CP, Mondrian & 16.24 & 14.99 & 12.49 & 14.71\\
+ACI, marginal ($\gamma=0.005$) & 2.89 & 2.70 & 2.71 & 2.74\\
+Rolling recalibration, Mondrian & 6.39 & 5.73 & 5.43 & 6.16\\
+Mondrian-ACI ($\gamma=0.005$) & 7.24 & 6.78 & 6.07 & 6.94\\
+\textbf{Mondrian-ACI} ($\gamma=0.02$) & \textbf{7.86} & \textbf{7.91} & \textbf{7.54} & \textbf{8.04}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian (target calibration)} & 6.74 & 6.86 & 6.95 & 6.25\\
 \bottomrule
 \end{tabular}
 \end{table}

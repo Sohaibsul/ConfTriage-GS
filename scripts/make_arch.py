@@ -121,7 +121,7 @@ box(77, 38.5, 87.5, 47, "tool", "Retrieval tool\nDINOv2 $k$-NN\nmemory bank\n120
 box(89, 38.5, 96.8, 47, "tool", "Physics\ntool\n$f_{\\rm peak}$, dur.,\nSNR, bw.", fs=6.2)
 
 # fusion
-box(66.5, 28.5, 87.5, 36, "tri", "Set-restricted fusion\n$\\hat y=\\arg\\max_{y\\in C}\\ \\log\\hat\\pi_y+w^\\star\\log r_y$\n$w^\\star=0.2$ chosen on validation", fs=6.2)
+box(66.5, 28.5, 87.5, 36, "tri", "Set-restricted fusion\n$\\hat y=\\arg\\max_{y\\in C}\\ w\\log\\hat\\pi_y$\n$+\\,(1-w)\\log r_y,\\ \\ w=0.2$", fs=6.2)
 arrow((71, 38.5), (71, 36))
 arrow((82.25, 38.5), (82.25, 36))
 
