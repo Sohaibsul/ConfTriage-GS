@@ -1,0 +1,4762 @@
+gravityspy_id,true,vol_major,set_size,true_in_set,n_refs,classifier_inset,retrieval_inset,fusion_inset,rag_noscores,rag_noscores_raw,rag_scores,rag_scores_raw,rag_scores_votes,rag_scores_votes_raw
+LLejJhpDco,Scratchy,Scratchy,2,True,4,Scratchy,Scratchy,Scratchy,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a clear upward trend in frequency over time, characteristic of a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a clear upward trend in frequency over time, characteristic of a chirp signal.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which is characteristic of the Scratchy class.""
+}
+```"
+coJxdgC8x2,Scratchy,Scratchy,2,True,4,Scratchy,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+YMfbcurTu2,Air_Compressor,,4,True,8,Air_Compressor,Power_Line,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor class.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+gMdNpxKMw8,Extremely_Loud,Paired_Doves,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+kxEET21TxH,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+fvuV12RW9S,Air_Compressor,Low_Frequency_Lines,4,True,8,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor class.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz, which matches the characteristics of an air compressor glitch.""
+}
+```"
+IbVqld5Cis,Violin_Mode,Violin_Mode,2,False,4,Whistle,Wandering_Line,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+h5ZJQet9RO,Air_Compressor,,4,True,8,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```"
+pv3qCTNBJ0,Violin_Mode,Violin_Mode,4,True,8,Violin_Mode,Violin_Mode,Violin_Mode,Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line with a slow frequency drift, which matches the characteristics of a Wandering_Line.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristic of the Violin_Mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristics of the Violin_Mode glitch.""
+}
+```"
+nvrgFNRTAo,Scattered_Light,Scattered_Light,4,True,8,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+WOZQGpNZ9T,Wandering_Line,Wandering_Line,4,True,8,1080Lines,1400Ripples,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows short ripples near 1400 Hz, which matches the characteristics of the 1400Ripples class.""
+}
+```"
+XXUkalkDAq,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+j2vzCVmvzR,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz shaped like a fin or bump, lasting about a second.""
+}
+```"
+TN7XWvuFYX,Koi_Fish,Koi_Fish,2,True,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish glitch.""
+}
+```"
+qNOu277UB0,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Light_Modulation,Light_Modulation,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+ZuWqxWtYZw,None_of_the_Above,Low_Frequency_Burst,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a single peak near 1400 Hz without the characteristic features of 1400Ripples, Paired_Doves, or Power_Line.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+bCIXIazyNn,No_Glitch,Low_Frequency_Burst,4,True,8,No_Glitch,Power_Line,Power_Line,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no distinct features or patterns indicative of a glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+mrmUgtBJHF,1400Ripples,1400Ripples,2,False,4,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+y7fm8hHbxz,Scratchy,Scratchy,3,False,6,Scattered_Light,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at around 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```"
+6u9Sgz60Ef,Low_Frequency_Lines,Low_Frequency_Lines,3,True,6,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+JbMYNaO1J7,No_Glitch,No_Glitch,4,False,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+ww8fq8XrLa,Scattered_Light,Low_Frequency_Lines,2,True,4,Scattered_Light,Power_Line,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+MthRAydCdM,Low_Frequency_Burst,Low_Frequency_Burst,2,True,4,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line event.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below 50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```"
+ra9JvGVOb0,No_Glitch,No_Glitch,3,False,6,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+GWuXQrXO5E,Wandering_Line,Wandering_Line,4,False,8,No_Glitch,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+EOxLQkQ5YY,Power_Line,Power_Line,3,True,6,Power_Line,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+8Qp9KrA13Y,Violin_Mode,Violin_Mode,4,False,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+RDDecHh9Ba,No_Glitch,No_Glitch,4,True,8,No_Glitch,No_Glitch,No_Glitch,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no significant anomalies or patterns that resemble any of the described glitches.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```"
+NNwJw5YbEC,Paired_Doves,Low_Frequency_Burst,4,True,8,Paired_Doves,Paired_Doves,Paired_Doves,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power centered near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+81FbKvZEC1,Light_Modulation,Light_Modulation,2,True,4,Light_Modulation,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+ygKaTfRZlG,1400Ripples,1400Ripples,2,True,4,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+GbumSiG5xw,Scattered_Light,Power_Line,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+3X1lOixjKG,Whistle,Whistle,4,True,8,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle glitch.""
+}
+```"
+aA9ERkonlp,Tomte,Tomte,4,True,8,Tomte,Tomte,Tomte,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte.""
+}
+```"
+VEfmVmtLlS,Paired_Doves,Paired_Doves,4,False,8,Extremely_Loud,Extremely_Loud,Extremely_Loud,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, resembling the characteristics of Extremely_Loud.""
+}
+```"
+leTA4Asldo,Scratchy,Scratchy,4,True,8,Scratchy,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+deWwkYJ5PH,Low_Frequency_Lines,Low_Frequency_Lines,4,False,8,Scattered_Light,Power_Line,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+AJR4U8E0ja,No_Glitch,No_Glitch,2,False,4,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+CQETN03398,Repeating_Blips,Repeating_Blips,4,True,8,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips over time, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+QC3uCx003j,None_of_the_Above,Low_Frequency_Lines,4,True,8,None_of_the_Above,Paired_Doves,None_of_the_Above,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a single curve rising in frequency over time, characteristic of a chirp.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching any of the provided classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching any of the provided classes.""
+}
+```"
+YeGDA3V7EF,Violin_Mode,Violin_Mode,2,True,4,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the Violin_Mode reference.""
+}
+```"
+SftlXMktVY,Extremely_Loud,Extremely_Loud,4,True,8,Extremely_Loud,Extremely_Loud,Extremely_Loud,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+Vu3w8P4JfD,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+EtluqAprII,Low_Frequency_Lines,Low_Frequency_Lines,3,True,6,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+2BQdbQwDAZ,Scratchy,Scratchy,3,True,6,Power_Line,Scratchy,Power_Line,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+k7gyxUKcIJ,Light_Modulation,Light_Modulation,4,True,8,Repeating_Blips,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows several blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation glitches.""
+}
+```"
+ENWEDTuEL4,Whistle,Whistle,3,True,6,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+jd2TjvFGd0,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+a4k9NaFMyW,Chirp,Chirp,4,False,8,Scattered_Light,Helix,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic helical pattern at low-mid frequencies, resembling the Helix class.""
+}
+```"
+0rfxuHsZs8,Paired_Doves,Paired_Doves,3,False,6,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+cCdE36tpj8,Air_Compressor,Air_Compressor,3,False,6,Scattered_Light,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+6PHNDjbOFL,Extremely_Loud,Extremely_Loud,3,True,6,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+Eb0IxcnCPs,Power_Line,Power_Line,2,True,4,Power_Line,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+g6B73p2A8w,Low_Frequency_Burst,Low_Frequency_Burst,3,True,6,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+mzH5oDIJIL,None_of_the_Above,Tomte,4,True,8,None_of_the_Above,Low_Frequency_Burst,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+If3BY4ydJr,Air_Compressor,,2,True,4,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```"
+HeyFFuRpkh,Air_Compressor,Helix,4,True,8,Air_Compressor,Paired_Doves,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+uknm8ZWjUN,Chirp,Chirp,3,False,6,Scattered_Light,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of Power_Line.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+1DJF8YZWBp,Paired_Doves,Tomte,2,True,4,Paired_Doves,Paired_Doves,Paired_Doves,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a single hump of excess power below 50 Hz, which matches the description of a Low_Frequency_Burst.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram exhibits repeating pairs of chirp-like curves moving up and down in frequency, which is characteristic of the Paired_Doves class.""
+}
+`"
+frReMPsiym,Scattered_Light,Scattered_Light,3,True,6,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+nJqG8hsd2C,Chirp,Chirp,4,True,8,Chirp,Chirp,Chirp,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```"
+ee8ExYllMv,Scratchy,Scratchy,3,False,6,Scattered_Light,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```"
+4Sq9KsJvU9,None_of_the_Above,Tomte,3,True,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching either 1400Ripples or Paired_Doves, but rather appears to be a random fluctuation.""
+}
+```"
+2HvxtDDQaj,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line description.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+d84w5NLNCd,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+niNFs8FTRz,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+k4GZ0jgblq,Low_Frequency_Burst,Low_Frequency_Burst,3,True,6,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+qv52zWsq1r,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line reference.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+nBvu21v0my,1400Ripples,Violin_Mode,3,True,6,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows short ripples near 1400 Hz, which matches the characteristics of the 1400Ripples class.""
+}
+```"
+RjcjawK8ya,Light_Modulation,Light_Modulation,2,False,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```"
+vF2PmJwMT5,1080Lines,1080Lines,3,True,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+5bvoNNuQ6n,Low_Frequency_Burst,Low_Frequency_Burst,2,False,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+XhtgNZef7t,Low_Frequency_Lines,Low_Frequency_Lines,4,True,8,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+pVJ9aIPHK7,No_Glitch,No_Glitch,3,False,6,Extremely_Loud,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+FLAbz0FtVj,Paired_Doves,Scattered_Light,4,True,8,Paired_Doves,Low_Frequency_Burst,Paired_Doves,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst"
+OFQMXtba6W,Air_Compressor,Power_Line,3,True,6,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a single, narrow peak near 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```"
+zFEtENbHH7,Power_Line,Power_Line,2,True,4,Power_Line,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+51coaiubBX,1400Ripples,1400Ripples,3,True,6,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows short ripples near 1400 Hz, which matches the characteristics of the 1400Ripples class.""
+}
+```"
+Vp30gHXLEu,Low_Frequency_Burst,Low_Frequency_Burst,3,True,6,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of the Low_Frequency_Lines class.""
+}
+```"
+zZFgkWxY6r,Low_Frequency_Burst,Low_Frequency_Burst,3,True,6,Scattered_Light,Paired_Doves,Paired_Doves,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristic pattern of Paired_Doves.""",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+KRtEqsM6f5,Blip,Blip,2,True,4,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning approximately 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning approximately 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+N8qzPBO2wC,Helix,Helix,2,True,4,Helix,Helix,Helix,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips, which matches the Repeating_Blips class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+URLLYO6hWk,Blip,Blip,3,True,6,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+49iCAufZlX,Helix,,3,True,6,Helix,Helix,Helix,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling a helical or braided structure.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+ok3RGPfKro,Light_Modulation,Light_Modulation,3,False,6,Koi_Fish,Extremely_Loud,Koi_Fish,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram exhibits a high-energy event that saturates a large time-frequency area, resembling the characteristics of Extremely_Loud.""
+}
+```"
+YEJeDDRH7c,Extremely_Loud,Extremely_Loud,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+j69Kzsy8Dl,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+yl5NjZZxVj,No_Glitch,No_Glitch,4,False,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```"
+2mquQofZBV,Wandering_Line,Wandering_Line,4,True,8,Whistle,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of a 1080Lines glitch.""
+}
+```"
+pDc8svSAWs,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+qiqYDsC7s7,Extremely_Loud,Extremely_Loud,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+nzvBXatg6M,Chirp,Chirp,3,False,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a single burst of energy at around 1400 Hz, which is characteristic of the 1400Ripples class, but the classifier score sugg"
+o25KJK3tA3,Chirp,Chirp,4,False,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```"
+mU0tdIfeBo,No_Glitch,Power_Line,4,True,8,No_Glitch,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no significant deviations from the background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```"
+XJqMAJqV0y,Power_Line,Power_Line,4,True,8,Scratchy,Power_Line,Power_Line,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+QTUzOSZijf,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light events.""
+}
+```"
+G8CiMN7CSm,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+kT48rAHv8D,Paired_Doves,Paired_Doves,3,True,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching either 1400Ripples or Paired_Doves, but rather appears to be a random fluctuation.""
+}
+```"
+AJS3DuV23E,Helix,Helix,4,False,8,Violin_Mode,Violin_Mode,Violin_Mode,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristic of the Violin_Mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristic of the Violin_Mode glitch.""
+}
+```"
+5g0vzDW9pg,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+7sCWIcSlwm,Air_Compressor,,3,True,6,Air_Compressor,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```"
+Ou1gwtGFGl,Chirp,Chirp,3,False,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line reference.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+miDNMnWvQR,Repeating_Blips,Repeating_Blips,3,True,6,Repeating_Blips,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+XOVk9zn86u,Extremely_Loud,Repeating_Blips,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic, helical pattern at low-mid frequencies, which is characteristic of the Helix class.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram exhibits a high-energy event that saturates a large time-frequency area, resembling the Extremely_Loud glitch.""
+}
+```"
+2ruYGrIsAr,1080Lines,1080Lines,3,True,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+MiqRYiFoQM,Whistle,Whistle,4,True,8,Whistle,Whistle,Whistle,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle.""
+}
+```"
+aqDV5Bhiqu,Tomte,Tomte,3,False,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a broad, low-frequency signal that does not resemble the sharp, high-frequency ripples or the narrow horizontal line charac",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a broad, low-energy signal without a clear peak or narrow horizontal line.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching either 1400Ripples or Power_Line, indicating it's a glitch that does not fit into the known class"
+V7TZya13k2,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Light_Modulation,Light_Modulation,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+qGmUGFc16I,None_of_the_Above,Low_Frequency_Burst,2,True,4,None_of_the_Above,Paired_Doves,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the 'Paired_Doves' class.""
+}
+```"
+QjlCOgyvlO,Helix,Helix,3,True,6,Helix,Helix,Helix,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling a helical or braided structure.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+4C8QtUEq3C,Low_Frequency_Lines,Low_Frequency_Lines,3,False,6,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+F69d6YiDhv,Extremely_Loud,Extremely_Loud,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+DUia7qmFfV,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+8rPznpy6QD,Low_Frequency_Burst,Low_Frequency_Burst,2,False,4,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+j9CzFNbaSo,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+CJT3wq0IwW,Scratchy,Repeating_Blips,2,True,4,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+ti2Ly8aiDL,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+JrEtpo3TjY,Wandering_Line,Wandering_Line,3,True,6,None_of_the_Above,Wandering_Line,Wandering_Line,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, resembling the 'Scratchy' class.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line glitch.""
+}
+```"
+0lBwduYNoE,Violin_Mode,Violin_Mode,2,True,4,Violin_Mode,Wandering_Line,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 500 Hz, which is characteristic of the violin mode.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which is characteristic of the violin mode.""
+}
+```"
+Ztb8b9WBU9,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz shaped like a fin or bump, lasting about a second.""
+}
+```"
+G3AwjXRaEY,Paired_Doves,,3,True,6,Paired_Doves,Paired_Doves,Paired_Doves,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of the Paired_Doves clas"
+353G85b5tY,No_Glitch,No_Glitch,4,True,8,No_Glitch,Power_Line,No_Glitch,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no significant anomalies or patterns that resemble a glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```"
+UwyVAo50Cn,Scattered_Light,Scattered_Light,3,True,6,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+nTXCY344sq,Light_Modulation,Light_Modulation,2,True,4,Light_Modulation,Light_Modulation,Light_Modulation,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+ljmZlT3L3k,Koi_Fish,Koi_Fish,2,False,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+8MSXmotk0N,Koi_Fish,Koi_Fish,4,True,8,Koi_Fish,Koi_Fish,Koi_Fish,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram shows a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram shows a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```"
+uI5crRshCG,Air_Compressor,Scratchy,4,True,8,Air_Compressor,Power_Line,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+PfgcOsZKxw,No_Glitch,No_Glitch,4,True,8,No_Glitch,Scratchy,No_Glitch,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no clear glitches or anomalies, only background noise.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+BzvMbR5nwG,Koi_Fish,Koi_Fish,2,True,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```"
+tZKvvfn77I,No_Glitch,No_Glitch,3,False,6,Scratchy,Scratchy,Scratchy,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, characteristic of a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+BjWzGLg4Lu,Power_Line,Power_Line,3,True,6,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+X9cnCSqPfA,Blip,Blip,3,True,6,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+znu8twlGzM,None_of_the_Above,Tomte,2,False,4,Paired_Doves,Paired_Doves,Paired_Doves,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a single hump of excess power below 50 Hz, which matches the description of a Low_Frequency_Burst.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which is characteristic of the Paired_Doves class.""
+}
+```"
+7z1fAxKfow,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+aGytgrGnhJ,Helix,Helix,2,True,4,Helix,Helix,Helix,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+53xTPYHSaN,Light_Modulation,Light_Modulation,2,True,4,Repeating_Blips,Light_Modulation,Repeating_Blips,Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows a single, broad peak at low frequencies, which is characteristic of light modulation glitches.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+oW9ZF8gSEr,Air_Compressor,,3,True,6,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```"
+H1GvE2I3Td,Helix,Helix,4,True,8,Scattered_Light,Helix,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic helical pattern at low-mid frequencies, which is characteristic of the Helix class.""
+}
+```"
+ifVxSKNZbp,Extremely_Loud,Extremely_Loud,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram exhibits a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+j41WJtNtjc,Chirp,Chirp,3,True,6,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+hz7y9tAAFx,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```"
+cy55yHymo4,Wandering_Line,Wandering_Line,2,True,4,Scratchy,Wandering_Line,Scratchy,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line glitch.""
+}
+```"
+6KhZ0nZRV0,None_of_the_Above,Low_Frequency_Burst,2,True,4,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```"
+LQqtR15C2f,None_of_the_Above,Tomte,4,True,8,None_of_the_Above,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a complex pattern with no clear resemblance to the reference glitches.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte.""
+}
+```"
+iBmATQFlmH,1080Lines,1080Lines,3,True,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+hHEu4J1dLJ,Blip,Blip,3,True,6,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+c1LVxPPpHS,Violin_Mode,Violin_Mode,4,True,8,Whistle,Violin_Mode,Violin_Mode,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode description.""
+}
+```"
+coJZ9FysY6,Repeating_Blips,,2,True,4,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced peaks that repeat over time, resembling the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+v59r1I7ZKh,Chirp,Chirp,3,False,6,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode description.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode description.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode description.""
+}
+```"
+PQkTEUdXqN,Wandering_Line,Wandering_Line,2,True,4,Scratchy,Wandering_Line,Scratchy,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line glitch.""
+}
+```"
+BJbLRCck9Y,None_of_the_Above,Tomte,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the 1400Ripples, Chirp, or Power_Line classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the 1400Ripples, Chirp, or Power_Line classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the 1400Ripples, Chirp, or Power_Line classes.""
+}
+```"
+PTjHwxy4mt,Wandering_Line,Wandering_Line,2,True,4,Wandering_Line,1080Lines,Wandering_Line,Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line that drifts slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which is characteristic of a Wandering_Line.""
+}
+```"
+PIm7tOzsnI,Helix,Helix,2,True,4,Helix,Helix,Helix,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+VBIBpqXSSt,Repeating_Blips,Repeating_Blips,4,True,8,Repeating_Blips,Repeating_Blips,Repeating_Blips,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling a helical structure.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+Bw27h3QBPD,Paired_Doves,Paired_Doves,2,False,4,None_of_the_Above,None_of_the_Above,None_of_the_Above,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear narrow horizontal line at 60 Hz or its harmonics.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear narrow horizontal line at 60 Hz or its harmonics.""
+}
+```"
+A6Np82t7QC,Koi_Fish,Koi_Fish,2,True,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```"
+VjERLwvcAw,None_of_the_Above,Low_Frequency_Burst,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a single peak near 1400 Hz without repeating patterns or narrow horizontal lines.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+JP0w9HIhfK,Paired_Doves,,4,True,8,Paired_Doves,Paired_Doves,Paired_Doves,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+hHHaCNTSqk,Low_Frequency_Lines,Low_Frequency_Lines,4,True,8,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz shaped like a fin or bump, lasting about a second.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+tok2KyfEfy,Wandering_Line,Wandering_Line,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+1VvRNPxAER,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+oMMDplg4dY,Whistle,Whistle,3,True,6,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+iH9g1mcRF7,No_Glitch,No_Glitch,3,False,6,Low_Frequency_Burst,Power_Line,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+EM049Sq5NR,Violin_Mode,Violin_Mode,4,False,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+C32ai33NCn,Low_Frequency_Lines,Low_Frequency_Lines,3,False,6,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+nK8ugz62MQ,1400Ripples,1400Ripples,4,True,8,Violin_Mode,1400Ripples,Violin_Mode,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+mgP8s8zmfd,Wandering_Line,Wandering_Line,2,True,4,Wandering_Line,Wandering_Line,Wandering_Line,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line with frequency drifting slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```"
+iXB4g0Mpfi,Low_Frequency_Lines,Low_Frequency_Lines,2,False,4,Scattered_Light,Scattered_Light,Scattered_Light,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+H7bw1RKg9W,Chirp,Chirp,3,False,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a prominent hump of excess power below 50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Freque",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a prominent hump of excess power below 50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching Low_Frequency_Burst or Paired_Doves, but rather appears to be random noise.""
+}
+```"
+Y5sRiupMtR,Whistle,Whistle,3,True,6,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+w7RIxli4jZ,No_Glitch,No_Glitch,3,False,6,Whistle,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V- or W-shaped trace at high frequency, which is characteristic of a Whistle glitch.""
+}
+```"
+e8CZogJfb7,Air_Compressor,Scattered_Light,4,True,8,Air_Compressor,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz, which matches the characteristics of an air compressor glitch.""
+}
+```"
+F4SH4nDe0x,Tomte,Tomte,4,True,8,Tomte,Tomte,Tomte,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte.""
+}
+```"
+cafcjxtiOx,Scattered_Light,Scattered_Light,4,True,8,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+OPltjycZFB,Helix,Helix,2,True,4,Helix,Helix,Helix,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram exhibits a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, which matches the Helix class.""
+}
+```"
+Of5MYEDU6G,Low_Frequency_Lines,Low_Frequency_Burst,2,True,4,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz lasting about a second, resembling a Low_Frequency_Burst.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of the Low_Frequency_Lines class.""
+}
+```"
+Kcznc4GDBc,Power_Line,Power_Line,2,True,4,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+Hla1n3X6ur,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+XKOD2K5C7S,Power_Line,Power_Line,3,True,6,Power_Line,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+D6JtacxTzg,1400Ripples,1400Ripples,2,True,4,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+AtqGVpakTk,Wandering_Line,Wandering_Line,2,False,4,Scratchy,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+Z5WXCQQoAq,Wandering_Line,Wandering_Line,3,False,6,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+RrjmFHe3LA,Air_Compressor,Helix,4,True,8,Air_Compressor,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz, which matches the characteristics of an air compressor glitch.""
+}
+```"
+6wMkPXrF9C,No_Glitch,No_Glitch,4,False,8,Low_Frequency_Lines,Power_Line,Low_Frequency_Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```"
+mUGBFQ81i0,Chirp,Chirp,3,True,6,Chirp,Chirp,Chirp,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```"
+SfgbNynNSA,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+OA2WmdJcrp,Violin_Mode,Violin_Mode,3,False,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+5QDM5kdjb8,1400Ripples,1400Ripples,3,True,6,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+8txzgRLc0r,Helix,Helix,2,True,4,Helix,Helix,Helix,Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram exhibits a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, which is characteristic of a Helix glitch.""
+}
+```"
+q2WU61huEq,Koi_Fish,Koi_Fish,2,True,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```"
+62wF3XGZLP,Scattered_Light,Scattered_Light,2,True,4,Scattered_Light,Scattered_Light,Scattered_Light,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+L3wODwBzOu,Paired_Doves,Paired_Doves,2,True,4,Scattered_Light,Paired_Doves,Scattered_Light,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```"
+OBhbuiyUIs,Extremely_Loud,Extremely_Loud,2,True,4,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram has a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram exhibits a high-energy event that saturates a large time-frequency area, resembling the Extremely_Loud reference.""
+}
+```"
+BZVfShG5po,1400Ripples,1400Ripples,4,True,8,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of the 1400Ripples class.""
+}
+```"
+chUM7bmFJ3,Paired_Doves,Whistle,4,True,8,Paired_Doves,Paired_Doves,Paired_Doves,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+sNJTnTA1wH,Repeating_Blips,Scratchy,3,True,6,Repeating_Blips,Repeating_Blips,Repeating_Blips,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+XI6BUYq5u7,Whistle,Whistle,4,True,8,Whistle,Whistle,Whistle,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle.""
+}
+```"
+zm0NoSuKe2,Violin_Mode,Violin_Mode,2,True,4,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a prominent vertical line near 500 Hz, which is characteristic of the violin mode.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```"
+CZ8nQgDUhZ,No_Glitch,No_Glitch,4,False,8,1080Lines,1400Ripples,Violin_Mode,Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line with a slow frequency drift, which matches the characteristics of a Wandering_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows short ripples near 1400 Hz, which matches the characteristics of the 1400Ripples class.""
+}
+```"
+O2nN1rGkf2,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+DhRc7JKePG,Low_Frequency_Lines,Low_Frequency_Lines,4,False,8,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+N5Oo6XCx82,Helix,Helix,3,True,6,Helix,Helix,Helix,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```"
+kP02Y6H0xq,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+FVHF1dwskr,Low_Frequency_Lines,Low_Frequency_Lines,2,False,4,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+70WBFsevaC,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+n3zXEIClxA,Violin_Mode,Violin_Mode,3,False,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```"
+A6SGAlSEwp,Scratchy,Scratchy,3,True,6,Scratchy,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+LfjXz3mk3b,None_of_the_Above,,3,True,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a single burst of energy at around 1400 Hz, which is characteristic of 1400Ripples but the classifier score suggests it's n"
+cn0rBO6lH9,Repeating_Blips,Repeating_Blips,2,True,4,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+e04BTJo8Sd,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+6lNpxQsOoL,Air_Compressor,Power_Line,3,True,6,Air_Compressor,Air_Compressor,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz, which matches the characteristics of an air compressor glitch.""
+}
+```"
+mdBARlXLtZ,Repeating_Blips,Repeating_Blips,4,True,8,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+VaJNZrDCU2,Tomte,Tomte,4,False,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the defined classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the defined classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the defined classes.""
+}
+```"
+J96QVEnd7M,Whistle,Whistle,4,True,8,Whistle,Whistle,Whistle,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle.""
+}
+```"
+bNz6sHcc22,Air_Compressor,,4,True,8,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```"
+Et1ZbfQovK,None_of_the_Above,Tomte,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+z8UOhb0p3s,Koi_Fish,Koi_Fish,3,True,6,Koi_Fish,Koi_Fish,Koi_Fish,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram shows a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```"
+TrXRaFgn3L,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+s0cBkZfcl7,Violin_Mode,Violin_Mode,3,True,6,Whistle,Violin_Mode,Whistle,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, characteristic of a Whistle glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```"
+SsBmjBBMnd,None_of_the_Above,Scattered_Light,3,True,6,None_of_the_Above,Paired_Doves,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the Paired_Doves class.""
+}
+```"
+xItWQpTC8g,Low_Frequency_Lines,Low_Frequency_Lines,4,True,8,Low_Frequency_Lines,Power_Line,Low_Frequency_Lines,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below ~100 Hz, which is characteristic of scattered light.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```"
+Ygb6WbCOYZ,1400Ripples,1400Ripples,4,True,8,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line reference.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+RqmTGIIKd9,None_of_the_Above,Tomte,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+WfhFBYkS6t,Extremely_Loud,Extremely_Loud,3,True,6,Extremely_Loud,Wandering_Line,Extremely_Loud,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line event.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line with a slow frequency drift, which matches the characteristics of a Wandering_Line.""
+}
+```"
+fyTdXqbkA2,Paired_Doves,,4,True,8,Paired_Doves,Paired_Doves,Paired_Doves,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power centered near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+WeLJTOFM39,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+d0evpUJyya,Low_Frequency_Lines,Low_Frequency_Lines,2,False,4,Scattered_Light,Power_Line,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+M9yBrAYFpp,Extremely_Loud,Extremely_Loud,4,True,8,Extremely_Loud,Koi_Fish,Koi_Fish,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```"
+nJ84VAtO0E,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+gIpSsklN1D,Low_Frequency_Lines,Low_Frequency_Lines,4,False,8,Scattered_Light,Scattered_Light,Scattered_Light,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+HksWOi5Ir8,Repeating_Blips,Repeating_Blips,4,True,8,Repeating_Blips,Repeating_Blips,Repeating_Blips,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line at around 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+maEfFLT3az,Whistle,Whistle,3,True,6,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+Toumn43n0h,Wandering_Line,Wandering_Line,3,False,6,Scratchy,Power_Line,Scratchy,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, characteristic of a chirp signal.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+FewUK0Mnvs,None_of_the_Above,Paired_Doves,3,True,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a prominent hump of excess power below 50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Freque",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a prominent hump of excess power below 50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching Low_Frequency_Burst or Paired_Doves, but rather appears to be random noise.""
+}
+```"
+1hK5y2bCIk,Power_Line,Power_Line,3,True,6,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+6dtvxedv4Q,No_Glitch,No_Glitch,4,False,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+6FxzKkisGJ,Power_Line,Power_Line,4,True,8,No_Glitch,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```"
+u5OPnsxSbu,Violin_Mode,Violin_Mode,4,True,8,Whistle,Violin_Mode,Violin_Mode,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which matches the characteristic of a Whistle glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode description.""
+}
+```"
+iImfIWJQyp,Power_Line,Power_Line,2,True,4,Power_Line,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+vFtHVupyd9,Tomte,Tomte,3,True,6,Tomte,Tomte,Tomte,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Tomte,"```json
+{
+  ""label"": ""Tomte"",
+  ""reason"": ""The spectrogram shows a short, triangular burst at low-mid frequency, which matches the characteristics of a Tomte glitch.""
+}
+```"
+Hg22iHNVng,Extremely_Loud,Repeating_Blips,4,True,8,Extremely_Loud,Extremely_Loud,Extremely_Loud,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line event.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a power line.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, resembling the Extremely_Loud class.""
+}
+```"
+CZW1JHjyj1,Wandering_Line,Wandering_Line,4,True,8,1080Lines,Power_Line,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+SE401NyYKB,Violin_Mode,Violin_Mode,2,True,4,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 500 Hz, which is characteristic of the violin mode.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a prominent horizontal line near 500 Hz, which matches the characteristic of a violin-mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a clear, sharp line near 500 Hz, which matches the Violin_Mode reference.""
+}
+```"
+AaiXjlaRfc,Paired_Doves,Paired_Doves,3,True,6,Paired_Doves,Paired_Doves,Paired_Doves,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristic pattern of Paired_Doves.""",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+BJRP9LT9Cb,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Low_Frequency_Burst,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+oBSbzHKWlP,Repeating_Blips,Repeating_Blips,2,True,4,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips that repeat over time, resembling the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple blips repeating at regular intervals, which matches the Repeating_Blips class.""
+}
+```"
+nO9lOpFj4q,Koi_Fish,Koi_Fish,2,True,4,Koi_Fish,Koi_Fish,Koi_Fish,Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a broad peak spanning a wide frequency range, resembling the Koi_Fish pattern.""
+}
+```"
+h9jc4h8jFY,Helix,Helix,2,False,4,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+YxgtOotLM5,None_of_the_Above,Paired_Doves,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+UpfOPqa82u,Koi_Fish,Koi_Fish,3,True,6,Extremely_Loud,Koi_Fish,Koi_Fish,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Koi_Fish,"```json
+{
+  ""label"": ""Koi_Fish"",
+  ""reason"": ""The spectrogram has a large blip with a broad head and a thin tail, spanning a wide frequency range.""
+}
+```"
+LX9TFa8sWo,Scratchy,Power_Line,2,True,4,Scratchy,Power_Line,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+dWXd0zz3px,1080Lines,1080Lines,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+VZRpDptrUv,No_Glitch,No_Glitch,4,False,8,Extremely_Loud,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of Power_Line.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+LnnbacZeFf,Helix,Helix,3,False,6,Scratchy,Power_Line,Scratchy,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no distinct features or patterns indicative of a glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch or pattern, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+zBeYFpWy8d,Low_Frequency_Burst,Low_Frequency_Burst,4,True,8,Low_Frequency_Burst,Low_Frequency_Burst,Low_Frequency_Burst,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, which matches the characteristics of a Low_Frequency_Burst.""
+}
+```"
+zdtpSQtlCC,Light_Modulation,Light_Modulation,3,True,6,Light_Modulation,Light_Modulation,Light_Modulation,Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+A8r9TtTuaG,No_Glitch,No_Glitch,4,True,8,No_Glitch,Power_Line,No_Glitch,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no significant deviations from the background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```"
+Ms1PS1kdvj,Chirp,Chirp,2,True,4,Chirp,Chirp,Chirp,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, characteristic of a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, which is characteristic of a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, which is characteristic of a chirp signal.""
+}
+```"
+yyipp4ULmX,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+oVQcpa2UIL,Power_Line,Power_Line,3,True,6,No_Glitch,Power_Line,No_Glitch,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no clear glitches or anomalies, just background noise.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no clear glitches or anomalies, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a power line glitch.""
+}
+```"
+jL0u6ojCs6,Blip,Blip,3,True,6,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning approximately 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+Db9b3DTi3V,Violin_Mode,Violin_Mode,2,False,4,Whistle,Wandering_Line,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line-like pattern with a slow frequency drift, which matches the Wandering_Line reference.""
+}
+```"
+VlOpWXAmdn,Repeating_Blips,Repeating_Blips,4,True,8,Repeating_Blips,Repeating_Blips,Repeating_Blips,Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips that repeat at regular intervals.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips repeating at regular intervals.""
+}
+```",Repeating_Blips,"```json
+{
+  ""label"": ""Repeating_Blips"",
+  ""reason"": ""The spectrogram shows multiple, regularly spaced blips, which matches the Repeating_Blips class.""
+}
+```"
+HUdYKiuFsh,Power_Line,Violin_Mode,2,True,4,Power_Line,Power_Line,Power_Line,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+0DzcH4AI66,Low_Frequency_Lines,Low_Frequency_Lines,4,True,8,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below ~100 Hz, which is characteristic of scattered light.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+Fd8HCD7sCN,Wandering_Line,Scattered_Light,4,True,8,Wandering_Line,Wandering_Line,Wandering_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```"
+ExMzfZb0kD,Light_Modulation,Light_Modulation,4,True,8,Light_Modulation,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+skwyZTZtN5,Violin_Mode,Violin_Mode,4,True,8,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short, sharp peak near 500 Hz, which matches the characteristic of the Violin_Mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristics of the Violin_Mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the characteristics of the Violin_Mode glitch.""
+}
+```"
+As1U3HI7pr,Extremely_Loud,Extremely_Loud,3,True,6,Extremely_Loud,Extremely_Loud,Extremely_Loud,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic, helical pattern at low-mid frequencies, which matches the characteristics of a Helix glitch.""
+}
+```",Extremely_Loud,"```json
+{
+  ""label"": ""Extremely_Loud"",
+  ""reason"": ""The spectrogram shows a high-energy event that saturates a large time-frequency area, matching the characteristics of Extremely_Loud.""
+}
+```"
+82mN2n1Jhq,Blip,Blip,3,True,6,Blip,Chirp,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```"
+v8Clvky9EJ,Scratchy,Low_Frequency_Burst,4,True,8,No_Glitch,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```"
+pNmNERZAmp,Air_Compressor,,3,True,6,Air_Compressor,Power_Line,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting approximately a second, resembling the Air_Compressor glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```"
+OpISBn95ZB,Paired_Doves,Paired_Doves,3,True,6,Air_Compressor,Air_Compressor,Air_Compressor,Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a prominent peak around 50 Hz lasting approximately a second, which matches the characteristics of an Air_Compressor glitch.""
+",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor reference.""
+}
+```"
+5TXEXXjYUu,Paired_Doves,Tomte,4,True,8,Paired_Doves,Paired_Doves,Paired_Doves,1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power centered near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power centered near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency, which matches the characteristics of Paired_Doves.""
+}
+```"
+4H4JO6T2Bk,Low_Frequency_Lines,Low_Frequency_Lines,4,True,8,Low_Frequency_Lines,Scattered_Light,Low_Frequency_Lines,Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below ~100 Hz, which is characteristic of scattered light.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows stacked arches below ~100 Hz, which is characteristic of scattered light.""
+}
+```"
+kiBuThJcbZ,Blip,Blip,4,True,8,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"
+OPWv4MqvAq,Violin_Mode,Violin_Mode,3,True,6,Violin_Mode,Violin_Mode,Violin_Mode,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a short line near 500 Hz, which matches the Violin_Mode characteristics.""
+}
+```"
+znMjOSgNjR,Scratchy,Scratchy,4,True,8,Scratchy,Scratchy,Scratchy,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+b6F4ygHZ2Z,Low_Frequency_Lines,Low_Frequency_Burst,4,True,8,Low_Frequency_Lines,Low_Frequency_Lines,Low_Frequency_Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line.""
+}
+```",Low_Frequency_Lines,"```json
+{
+  ""label"": ""Low_Frequency_Lines"",
+  ""reason"": ""The spectrogram shows horizontal lines at low frequencies, which matches the characteristics of Low_Frequency_Lines.""
+}
+```"
+HRv4NKhFZt,Scratchy,Scratchy,3,True,6,Scratchy,Scratchy,Scratchy,Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a curve rising in frequency over time, resembling a chirp signal.""
+}
+```",Chirp,"```json
+{
+  ""label"": ""Chirp"",
+  ""reason"": ""The spectrogram shows a clear upward trend in frequency over time, characteristic of a chirp signal.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of a Scratchy glitch.""
+}
+```"
+ANJsmSyacb,None_of_the_Above,Scattered_Light,3,True,6,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows a single burst of energy at around 1400 Hz, which is characteristic of 1400Ripples but the classifier score suggests it's n"
+unb9UKFPrV,1400Ripples,1400Ripples,2,True,4,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+LtmwZIl3A3,Chirp,Chirp,4,False,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Low_Frequency_Burst,"```json
+{
+  ""label"": ""Low_Frequency_Burst"",
+  ""reason"": ""The spectrogram shows a hump of excess power below ~50 Hz, resembling a fin or bump, which matches the characteristics of a Low_Frequency_Burst",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+pKHjB4e4EQ,None_of_the_Above,Low_Frequency_Burst,4,True,8,None_of_the_Above,None_of_the_Above,None_of_the_Above,Paired_Doves,"```json
+{
+  ""label"": ""Paired_Doves"",
+  ""reason"": ""The spectrogram shows repeating pairs of chirp-like curves moving up and down in frequency.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```",None_of_the_Above,"```json
+{
+  ""label"": ""None_of_the_Above"",
+  ""reason"": ""The spectrogram shows no clear pattern matching the described classes.""
+}
+```"
+179ElqSF66,Power_Line,Power_Line,4,True,8,No_Glitch,Power_Line,Power_Line,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no distinct features other than background noise.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no visible glitch, only background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a power line glitch.""
+}
+```"
+73MVyEqjyH,Violin_Mode,Violin_Mode,2,True,4,Violin_Mode,Violin_Mode,Violin_Mode,Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the characteristic of a violin mode glitch.""
+}
+```",Violin_Mode,"```json
+{
+  ""label"": ""Violin_Mode"",
+  ""reason"": ""The spectrogram shows a sharp peak near 500 Hz, which matches the Violin_Mode reference.""
+}
+```"
+GYtSTbq1B5,1080Lines,1080Lines,3,True,6,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristics of a Power_Line glitch.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+jB46fbqCrt,Air_Compressor,,3,True,6,Air_Compressor,Scattered_Light,Air_Compressor,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at around 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Air_Compressor,"```json
+{
+  ""label"": ""Air_Compressor"",
+  ""reason"": ""The spectrogram shows a narrow line near 50 Hz lasting about a second, which matches the Air_Compressor description.""
+}
+```",Scattered_Light,"```json
+{
+  ""label"": ""Scattered_Light"",
+  ""reason"": ""The spectrogram shows multiple arches below 100 Hz, which is characteristic of scattered light.""
+}
+```"
+jNiA9Nma76,Helix,Helix,3,True,6,Helix,Helix,Helix,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```"
+sAe0ZbyIHR,Wandering_Line,Wandering_Line,4,True,8,1080Lines,1080Lines,1080Lines,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```",1080Lines,"```json
+{
+  ""label"": ""1080Lines"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line near 1080 Hz, which matches the characteristics of the 1080Lines class.""
+}
+```"
+LTQCIOTwO7,Air_Compressor,Air_Compressor,3,False,6,Scattered_Light,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+PcmCjgvydq,Light_Modulation,Light_Modulation,3,True,6,Light_Modulation,Light_Modulation,Light_Modulation,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+12zOXkWkWc,No_Glitch,Low_Frequency_Burst,3,True,6,No_Glitch,Power_Line,Power_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no distinct features or patterns indicative of a glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```"
+NYp4KcStQQ,Wandering_Line,Wandering_Line,3,True,6,Wandering_Line,Wandering_Line,Wandering_Line,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at approximately 60 Hz, which is characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the Power_Line reference.""
+}
+```",Wandering_Line,"```json
+{
+  ""label"": ""Wandering_Line"",
+  ""reason"": ""The spectrogram shows a thin line whose frequency drifts slowly over time, which matches the characteristics of a Wandering_Line.""
+}
+```"
+PX9TqCvgZD,Whistle,Whistle,2,True,4,Whistle,Whistle,Whistle,Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```",Whistle,"```json
+{
+  ""label"": ""Whistle"",
+  ""reason"": ""The spectrogram shows a V-shaped trace at high frequencies, which is characteristic of a Whistle glitch.""
+}
+```"
+jMckNBvaLw,Koi_Fish,Koi_Fish,3,False,6,Extremely_Loud,Extremely_Loud,Extremely_Loud,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line events.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which is characteristic of Power_Line glitches.""
+}
+```",Light_Modulation,"```json
+{
+  ""label"": ""Light_Modulation"",
+  ""reason"": ""The spectrogram shows repeating narrow spikes/stripes at low frequency, which is characteristic of light modulation.""
+}
+```"
+6TKqWaXvgI,No_Glitch,No_Glitch,4,True,8,No_Glitch,Power_Line,No_Glitch,No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no significant deviations from the background noise.""
+}
+```",No_Glitch,"```json
+{
+  ""label"": ""No_Glitch"",
+  ""reason"": ""The spectrogram shows no clear pattern or anomaly, indicating background noise.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of Power_Line glitches.""
+}
+```"
+0WTY59mhDT,Wandering_Line,Wandering_Line,2,False,4,1400Ripples,1400Ripples,1400Ripples,Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",Power_Line,"```json
+{
+  ""label"": ""Power_Line"",
+  ""reason"": ""The spectrogram shows a narrow horizontal line at 60 Hz, which matches the characteristic of a Power_Line glitch.""
+}
+```",1400Ripples,"```json
+{
+  ""label"": ""1400Ripples"",
+  ""reason"": ""The spectrogram shows a smudge of power near 1400 Hz, which matches the characteristics of 1400Ripples.""
+}
+```"
+l3ejZxF3Sb,Helix,Helix,3,True,6,Helix,Scratchy,Scratchy,Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling a helical or braided structure.""
+}
+```",Helix,"```json
+{
+  ""label"": ""Helix"",
+  ""reason"": ""The spectrogram shows a periodic pattern at low-mid frequencies, resembling the Helix class.""
+}
+```",Scratchy,"```json
+{
+  ""label"": ""Scratchy"",
+  ""reason"": ""The spectrogram shows a band of wiggly, scratchy power at mid frequencies, which matches the characteristics of the Scratchy class.""
+}
+```"
+AFujTLmlpY,Blip,Blip,4,True,8,Blip,Blip,Blip,Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```",Blip,"```json
+{
+  ""label"": ""Blip"",
+  ""reason"": ""The spectrogram shows a short, symmetric teardrop-shaped burst spanning roughly 30-500 Hz, which matches the characteristics of a Blip.""
+}
+```"

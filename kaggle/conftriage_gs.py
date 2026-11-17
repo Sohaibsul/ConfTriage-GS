@@ -28,7 +28,7 @@ CFG = dict(
     N_SEEDS=10,                 # random cal/test splits for E0/E1/E3
     # v5 (revision): E0/E1/E3/E4/E5/E6 results are taken from earlier runs; only the new experiments run here
     RUN_E0=False, RUN_E1=False, RUN_E1B=False, RUN_E2=False, RUN_E2B=False, RUN_E3=False, RUN_E4=False, RUN_E5=False, RUN_E6=False,
-    RUN_E9=False, RUN_E8=True, E8_SETTINGS=["B"], E8_N_NAT=800, E8_N_STRAT=600, E8_W=0.2,
+    RUN_E9=False, RUN_E8=False, RUN_E10=True, E10_N=300, E8_SETTINGS=["B"], E8_N_NAT=800, E8_N_STRAT=600, E8_W=0.2,
     E6_BANK_PER_CLASS=120,      # labelled memory-bank glitches per class (retrieval tool)
     E6_N_TEST=600,              # ambiguous deployment glitches for E6
     E6_N_LLM=300,               # of which sent to the LLM agent
@@ -1261,6 +1261,135 @@ if CFG["RUN_E8"] and not CFG["SYNTH"] and df["url1"].notna().any():
               open(f"{OUT}/E8_meta.json", "w"), indent=1)
 else:
     log("E8 skipped")
+
+# %% [markdown]
+# ## E10. Retrieval-augmented vision-language model
+# For each candidate class in the conformal set, the VLM is shown the two labelled memory-bank glitches of that class
+# that are most similar to the query (DINOv2), instead of fixed reference examples.
+
+# %%
+if CFG["RUN_E10"] and not CFG["SYNTH"] and df["url1"].notna().any():
+    import torch, concurrent.futures as cf
+    from PIL import Image
+    from transformers import AutoImageProcessor, AutoModel, AutoProcessor, BitsAndBytesConfig
+    try:
+        from transformers import Qwen2_5_VLForConditionalGeneration as VLM
+    except ImportError:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "transformers>=4.49", "accelerate"], check=True)
+        from transformers import Qwen2_5_VLForConditionalGeneration as VLM
+    a = CFG["ALPHA"]; VIEWS = ["url1", "url2", "url3", "url4"]; has_url = df["url1"].notna().values
+    idx = np.random.default_rng(0).permutation(len(Y_ALL)); h = len(idx) // 2; cal, te = idx[:h], idx[h:]
+    S = score_matrix(P_ALL, "lac"); q = calibrate(S[cal], Y_ALL[cal], a, "mondrian")
+    te_u, cal_u = te[has_url[te]], cal[has_url[cal]]
+    sets_te = predict_sets(S[te_u], q); sz = sets_te.sum(1)
+    rng = np.random.default_rng(11)                                   # same class-stratified pick as E6
+    amb = np.where((sz >= 2) & (sz <= 4))[0]
+    by = pd.Series(amb).groupby(Y_ALL[te_u][amb]); per = max(1, CFG["E6_N_TEST"] // by.ngroups); pick = []
+    for _, g in by: pick += list(rng.permutation(g.values)[:per])
+    pick = np.array(rng.permutation(pick)[: CFG["E6_N_TEST"]])
+    test_ids, test_sets = te_u[pick], sets_te[pick]
+    rb = np.random.default_rng(12); bank = []
+    for c in range(K): bank += list(rb.permutation(cal_u[Y_ALL[cal_u] == c])[:CFG["E6_BANK_PER_CLASS"]])
+    bank = np.array(bank)
+    need = np.unique(np.r_[bank, test_ids[:CFG["E10_N"] + 50]])
+    with cf.ThreadPoolExecutor(32) as ex: got = list(ex.map(fetch_path, [df.at[i, u] for i in need for u in VIEWS]))
+    log("E10 downloaded", sum(g is not None for g in got), "/", len(got))
+    dproc = AutoImageProcessor.from_pretrained("facebook/dinov2-base")
+    dmod = AutoModel.from_pretrained("facebook/dinov2-base", torch_dtype=torch.float16).to("cuda").eval()
+    def embed(ids):
+        out = np.zeros((len(ids), 4 * 768), np.float32); ok = np.zeros(len(ids), bool)
+        for b in range(0, len(ids), 16):
+            ims, rows_ = [], []
+            for r, i in enumerate(ids[b:b + 16]):
+                paths = [fetch_path(df.at[i, u]) for u in VIEWS]
+                if all(p is not None for p in paths):
+                    try: ims += [Image.open(p).convert("RGB") for p in paths]; rows_.append(b + r)
+                    except Exception: pass
+            if not rows_: continue
+            px = dproc(images=ims, return_tensors="pt")["pixel_values"].to("cuda").half()
+            with torch.no_grad(): f = dmod(pixel_values=px).pooler_output.float().cpu().numpy()
+            f = f / np.linalg.norm(f, axis=1, keepdims=True); out[rows_] = f.reshape(len(rows_), 4 * 768) / 2.0; ok[rows_] = True
+        return out, ok
+    Eb, okb = embed(bank); bank, Eb = bank[okb], Eb[okb]; yb = Y_ALL[bank]
+    sel = test_ids[:CFG["E10_N"] + 50]; Et, okt = embed(sel)
+    keep = np.where(okt)[0][:CFG["E10_N"]]; test_ids, test_sets, Et = sel[keep], test_sets[keep], Et[keep]
+    del dmod; torch.cuda.empty_cache()
+    sims = Et @ Eb.T
+    W = CFG["E8_W"]
+    def votes(r):
+        s = sims[r].copy(); s[~test_sets[r][yb]] = -np.inf; top = np.argsort(-s)[:10]; top = top[np.isfinite(s[top])]
+        V = np.zeros(K); np.add.at(V, yb[top], np.exp(s[top] / 0.05)); return V / max(V.sum(), 1e-300)
+    def neighbours(r, c, k=2):
+        s = np.where(yb == c, sims[r], -np.inf); top = np.argsort(-s)[:k]; return [bank[j] for j in top if np.isfinite(s[j])]
+    bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.float16)
+    try:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "bitsandbytes"], check=True)
+        name = CFG["VLM_MODEL"]; model = VLM.from_pretrained(name, quantization_config=bnb, device_map="auto")
+    except Exception as e:
+        log("4-bit load failed:", repr(e)[:200]); name = CFG["VLM_FALLBACK"]
+        model = VLM.from_pretrained(name, torch_dtype=torch.float16, device_map="auto")
+    proc = AutoProcessor.from_pretrained(name, min_pixels=128 * 28 * 28, max_pixels=336 * 336)
+    log("E10 VLM:", name)
+    def ask(images, text, max_new_tokens=120):
+        msgs = [{"role": "user", "content": [{"type": "image"} for _ in images] + [{"type": "text", "text": text}]}]
+        prompt = proc.apply_chat_template(msgs, add_generation_prompt=True)
+        inp = proc(text=[prompt], images=images, return_tensors="pt").to(model.device)
+        with torch.no_grad(): out = model.generate(**inp, max_new_tokens=max_new_tokens, do_sample=False)
+        return proc.batch_decode(out[:, inp["input_ids"].shape[1]:], skip_special_tokens=True)[0]
+    def parse(ans, allowed):
+        m = re.search(r'"label"\s*:\s*"([^"]+)"', ans); cand = m.group(1) if m else ans
+        norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
+        for c in sorted(allowed, key=len, reverse=True):
+            if norm(c) in norm(cand): return c
+        return None
+    HEAD = ("You are an expert in LIGO detector characterization. The first image shows one glitch as four Omega-scan "
+            "spectrograms (time on x, frequency on y, colour = normalized energy), arranged 2x2 for time windows 0.5 s, "
+            "1 s, 2 s and 4 s. ")
+    recs = []
+    for r in range(len(test_ids)):
+        i = test_ids[r]; cands = list(np.where(test_sets[r])[0]); g = grid4(i, 336)
+        if g is None: continue
+        refs, order = [], []
+        for c in cands:
+            for j in neighbours(r, c):
+                im = grid4(j, 336)
+                if im is not None: refs.append(im); order.append(CLASSES[c])
+        V = votes(r); P = P_ALL[i]
+        ref_txt = ("The next " + str(len(refs)) + " images are labelled glitches from a reference library that look most "
+                   "similar to it, in this order: " + ", ".join(order) + ". ")
+        cand_txt = lambda sc: "The true class is one of: " + "; ".join(
+            f"{CLASSES[c]} ({DESC[CLASSES[c]]}" + (f", classifier score {P[c]:.2f}" if sc else "") + ")" for c in cands) + ". "
+        tail = ('Compare the glitch with the reference images and choose exactly one of these classes. Answer only with JSON: '
+                '{"label": "<class>", "reason": "<one sentence>"}')
+        allowed = [CLASSES[c] for c in cands]
+        rec = dict(gravityspy_id=df.at[i, "gravityspy_id"], true=CLASSES[Y_ALL[i]],
+                   vol_major=CLASSES[Y_VOL[i]] if Y_VOL[i] >= 0 else None, set_size=len(cands),
+                   true_in_set=bool(test_sets[r, Y_ALL[i]]), n_refs=len(refs),
+                   classifier_inset=CLASSES[cands[int(np.argmax(P[cands]))]],
+                   retrieval_inset=CLASSES[cands[int(np.argmax(V[cands]))]],
+                   fusion_inset=CLASSES[cands[int(np.argmax(W * np.log(P[cands] + 1e-12) + (1 - W) * np.log(V[cands] + 1e-6)))]])
+        try:
+            for cond, txt in [("rag_noscores", HEAD + ref_txt + cand_txt(False) + tail),
+                              ("rag_scores", HEAD + ref_txt + cand_txt(True) + tail),
+                              ("rag_scores_votes", HEAD + ref_txt + cand_txt(True) + "Similarity-weighted votes of the 10 most "
+                               "similar library glitches: " + ", ".join(f"{CLASSES[c]}={V[c]:.2f}" for c in cands) + ". " + tail)]:
+                ans = ask([g] + refs, txt); rec[cond] = parse(ans, allowed); rec[cond + "_raw"] = ans[:200]
+        except Exception as e:
+            log("E10 error", repr(e)[:200]); torch.cuda.empty_cache(); continue
+        recs.append(rec)
+        if r % 25 == 0: log(f"E10 {r}/{len(test_ids)}"); pd.DataFrame(recs).to_csv(f"{OUT}/E10_records.csv", index=False)
+    e10 = pd.DataFrame(recs); save_csv(e10, "E10_records.csv")
+    rows = []
+    for ref in ["true", "vol_major"]:
+        sub = e10[e10[ref].notna()]
+        rows.append(dict(reference=ref, n=len(sub), vlm=name, true_in_set=sub.true_in_set.mean(),
+                         **{f"acc_{m}": (sub[m] == sub[ref]).mean() for m in
+                            ["classifier_inset", "retrieval_inset", "fusion_inset", "rag_noscores", "rag_scores", "rag_scores_votes"]},
+                         **{f"agree_clf_{m}": (sub[m] == sub.classifier_inset).mean() for m in ["rag_noscores", "rag_scores", "rag_scores_votes"]},
+                         **{f"agree_ret_{m}": (sub[m] == sub.retrieval_inset).mean() for m in ["rag_noscores", "rag_scores", "rag_scores_votes"]}))
+    save_csv(pd.DataFrame(rows), "E10_summary.csv"); print(pd.DataFrame(rows).round(3).T)
+else:
+    log("E10 skipped")
 
 # %% [markdown]
 # ## Done
