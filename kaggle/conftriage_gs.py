@@ -28,7 +28,7 @@ CFG = dict(
     N_SEEDS=10,                 # random cal/test splits for E0/E1/E3
     # v5 (revision): E0/E1/E3/E4/E5/E6 results are taken from earlier runs; only the new experiments run here
     RUN_E0=False, RUN_E1=False, RUN_E1B=False, RUN_E2=False, RUN_E2B=False, RUN_E3=False, RUN_E4=False, RUN_E5=False, RUN_E6=False,
-    RUN_E9=False, RUN_E8=False, RUN_E10=True, E10_N=300, E8_SETTINGS=["B"], E8_N_NAT=800, E8_N_STRAT=600, E8_W=0.2,
+    RUN_E9=False, RUN_E8=False, RUN_E10=False, E10_N=300, RUN_E11=True, E11_PER_CLASS=110, E11_MAX_MIN=150, E8_SETTINGS=["B"], E8_N_NAT=800, E8_N_STRAT=600, E8_W=0.2,
     E6_BANK_PER_CLASS=120,      # labelled memory-bank glitches per class (retrieval tool)
     E6_N_TEST=600,              # ambiguous deployment glitches for E6
     E6_N_LLM=300,               # of which sent to the LLM agent
@@ -1390,6 +1390,108 @@ if CFG["RUN_E10"] and not CFG["SYNTH"] and df["url1"].notna().any():
     save_csv(pd.DataFrame(rows), "E10_summary.csv"); print(pd.DataFrame(rows).round(3).T)
 else:
     log("E10 skipped")
+
+# %% [markdown]
+# ## E11. Fine-tuned VLM (QLoRA on calibration glitches) as a decision module inside the set
+# Qwen2.5-VL-3B, 4-bit, LoRA on the language model only (vision tower frozen). Trained on glitches of the calibration
+# split; evaluated on the same 300 class-stratified ambiguous test glitches as E6/E10. Prediction = candidate with the
+# highest answer log-likelihood (before and after fine-tuning), plus a fixed 50/50 log-linear fusion with the classifier.
+
+# %%
+if CFG["RUN_E11"] and not CFG["SYNTH"] and df["url1"].notna().any():
+    import torch, concurrent.futures as cf
+    from transformers import AutoProcessor, BitsAndBytesConfig
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "bitsandbytes", "peft"], check=True)
+    from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+    from transformers import Qwen2_5_VLForConditionalGeneration as VLM
+    a = CFG["ALPHA"]; VIEWS = ["url1", "url2", "url3", "url4"]; has_url = df["url1"].notna().values
+    idx = np.random.default_rng(0).permutation(len(Y_ALL)); h = len(idx) // 2; cal, te = idx[:h], idx[h:]
+    S = score_matrix(P_ALL, "lac"); q = calibrate(S[cal], Y_ALL[cal], a, "mondrian")
+    te_u, cal_u = te[has_url[te]], cal[has_url[cal]]
+    sets_te = predict_sets(S[te_u], q); sz = sets_te.sum(1)
+    rng = np.random.default_rng(11)                                   # identical test pick to E6/E10
+    amb = np.where((sz >= 2) & (sz <= 4))[0]
+    by = pd.Series(amb).groupby(Y_ALL[te_u][amb]); per = max(1, CFG["E6_N_TEST"] // by.ngroups); pick = []
+    for _, g in by: pick += list(rng.permutation(g.values)[:per])
+    pick = np.array(rng.permutation(pick)[: CFG["E6_N_TEST"]])
+    test_ids, test_sets = te_u[pick][:CFG["E10_N"] + 50], sets_te[pick][:CFG["E10_N"] + 50]
+    rt = np.random.default_rng(31); sets_cal = predict_sets(S[cal_u], q); tr = []
+    for c in range(K):
+        pool = np.where(Y_ALL[cal_u] == c)[0]; tr += list(rt.permutation(pool)[:CFG["E11_PER_CLASS"]])
+    tr = rt.permutation(np.array(tr))
+    need = np.unique(np.r_[cal_u[tr], test_ids])
+    with cf.ThreadPoolExecutor(32) as ex: got = list(ex.map(fetch_path, [df.at[i, u] for i in need for u in VIEWS]))
+    log("E11 downloaded", sum(g is not None for g in got), "/", len(got))
+    name = CFG["VLM_FALLBACK"]
+    bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.float16,
+                             bnb_4bit_use_double_quant=True)
+    model = VLM.from_pretrained(name, quantization_config=bnb, device_map={"": 0}, torch_dtype=torch.float16)
+    proc = AutoProcessor.from_pretrained(name, min_pixels=64 * 28 * 28, max_pixels=336 * 336)
+    HEAD = ("Classify this LIGO glitch. The image shows four Omega-scan spectrograms (time on x, frequency on y) for windows "
+            "0.5 s, 1 s, 2 s and 4 s. ")
+    def prompt_for(cands): return HEAD + "Candidate classes: " + ", ".join(CLASSES[c] for c in cands) + ". Answer with one class."
+    def answer(c): return '{"label": "' + CLASSES[c] + '"}'
+    def encode(img, cands, target=None):
+        user = [{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": prompt_for(cands)}]}]
+        p_txt = proc.apply_chat_template(user, add_generation_prompt=True)
+        if target is None: return proc(text=[p_txt], images=[img], return_tensors="pt")
+        full = proc(text=[p_txt + answer(target) + "<|im_end|>"], images=[img], return_tensors="pt")
+        plen = proc(text=[p_txt], images=[img], return_tensors="pt")["input_ids"].shape[1]
+        lab = full["input_ids"].clone(); lab[:, :plen] = -100; full["labels"] = lab
+        return full
+    @torch.no_grad()
+    def cand_loglik(img, cands):
+        out = []
+        for c in cands:
+            b = encode(img, cands, c).to(model.device)
+            with torch.autocast("cuda", dtype=torch.float16):
+                lo = model(**{k: v for k, v in b.items() if k != "labels"}).logits[:, :-1].float()
+            lab = b["labels"][:, 1:]; m = lab != -100
+            lp = torch.log_softmax(lo, -1).gather(-1, lab.clamp(min=0).unsqueeze(-1)).squeeze(-1)
+            out.append(float(lp[m].sum()))
+        return np.array(out)
+    def evaluate(tag):
+        model.eval(); rows = []
+        for r in range(len(test_ids)):
+            i = test_ids[r]; cands = list(np.where(test_sets[r])[0]); img = grid4(i, 336)
+            if img is None: continue
+            ll = cand_loglik(img, cands); pv = np.exp(ll - ll.max()); pv /= pv.sum(); pc = P_ALL[i, cands]
+            rows.append(dict(gravityspy_id=df.at[i, "gravityspy_id"], true=CLASSES[Y_ALL[i]],
+                             vol_major=CLASSES[Y_VOL[i]] if Y_VOL[i] >= 0 else None,
+                             classifier=CLASSES[cands[int(np.argmax(pc))]], vlm=CLASSES[cands[int(np.argmax(ll))]],
+                             fusion=CLASSES[cands[int(np.argmax(0.5 * np.log(pc + 1e-12) + 0.5 * np.log(pv + 1e-12)))]]))
+            if len(rows) >= CFG["E10_N"]: break
+        d = pd.DataFrame(rows); d.to_csv(f"{OUT}/E11_records_{tag}.csv", index=False)
+        res = {ref: {m: float((d[m] == d[ref]).mean()) for m in ["classifier", "vlm", "fusion"]} for ref in ["true", "vol_major"]}
+        log("E11", tag, len(d), res); return res
+    summary = {"before": evaluate("before")}
+    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+    lcfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05, task_type="CAUSAL_LM",
+                      target_modules=r"^(?!.*visual).*\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$")
+    model = get_peft_model(model, lcfg); model.print_trainable_parameters(); model.config.use_cache = False
+    opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=1e-4)
+    scaler = torch.amp.GradScaler("cuda"); ACC = 8; model.train(); step, run_loss, t0 = 0, 0.0, time.time()
+    for n_, j in enumerate(tr):
+        i = cal_u[j]; img = grid4(i, 336)
+        if img is None: continue
+        y = Y_ALL[i]; cands = list(np.where(sets_cal[j])[0])
+        if y not in cands: cands.append(y)
+        if len(cands) > 4: cands = [y] + list(rt.permutation([c for c in cands if c != y])[:3])
+        if len(cands) < 2: cands = [y] + list(rt.choice([c for c in range(K) if c != y], 1 + rt.integers(0, 3), replace=False))
+        cands = list(rt.permutation(cands))
+        b = encode(img, cands, y).to(model.device)
+        with torch.autocast("cuda", dtype=torch.float16):
+            loss = model(**b).loss / ACC
+        scaler.scale(loss).backward(); run_loss += float(loss) * ACC
+        if (n_ + 1) % ACC == 0:
+            scaler.unscale_(opt); torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.0)
+            scaler.step(opt); scaler.update(); opt.zero_grad(set_to_none=True); step += 1
+            if step % 25 == 0: log(f"E11 step {step} loss {run_loss / (25 * ACC):.3f} ({(time.time() - t0) / 60:.1f} min)"); run_loss = 0.0
+        if time.time() - t0 > CFG["E11_MAX_MIN"] * 60: log("E11 time limit reached at sample", n_); break
+    summary["after"] = evaluate("after"); summary["train_samples"] = int(n_ + 1); summary["model"] = name
+    json.dump(summary, open(f"{OUT}/E11_summary.json", "w"), indent=1); print(json.dumps(summary, indent=1))
+else:
+    log("E11 skipped")
 
 # %% [markdown]
 # ## Done
