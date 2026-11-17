@@ -26,7 +26,9 @@ warnings.filterwarnings("ignore")
 CFG = dict(
     ALPHA=0.1,
     N_SEEDS=10,                 # random cal/test splits for E0/E1/E3
-    RUN_E0=True, RUN_E1=True, RUN_E2=True, RUN_E3=True, RUN_E4=True, RUN_E5=False, RUN_E6=True,
+    # v5 (revision): E0/E1/E3/E4/E5/E6 results are taken from earlier runs; only the new experiments run here
+    RUN_E0=False, RUN_E1=False, RUN_E1B=False, RUN_E2=False, RUN_E2B=False, RUN_E3=False, RUN_E4=False, RUN_E5=False, RUN_E6=False,
+    RUN_E9=False, RUN_E8=True, E8_SETTINGS=["B"], E8_N_NAT=800, E8_N_STRAT=600, E8_W=0.2,
     E6_BANK_PER_CLASS=120,      # labelled memory-bank glitches per class (retrieval tool)
     E6_N_TEST=600,              # ambiguous deployment glitches for E6
     E6_N_LLM=300,               # of which sent to the LLM agent
@@ -283,6 +285,32 @@ if CFG["RUN_E1"]:
     save_csv(agg, "E1_summary.csv"); print(agg.to_string())
 
 # %% [markdown]
+# ## E1b. Revision checks: matched-only subset (selection bias) and non-randomized APS/RAPS
+
+# %%
+if CFG["RUN_E1B"]:
+    matched = np.where(df["run"].notna().values)[0]
+    rows = []
+    for regime, pool, kinds in [("matched", matched, ["lac", "aps", "raps", "aps_nr", "raps_nr"]),
+                                ("full", np.arange(len(Y_ALL)), ["aps_nr", "raps_nr"])]:
+        for seed in range(3):
+            rng = np.random.default_rng(seed)
+            idx = rng.permutation(pool); h = len(idx) // 2; cal, te = idx[:h], idx[h:]
+            u = rng.random(len(Y_ALL))
+            for kind in kinds:
+                S = score_matrix(P_ALL, kind.replace("_nr", ""), u=np.zeros(len(Y_ALL)) if kind.endswith("_nr") else u)
+                for cond in ["marginal", "mondrian", "clustered"]:
+                    q = calibrate(S[cal], Y_ALL[cal], CFG["ALPHA"], cond, rng=rng)
+                    m = metrics(predict_sets(S[te], q), Y_ALL[te], CFG["ALPHA"])
+                    m.update(regime=regime, seed=seed, score=kind, cond=cond); rows.append(m)
+        log("E1b done", regime)
+    e1b = pd.DataFrame(rows)
+    cols = ["coverage", "worst_class_cov", "covgap", "set_size", "singleton", "macro_f1"]
+    agg = e1b.groupby(["regime", "score", "cond"])[cols].agg(["mean", "std"]).round(4)
+    agg.columns = ["_".join(c) for c in agg.columns]; agg = agg.reset_index()
+    save_csv(agg, "E1b_summary.csv"); print(agg.to_string())
+
+# %% [markdown]
 # ## E2. Coverage under observing-run shift
 
 # %%
@@ -312,6 +340,59 @@ def features(idx):
     num = np.log(np.abs(num) + 1e-30)
     ifo = (df.loc[idx, "ifo"].values == "H1").astype(float)[:, None]
     return np.nan_to_num(np.hstack([np.log(P_ALL[idx] + 1e-12), num, ifo]))
+
+GAMMAS = [0.001, 0.005, 0.01, 0.02, 0.05]
+
+def aci_sets(true_s, St, yt, a, gamma, delay=0):
+    """Marginal ACI. With delay>0 the label of glitch i is revealed only when glitch i+delay is processed."""
+    sorted_true = np.sort(true_s); n = len(sorted_true)
+    at = a; sets = np.zeros_like(St, bool)
+    def thr(at):
+        if at <= 0: return np.inf
+        if at >= 1: return -np.inf
+        lvl = math.ceil((n + 1) * (1 - at)) / n
+        return np.inf if lvl > 1 else sorted_true[min(int(math.ceil(lvl * n)) - 1, n - 1)]
+    for i in range(len(yt)):
+        if delay and i >= delay:
+            j = i - delay; at += gamma * (a - (0.0 if sets[j, yt[j]] else 1.0))
+        sets[i] = St[i] <= thr(at)
+        if not delay:
+            at += gamma * (a - (0.0 if sets[i, yt[i]] else 1.0))
+    return sets
+
+def mondrian_aci_sets(true_s, ys, St, yt, a, gamma, delay=0, delay_aware=False):
+    """Mondrian-ACI: one level per class, updated only with labels of that class (optionally delayed).
+    delay_aware: step gamma_c = gamma / (1 + delay * f_c), f_c = running class frequency of revealed labels
+    (prior: source frequency), i.e. the step is divided by the expected number of class-c labels still in flight."""
+    nmax = max(int((ys == c).sum()) for c in range(K))
+    pad = np.full((K, max(nmax, 1)), np.inf); ny = np.zeros(K, int)
+    for c in range(K):
+        v = np.sort(true_s[ys == c]); ny[c] = len(v); pad[c, :len(v)] = v
+    ay = np.full(K, a); sets = np.zeros_like(St, bool); ar = np.arange(K)
+    f0 = np.bincount(ys, minlength=K) / len(ys); cnt = np.zeros(K); nrev = 0
+    for i in range(len(yt)):
+        if delay and i >= delay:
+            j = i - delay; c = yt[j]; cnt[c] += 1; nrev += 1
+            g = gamma / (1.0 + delay * (cnt[c] + 100 * f0[c]) / (nrev + 100)) if delay_aware else gamma
+            ay[c] += g * (a - (0.0 if sets[j, c] else 1.0))
+        lvl_idx = np.ceil((ny + 1) * (1 - ay)).astype(int)            # 1-based rank of the quantile
+        q = np.where((ay <= 0) | (lvl_idx > ny), np.inf, pad[ar, np.clip(lvl_idx - 1, 0, pad.shape[1] - 1)])
+        q = np.where(ay >= 1, -np.inf, q)
+        sets[i] = St[i] <= q
+        if not delay:
+            c = yt[i]; ay[c] += gamma * (a - (0.0 if sets[i, c] else 1.0))
+    return sets
+
+def worst_class_ci(sets, y, B=2000, min_class=30, seed=0):
+    """Worst-class coverage with a 95% bootstrap interval (resampling glitches within each class)."""
+    rng = np.random.default_rng(seed); cov = sets[np.arange(len(y)), y]
+    cls = [c for c in range(K) if (y == c).sum() >= min_class]
+    n = np.array([(y == c).sum() for c in cls]); p = np.array([cov[y == c].mean() for c in cls])
+    draws = rng.binomial(n[None, :], p[None, :], size=(B, len(cls))) / n[None, :]
+    wmin = draws.min(1); k = int(np.argmin(p))
+    return dict(worst_lo=np.percentile(wmin, 2.5), worst_hi=np.percentile(wmin, 97.5),
+                worst_class=CLASSES[cls[k]], worst_n=int(n[k]), worst_se=float(np.sqrt(p[k] * (1 - p[k]) / n[k])),
+                per_class=";".join(f"{CLASSES[c]}:{pp:.4f}:{nn}" for c, pp, nn in zip(cls, p, n)))
 
 if CFG["RUN_E2"]:
     run = df["run"].values; t = df["event_time"].values
@@ -348,20 +429,10 @@ if CFG["RUN_E2"]:
             m = ys == c
             Qm[:, c] = weighted_thresholds(true_s[m], wc[m], wt, a) if m.sum() > 0 else np.inf
         res["weighted_mondrian"] = St <= Qm
-        # (4) ACI (Gibbs & Candes 2021), labels revealed after each glitch, marginal LAC
+        # (4) ACI (Gibbs & Candes 2021), marginal LAC; labels revealed immediately or after DELAY glitches
         for gamma in [0.001, 0.005, 0.02]:
-            sorted_true = np.sort(true_s); n = len(sorted_true)
-            at = a; sets = np.zeros_like(St, bool)
-            for i in range(len(yt)):
-                if at <= 0: q = np.inf
-                elif at >= 1: q = -np.inf
-                else:
-                    lvl = math.ceil((n + 1) * (1 - at)) / n
-                    q = np.inf if lvl > 1 else sorted_true[min(int(math.ceil(lvl * n)) - 1, n - 1)]
-                sets[i] = St[i] <= q
-                err = 0.0 if sets[i, yt[i]] else 1.0
-                at = at + gamma * (a - err)
-            res[f"aci_g{gamma}"] = sets
+            res[f"aci_g{gamma}"] = aci_sets(true_s, St, yt, a, gamma, 0)
+        res["aci_g0.005_d2000"] = aci_sets(true_s, St, yt, a, 0.005, 2000)
         # (5) rolling recalibration on recently labelled target glitches (window W, label delay D)
         Wn, D, B = 5000, 2000, 1000
         sets = np.zeros_like(St, bool); true_t = St[np.arange(len(yt)), yt]
@@ -370,22 +441,11 @@ if CFG["RUN_E2"]:
             calsc = true_t[lo:hi] if hi - lo >= 500 else true_s
             sets[b0:b0 + B] = St[b0:b0 + B] <= conf_quantile(calsc, a)
         res["rolling_marginal"] = sets
-        # (6) NEW: class-conditional (Mondrian) ACI — one alpha per class, updated only when that class is revealed
-        nmax = max(int((ys == c).sum()) for c in range(K))
-        pad = np.full((K, max(nmax, 1)), np.inf); ny = np.zeros(K, int)
-        for c in range(K):
-            v = np.sort(true_s[ys == c]); ny[c] = len(v); pad[c, :len(v)] = v
-        for gamma in [0.005, 0.02]:
-            ay = np.full(K, a); sets = np.zeros_like(St, bool)
-            for i in range(len(yt)):
-                lvl_idx = np.ceil((ny + 1) * (1 - ay)).astype(int)            # 1-based rank of the quantile
-                q = np.where((ay <= 0) | (lvl_idx > ny), np.inf,
-                             pad[np.arange(K), np.clip(lvl_idx - 1, 0, pad.shape[1] - 1)])
-                q = np.where(ay >= 1, -np.inf, q)
-                sets[i] = St[i] <= q
-                c = yt[i]; err = 0.0 if sets[i, c] else 1.0
-                ay[c] += gamma * (a - err)
-            res[f"mondrian_aci_g{gamma}"] = sets
+        # (6) NEW: class-conditional (Mondrian) ACI — one alpha per class, updated only when that class is revealed.
+        #     gamma sweep, with immediate feedback and with the same 2000-glitch label delay as rolling recalibration
+        for gamma in GAMMAS:
+            for d in [0, 2000]:
+                res[f"mondrian_aci_g{gamma}" + (f"_d{d}" if d else "")] = mondrian_aci_sets(true_s, ys, St, yt, a, gamma, d)
         # (7) NEW: class-conditional rolling recalibration (per-class window of recent labelled target glitches)
         Wc, minc = 1000, 50
         sets = np.zeros_like(St, bool)
@@ -401,10 +461,18 @@ if CFG["RUN_E2"]:
         res["rolling_mondrian"] = sets
         for name, sets in res.items():
             m = metrics(sets, yt, a); m.update(source=src_name, target=tgt, method=name, n_cal=len(src), n_test=len(yt))
-            rows.append(m)
+            m.update(worst_class_ci(sets, yt)); rows.append(m)
         for name, (sets, yy) in oracle.items():
             m = metrics(sets, yy, a); m.update(source=src_name, target=tgt, method=name, n_cal=len(oc), n_test=len(yy))
-            rows.append(m)
+            m.update(worst_class_ci(sets, yy)); rows.append(m)
+        # per-glitch coverage records in deployment order (for per-class time curves)
+        if src_name == "O1+O2":
+            keep_m = ["split_marginal", "split_mondrian", "aci_g0.005", "mondrian_aci_g0.02", "mondrian_aci_g0.02_d2000"]
+            rec = pd.DataFrame({"gps": t[tgt_idx], "y": [CLASSES[c] for c in yt]})
+            for name in keep_m:
+                rec["cov_" + name] = res[name][np.arange(len(yt)), yt].astype(np.int8)
+                rec["size_" + name] = res[name].sum(1).astype(np.int8)
+            rec.to_csv(f"{OUT}/E2_records_{src_name.replace('+', '')}_{tgt}.csv.gz", index=False, compression="gzip")
         # rolling coverage curves in deployment order
         chunk = max(len(yt) // 60, 500)
         curves[(src_name, tgt)] = {name: [sets[i:i + chunk][np.arange(len(sets[i:i + chunk])), yt[i:i + chunk]].mean()
@@ -965,6 +1033,234 @@ if CFG["RUN_E6"] and not CFG["SYNTH"] and df["url1"].notna().any():
                    llm=LLM_USED, bank_size=int(len(bank))), open(f"{OUT}/E6_meta.json", "w"), indent=1)
 else:
     log("E6 skipped")
+
+# %% [markdown]
+# ## E2b. Delay-aware Mondrian-ACI (labels revealed 2000 glitches later)
+
+# %%
+if CFG["RUN_E2B"]:
+    run = df["run"].values; t = df["event_time"].values; have = pd.notna(run) & pd.notna(t)
+    a = CFG["ALPHA"]; S = score_matrix(P_ALL, "lac"); rows = []
+    for src_name, src_runs, tgt in [("O1+O2", ["O1", "O2"], "O3a"), ("O1+O2", ["O1", "O2"], "O3b"),
+                                    ("O3a", ["O3a"], "O3b"), ("O1", ["O1"], "O2")]:
+        src = np.where(have & np.isin(run, src_runs))[0]
+        ti = np.where(have & (run == tgt))[0]; ti = ti[np.argsort(t[ti])]
+        if len(src) < 1000 or len(ti) < 1000: continue
+        ys, yt = Y_ALL[src], Y_ALL[ti]; true_s = S[src][np.arange(len(ys)), ys]; St = S[ti]
+        keep = {}
+        for gamma in [0.005, 0.01, 0.02, 0.05, 0.1]:
+            sets = mondrian_aci_sets(true_s, ys, St, yt, a, gamma, 2000, delay_aware=True)
+            m = metrics(sets, yt, a); m.update(worst_class_ci(sets, yt)); m.pop("per_class", None)
+            m.update(source=src_name, target=tgt, method=f"da_mondrian_aci_g{gamma}_d2000"); rows.append(m)
+            keep[gamma] = sets
+        if src_name == "O1+O2":
+            rec = pd.DataFrame({"gps": t[ti], "y": [CLASSES[c] for c in yt]})
+            for gamma in [0.02, 0.05]:
+                rec[f"cov_da_g{gamma}"] = keep[gamma][np.arange(len(yt)), yt].astype(np.int8)
+                rec[f"size_da_g{gamma}"] = keep[gamma].sum(1).astype(np.int8)
+            rec.to_csv(f"{OUT}/E2b_records_{src_name.replace('+', '')}_{tgt}.csv.gz", index=False, compression="gzip")
+        log("E2b done", src_name, "->", tgt)
+    e2b = pd.DataFrame(rows); save_csv(e2b, "E2b_delay_aware.csv")
+    print(e2b[["source", "target", "method", "coverage", "worst_class_cov", "worst_lo", "worst_hi", "covgap", "set_size"]].round(3).to_string())
+
+# %% [markdown]
+# ## E9. Calibration agent: coverage monitoring, label requests under a budget, and alerts
+# The agent observes each conformal set, decides whether to request a human label (budget b = expected fraction of
+# glitches labelled), updates Mondrian-ACI with the labels it receives (2000-glitch delay), and raises an alert when
+# the running coverage of a class falls below 1 - alpha - 0.1.
+
+# %%
+def agent_mondrian_aci(true_s, ys, St, yt, Pt, a, gamma, delay, budget, policy, seed=0, eta=0.01):
+    rng = np.random.default_rng(seed)
+    nmax = max(int((ys == c).sum()) for c in range(K))
+    pad = np.full((K, max(nmax, 1)), np.inf); ny = np.zeros(K, int)
+    for c in range(K):
+        v = np.sort(true_s[ys == c]); ny[c] = len(v); pad[c, :len(v)] = v
+    ay = np.full(K, a); ar = np.arange(K); sets = np.zeros_like(St, bool); asked = np.zeros(len(yt), bool)
+    nlab = np.zeros(K); ew = np.full(K, a); tau = 0.5; top = Pt.argmax(1)
+    f0 = np.bincount(ys, minlength=K) / len(ys); pending = 0
+    for i in range(len(yt)):
+        if i >= delay:
+            j = i - delay
+            if asked[j]:
+                pending -= 1; c = yt[j]; err = 0.0 if sets[j, c] else 1.0; nlab[c] += 1
+                f_c = (nlab[c] + 100 * f0[c]) / (nlab.sum() + 100)          # delay-aware step: labels in flight
+                ay[c] += gamma / (1.0 + pending * f_c) * (a - err); ew[c] = 0.9 * ew[c] + 0.1 * err
+        lvl_idx = np.ceil((ny + 1) * (1 - ay)).astype(int)
+        q = np.where((ay <= 0) | (lvl_idx > ny), np.inf, pad[ar, np.clip(lvl_idx - 1, 0, pad.shape[1] - 1)])
+        sets[i] = St[i] <= np.where(ay >= 1, -np.inf, q)
+        if budget >= 1: asked[i] = True
+        elif policy == "random": asked[i] = rng.random() < budget
+        else:   # agent: ask where label-starved or under-covered classes are plausible
+            cand = np.where(sets[i])[0]; cand = np.union1d(cand, [top[i]])
+            need = np.max(1.0 / np.sqrt(1.0 + nlab[cand]) + 2.0 * np.maximum(0.0, ew[cand] - a))
+            asked[i] = need >= tau; tau += eta * (float(asked[i]) - budget)
+        pending += int(asked[i])
+    return sets, asked
+
+def coverage_monitor(sets, yt, asked, delay, a, window=50, min_lab=20, margin=0.1):
+    """Alert for class c when, among its last `window` revealed labels, the miss rate exceeds alpha + margin."""
+    hist = {c: [] for c in range(K)}; first = np.full(K, -1)
+    for i in range(delay, len(yt)):
+        j = i - delay
+        if not asked[j]: continue
+        c = yt[j]; hist[c].append(0.0 if sets[j, c] else 1.0); h_ = hist[c][-window:]
+        if first[c] < 0 and len(h_) >= min_lab and np.mean(h_) > a + margin: first[c] = i
+    return first
+
+if CFG["RUN_E9"]:
+    run = df["run"].values; t = df["event_time"].values; have = pd.notna(run) & pd.notna(t)
+    a = CFG["ALPHA"]; S = score_matrix(P_ALL, "lac"); D = 2000
+    scen = [("O1+O2", ["O1", "O2"], "O3a"), ("O1+O2", ["O1", "O2"], "O3b"), ("O3a", ["O3a"], "O3b"), ("O1", ["O1"], "O2")]
+    rows, arows = [], []
+    for src_name, src_runs, tgt in scen:
+        src = np.where(have & np.isin(run, src_runs))[0]
+        ti = np.where(have & (run == tgt))[0]; ti = ti[np.argsort(t[ti])]
+        if len(src) < 1000 or len(ti) < 1000: continue
+        ys, yt = Y_ALL[src], Y_ALL[ti]; Ss, St = S[src], S[ti]; true_s = Ss[np.arange(len(ys)), ys]
+        for b in [0.02, 0.05, 0.1, 0.25, 1.0]:
+            for pol_ in (["random", "agent"] if b < 1 else ["all"]):
+                sets, asked = agent_mondrian_aci(true_s, ys, St, yt, P_ALL[ti], a, 0.02, D, b, pol_)
+                m = metrics(sets, yt, a); m.update(worst_class_ci(sets, yt))
+                m.update(source=src_name, target=tgt, budget=b, policy=pol_, labels_used=asked.mean(),
+                         min_class_labels=int(min(((yt == c) & asked).sum() for c in range(K) if (yt == c).sum() >= 30)))
+                m.pop("per_class", None); rows.append(m)
+        # monitoring agent on top of static split Mondrian CP (the deployment that fails silently), 5% random labels
+        q = calibrate(Ss, ys, a, "mondrian"); sets = predict_sets(St, q)
+        asked = np.random.default_rng(1).random(len(yt)) < 0.05
+        first = coverage_monitor(sets, yt, asked, D, a)
+        cov = sets[np.arange(len(yt)), yt]
+        for c in range(K):
+            n_c = int((yt == c).sum())
+            if n_c < 30: continue
+            arows.append(dict(source=src_name, target=tgt, cls=CLASSES[c], n=n_c, true_cov=cov[yt == c].mean(),
+                              undercovered=cov[yt == c].mean() < 1 - a - 0.1, alerted=first[c] >= 0,
+                              alert_index=int(first[c]), alert_days=(t[ti][first[c]] - t[ti][0]) / 86400 if first[c] >= 0 else np.nan,
+                              run_days=(t[ti][-1] - t[ti][0]) / 86400))
+        log("E9 done", src_name, "->", tgt)
+    save_csv(pd.DataFrame(rows), "E9_budget.csv"); save_csv(pd.DataFrame(arows), "E9_alerts.csv")
+    print(pd.DataFrame(rows)[["source", "target", "budget", "policy", "labels_used", "coverage", "worst_class_cov",
+                              "covgap", "set_size"]].round(3).to_string())
+
+# %% [markdown]
+# ## E8. Retrieval-verified triage without an LLM: (A) in-run split, natural sample; (B) end-to-end under run shift
+# (B) uses Mondrian-ACI sets (gamma=0.02, 2000-glitch label delay) for O1+O2 -> O3b in GPS order and a memory bank
+# from the source runs only. The fusion weight is fixed to the value selected in E6 (w=0.2 on the classifier).
+
+# %%
+if CFG["RUN_E8"] and not CFG["SYNTH"] and df["url1"].notna().any():
+    import torch, concurrent.futures as cf
+    from PIL import Image
+    from transformers import AutoImageProcessor, AutoModel
+    a = CFG["ALPHA"]; rng = np.random.default_rng(21); W = CFG["E8_W"]
+    VIEWS = ["url1", "url2", "url3", "url4"]; has_url = df["url1"].notna().values
+    S = score_matrix(P_ALL, "lac")
+    # setting A: same in-run deployment split as E5/E6
+    idx = np.random.default_rng(0).permutation(len(Y_ALL)); h = len(idx) // 2; calA, teA = idx[:h], idx[h:]
+    qA = calibrate(S[calA], Y_ALL[calA], a, "mondrian")
+    teA = teA[has_url[teA]]; setsA = predict_sets(S[teA], qA)
+    # setting B: O1+O2 -> O3b, Mondrian-ACI in GPS order with delayed labels
+    run = df["run"].values; t = df["event_time"].values; have = pd.notna(run) & pd.notna(t)
+    srcB = np.where(have & np.isin(run, ["O1", "O2"]))[0]
+    tgtB = np.where(have & (run == "O3b"))[0]; tgtB = tgtB[np.argsort(t[tgtB])]
+    ysB = Y_ALL[srcB]; true_sB = S[srcB][np.arange(len(srcB)), ysB]
+    setsB_all = mondrian_aci_sets(true_sB, ysB, S[tgtB], Y_ALL[tgtB], a, 0.02, 2000, delay_aware=True)
+    log("E8 B coverage (all O3b):", setsB_all[np.arange(len(tgtB)), Y_ALL[tgtB]].mean().round(4))
+    kB = has_url[tgtB]; teB = tgtB[kB]; setsB = setsB_all[kB]
+
+    def strata(sets, ids):
+        sz = sets.sum(1); s1 = sz == 1
+        return dict(singleton=s1.mean(), ambiguous=((sz >= 2) & (sz <= 4)).mean(), escalate=((sz == 0) | (sz > 4)).mean(),
+                    singleton_err=1 - sets[s1][np.arange(s1.sum()), Y_ALL[ids][s1]].mean(), n=len(ids))
+    stA, stB = strata(setsA, teA), strata(setsB, teB); log("E8 strata A", stA, "B", stB)
+
+    def amb_idx(sets): sz = sets.sum(1); return np.where((sz >= 2) & (sz <= 4))[0]
+    def natural(sets, n): am = amb_idx(sets); return rng.permutation(am)[:n]
+    def stratified(sets, ids, n):
+        am = amb_idx(sets); by = pd.Series(am).groupby(Y_ALL[ids][am]); per = max(1, n // by.ngroups); pick = []
+        for _, g in by: pick += list(rng.permutation(g.values)[:per])
+        return np.array(rng.permutation(pick)[:n])
+    samples = {"A_natural": (teA, setsA, natural(setsA, CFG["E8_N_NAT"])),
+               "B_natural": (teB, setsB, natural(setsB, CFG["E8_N_NAT"])),
+               "B_stratified": (teB, setsB, stratified(setsB, teB, CFG["E8_N_STRAT"]))}
+    samples = {k_: v for k_, v in samples.items() if k_[0] in CFG["E8_SETTINGS"]}
+    def bank_from(pool):
+        pool = pool[has_url[pool]]; out = []
+        for c in range(K): out += list(rng.permutation(pool[Y_ALL[pool] == c])[:CFG["E6_BANK_PER_CLASS"]])
+        return np.array(out)
+    banks = {k_: bank_from(p_) for k_, p_ in [("A", calA), ("B", srcB)] if k_ in CFG["E8_SETTINGS"]}
+
+    need = np.unique(np.concatenate(list(banks.values()) + [ids[p] for ids, _, p in samples.values()]))
+    urls = [df.at[i, u] for i in need for u in VIEWS]
+    log("E8 downloading", len(urls), "images")
+    with cf.ThreadPoolExecutor(32) as ex: got = list(ex.map(fetch_path, urls))
+    log("E8 downloaded", sum(g is not None for g in got), "/", len(urls))
+
+    dproc = AutoImageProcessor.from_pretrained("facebook/dinov2-base")
+    dmod = AutoModel.from_pretrained("facebook/dinov2-base", torch_dtype=torch.float16).to("cuda").eval()
+    def embed(ids):
+        out = np.zeros((len(ids), 4 * 768), np.float32); ok = np.zeros(len(ids), bool)
+        for b in range(0, len(ids), 16):
+            ims, rows_ = [], []
+            for r, i in enumerate(ids[b:b + 16]):
+                paths = [fetch_path(df.at[i, u]) for u in VIEWS]
+                if all(p is not None for p in paths):
+                    try: ims += [Image.open(p).convert("RGB") for p in paths]; rows_.append(b + r)
+                    except Exception: pass
+            if not rows_: continue
+            px = dproc(images=ims, return_tensors="pt")["pixel_values"].to("cuda").half()
+            with torch.no_grad(): f = dmod(pixel_values=px).pooler_output.float().cpu().numpy()
+            f = f / np.linalg.norm(f, axis=1, keepdims=True)
+            out[rows_] = f.reshape(len(rows_), 4 * 768) / 2.0; ok[rows_] = True
+        return out, ok
+    EB = {}
+    for k_, bk in banks.items():
+        e, ok = embed(bk); EB[k_] = (e[ok], Y_ALL[bk[ok]]); log("E8 bank", k_, ok.sum())
+    def knn(E, Eb, yb, restrict, k=10, tau=0.05):
+        sims = E @ Eb.T; V = np.zeros((len(E), K))
+        for r in range(len(E)):
+            s = sims[r].copy(); s[~restrict[r][yb]] = -np.inf
+            top = np.argsort(-s)[:k]; top = top[np.isfinite(s[top])]
+            np.add.at(V[r], yb[top], np.exp(s[top] / tau))
+        return V / np.maximum(V.sum(1, keepdims=True), 1e-300)
+    def in_set_argmax(M, sets): return np.where(sets, M, -np.inf).argmax(1)
+
+    pol, summ = [], []
+    for name, (ids, sets, pick) in samples.items():
+        E, ok = embed(ids[pick]); pick = pick[ok]; E = E[ok]
+        Eb, yb = EB[name[0]]; ss = sets[pick]; ii = ids[pick]; P = P_ALL[ii]
+        V = knn(E, Eb, yb, ss)
+        pr = {"classifier_inset": in_set_argmax(P, ss), "retrieval_inset": in_set_argmax(V, ss),
+              "fusion_inset": in_set_argmax(W * np.log(P + 1e-12) + (1 - W) * np.log(V + 1e-6), ss)}
+        rec = pd.DataFrame({"gravityspy_id": df.loc[ii, "gravityspy_id"].values, "true": [CLASSES[c] for c in Y_ALL[ii]],
+                            "vol_major": [CLASSES[c] if c >= 0 else None for c in Y_VOL[ii]],
+                            "set_size": ss.sum(1), "true_in_set": ss[np.arange(len(ii)), Y_ALL[ii]]})
+        for k_, v in pr.items(): rec[k_] = [CLASSES[c] for c in v]
+        save_csv(rec, f"E8_records_{name}.csv")
+        for ref in ["true", "vol_major"]:
+            sub = rec[rec[ref].notna()]
+            summ.append(dict(sample=name, reference=ref, n=len(sub), true_in_set=sub.true_in_set.mean(),
+                             **{f"acc_{k_}": (sub[k_] == sub[ref]).mean() for k_ in pr}))
+        if name.endswith("natural"):
+            st = stA if name.startswith("A") else stB
+            pS, pA, pE, eS = st["singleton"], st["ambiguous"], st["escalate"], st["singleton_err"]
+            agree = rec.fusion_inset == rec.classifier_inset
+            pol += [dict(setting=name[0], policy="singletons auto, rest human", human_frac=pA + pE, error=pS * eS)]
+            for k_ in pr:
+                pol.append(dict(setting=name[0], policy=f"+ {k_} on ambiguous", human_frac=pE,
+                                error=pS * eS + pA * (rec[k_] != rec.true).mean()))
+            pol.append(dict(setting=name[0], policy="+ verifier (fusion agrees with classifier)",
+                            human_frac=pE + pA * (1 - agree.mean()),
+                            error=pS * eS + pA * (agree & (rec.classifier_inset != rec.true)).mean(),
+                            agree_frac=agree.mean(), acc_agree=(rec.classifier_inset[agree] == rec.true[agree]).mean(),
+                            acc_disagree_clf=(rec.classifier_inset[~agree] == rec.true[~agree]).mean()))
+    save_csv(pd.DataFrame(summ), "E8_summary.csv"); save_csv(pd.DataFrame(pol), "E8_policies.csv")
+    print(pd.DataFrame(summ).round(4).to_string()); print(pd.DataFrame(pol).round(4).to_string())
+    json.dump(dict(strata_A={k: float(v) for k, v in stA.items()} if "A" in CFG["E8_SETTINGS"] else None, strata_B={k: float(v) for k, v in stB.items()},
+                   banks={k_: int(len(v_[1])) for k_, v_ in EB.items()}, w=W),
+              open(f"{OUT}/E8_meta.json", "w"), indent=1)
+else:
+    log("E8 skipped")
 
 # %% [markdown]
 # ## Done

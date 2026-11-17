@@ -1,0 +1,11 @@
+{
+ "strata_B": {
+  "singleton": 0.0375,
+  "ambiguous": 0.24536537746374118,
+  "escalate": 0.7171346225362588,
+  "singleton_err": 0.04921284244452706,
+  "n": 215120
+ },
+ "w": 0.2,
+ "note": "strata_B copied from the v6 log (identical delay-aware Mondrian-ACI sets); the v7 run failed only when writing this file"
+}

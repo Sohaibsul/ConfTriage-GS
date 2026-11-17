@@ -1,0 +1,6 @@
+setting,policy,human_frac,error,agree_frac,acc_agree,acc_disagree_clf
+B,"singletons auto, rest human",0.9625,0.0018454815916697648,,,
+B,+ classifier_inset on ambiguous,0.7171346225362588,0.033436273940126444,,,
+B,+ retrieval_inset on ambiguous,0.7171346225362588,0.037423461323912235,,,
+B,+ fusion_inset on ambiguous,0.7171346225362588,0.029449086556340646,,,
+B,+ verifier (fusion agrees with classifier),0.7382973863425065,0.016874110961323914,0.91375,0.93296853625171,0.21739130434782608

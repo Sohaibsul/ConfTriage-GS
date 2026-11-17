@@ -1,5 +1,5 @@
 """Build LaTeX tables and figures for the paper from the Kaggle result folders.
-Usage (from the 'new project' folder):  python scripts/make_tables.py
+Usage (from the 'new project' folder):  python paper/make_tables.py
 """
 import os, json
 import numpy as np, pandas as pd
@@ -70,34 +70,63 @@ Score & Conditioning & Coverage & Worst-class & CovGap & Set size & Singleton & 
 \end{table}
 """)
 
-# ---------- E2 ----------
-e2 = pd.read_csv(os.path.join(R3, "E2_shift.csv"))
-keep = [("split_marginal", "Split CP, marginal"), ("split_mondrian", "Split CP, Mondrian"),
-        ("weighted_mondrian", "Weighted CP, Mondrian"), ("aci_g0.005", "ACI, marginal ($\\gamma=0.005$)"),
-        ("rolling_mondrian", "Rolling recalibration, Mondrian"), ("mondrian_aci_g0.005", "Mondrian-ACI ($\\gamma=0.005$)"),
-        ("mondrian_aci_g0.02", "\\textbf{Mondrian-ACI} ($\\gamma=0.02$)"), ("oracle_mondrian", "\\emph{Oracle Mondrian (target calibration)}")]
+# ---------- E2 (revision: v5 = E2 with delay, gamma sweep and CIs; v6 = delay-aware Mondrian-ACI) ----------
+R5 = os.path.join(ROOT, "results", "v5"); R6 = os.path.join(ROOT, "results", "v6"); R7 = os.path.join(ROOT, "results", "v7")
+e2 = pd.concat([pd.read_csv(os.path.join(R5, "E2_shift.csv")), pd.read_csv(os.path.join(R6, "E2b_delay_aware.csv"))],
+               ignore_index=True)
 scen = [(s, t) for (s, t), _ in e2.groupby(["source", "target"], sort=False)]
-blocks = [("coverage", "(a) Marginal coverage", "{:.3f}"), ("worst_class_cov", "(b) Worst-class coverage", "{:.3f}"),
+def E(m, s, t): return e2[(e2.source == s) & (e2.target == t) & (e2.method == m)].iloc[0]
+keep = [("split_marginal", "Split CP, marginal", ""), ("split_mondrian", "Split CP, Mondrian", ""),
+        ("weighted_mondrian", "Weighted CP, Mondrian", ""), ("aci_g0.005", "ACI, marginal ($\\gamma=0.005$)", ""),
+        ("rolling_mondrian", "Rolling recalibration, Mondrian$^{\\ast}$", ""),
+        ("mondrian_aci_g0.02", "Mondrian-ACI ($\\gamma=0.02$), no delay", "b"),
+        ("mondrian_aci_g0.02_d2000", "Mondrian-ACI ($\\gamma=0.02$)$^{\\ast}$", ""),
+        ("da_mondrian_aci_g0.02_d2000", "DA Mondrian-ACI ($\\gamma=0.02$)$^{\\ast}$", ""),
+        ("da_mondrian_aci_g0.05_d2000", "DA Mondrian-ACI ($\\gamma=0.05$)$^{\\ast}$", "b"),
+        ("oracle_mondrian", "\\emph{Oracle Mondrian (target calibration)}", "")]
+blocks = [("coverage", "(a) Marginal coverage", "{:.3f}"), ("worst_class_cov", "(b) Worst-class coverage (95\\% bootstrap interval)", "{:.3f}"),
           ("covgap", "(c) Class-coverage gap CovGap (percentage points)", "{:.2f}"), ("set_size", "(d) Average set size", "{:.2f}")]
 lines = []
 for bi, (col, lab, fmt) in enumerate(blocks):
     lines.append(r"\multicolumn{5}{l}{\emph{" + lab + r"}}\\")
-    for m, ml in keep:
+    for m, ml, st in keep:
         vals = []
         for s, t in scen:
-            v = e2[(e2.source == s) & (e2.target == t) & (e2.method == m)][col].values[0]
-            txt = fmt.format(v)
-            if m == "mondrian_aci_g0.02": txt = r"\textbf{" + txt + "}"
+            r = E(m, s, t); txt = fmt.format(r[col])
+            if st == "b": txt = r"\textbf{" + txt + "}"
+            if col == "worst_class_cov": txt += r"\,{\tiny(" + f"{r.worst_lo:.2f}--{r.worst_hi:.2f}" + ")}"
             vals.append(txt)
         if m == "oracle_mondrian": lines.append(r"\cmidrule(l){1-5}")
-        lines.append(ml + " & " + " & ".join(vals) + r"\\")
+        lines.append((r"\textbf{" + ml + "}" if st == "b" else ml) + " & " + " & ".join(vals) + r"\\")
     if bi < len(blocks) - 1: lines.append(r"\midrule")
 hdr = " & ".join(f"{s}$\\rightarrow${t}" for s, t in scen)
 write("tab_e2.tex", r"""\begin{table}[!htbp]
 \caption{E2: conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
-order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. The oracle is calibrated on a random half
-of the target run and evaluated on the other half; it is not available in practice and serves as a reference. Rows for the proposed
-method in bold.}\label{tab:e2}
+order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. $^{\ast}$Labels are revealed with a delay of
+2000 glitches. DA: delay-aware step size (Sec.~\ref{sec:shiftmethods}). Worst-class intervals are 95\% bootstrap intervals of the
+minimum class-wise coverage (classes with at least 30 target glitches). The oracle is calibrated on a random half of the target run and
+evaluated on the other half; it is not available in practice. The step sizes $\gamma\in\{0.005,0.02\}$ were fixed before the
+experiments; $\gamma=0.05$ for the delay-aware variant was selected after inspecting the sweep of Appendix~\ref{app:gamma} and is
+therefore optimistic.}\label{tab:e2}
+\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccc}\toprule
+Method & """ + hdr + r"""\\\midrule
+""" + "\n".join(lines) + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+""")
+# appendix table: informativeness of the main methods
+INF = [("split_mondrian", "Split CP, Mondrian"), ("rolling_mondrian", "Rolling recalibration, Mondrian"),
+       ("mondrian_aci_g0.02", "Mondrian-ACI ($\\gamma=0.02$), no delay"), ("da_mondrian_aci_g0.05_d2000", "DA Mondrian-ACI ($\\gamma=0.05$), delay"),
+       ("oracle_mondrian", "Oracle Mondrian")]
+lines = []
+for col, lab in [("singleton", "(a) Singleton rate"), ("macro_f1", "(b) Set F1")]:
+    lines.append(r"\multicolumn{5}{l}{\emph{" + lab + r"}}\\")
+    for m, ml in INF: lines.append(ml + " & " + " & ".join(f"{E(m, s, t)[col]:.3f}" for s, t in scen) + r"\\")
+    if col == "singleton": lines.append(r"\midrule")
+write("tab_e2_info.tex", r"""\begin{table}[!htbp]
+\caption{Informativeness of the sets in E2: singleton rate and set F1~\cite{malz2025} for the main methods.}\label{tab:e2info}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lcccc}\toprule
 Method & """ + hdr + r"""\\\midrule
@@ -106,33 +135,108 @@ Method & """ + hdr + r"""\\\midrule
 \end{tabular}
 \end{table}
 """)
-# figure: worst-class coverage per scenario
+# figure: worst-class coverage per scenario with bootstrap intervals, and set size
 meth = [("split_mondrian", "Split Mondrian"), ("aci_g0.005", "ACI"), ("weighted_mondrian", "Weighted Mondrian"),
-        ("rolling_mondrian", "Rolling Mondrian"), ("mondrian_aci_g0.02", "Mondrian-ACI (ours)"), ("oracle_mondrian", "Oracle")]
-scen = [(s, t) for (s, t), _ in e2.groupby(["source", "target"], sort=False)]
-fig, ax = plt.subplots(1, 2, figsize=(11, 3.6))
-x = np.arange(len(scen)); wdt = 0.13
+        ("rolling_mondrian", "Rolling Mondrian (delay)"), ("mondrian_aci_g0.02", "Mondrian-ACI (no delay)"),
+        ("da_mondrian_aci_g0.05_d2000", "DA Mondrian-ACI (delay)"), ("oracle_mondrian", "Oracle")]
+fig, ax = plt.subplots(1, 2, figsize=(11, 3.7)); x = np.arange(len(scen)); wdt = 0.12
 for k, (m, lab) in enumerate(meth):
-    wc = [e2[(e2.source == s) & (e2.target == t) & (e2.method == m)].worst_class_cov.values[0] for s, t in scen]
-    sz = [e2[(e2.source == s) & (e2.target == t) & (e2.method == m)].set_size.values[0] for s, t in scen]
-    ax[0].bar(x + (k - 2.5) * wdt, wc, wdt, label=lab); ax[1].bar(x + (k - 2.5) * wdt, sz, wdt, label=lab)
+    rr = [E(m, s, t) for s, t in scen]; off = (k - (len(meth) - 1) / 2) * wdt
+    wc = np.array([r.worst_class_cov for r in rr]); lo = np.array([r.worst_lo for r in rr]); hi = np.array([r.worst_hi for r in rr])
+    ax[0].bar(x + off, wc, wdt, label=lab, yerr=[np.clip(wc - lo, 0, None), np.clip(hi - wc, 0, None)], capsize=1.5,
+              error_kw=dict(lw=0.6))
+    ax[1].bar(x + off, [r.set_size for r in rr], wdt, label=lab)
 for a_, yl in zip(ax, ["worst-class coverage", "average set size"]):
     a_.set_xticks(x); a_.set_xticklabels([f"{s}→{t}" for s, t in scen], fontsize=8); a_.set_ylabel(yl)
 ax[0].axhline(0.9, c="k", ls=":", lw=1)
 h_, l_ = ax[0].get_legend_handles_labels()
-fig.legend(h_, l_, loc="upper center", ncol=6, fontsize=8, frameon=False)
-plt.tight_layout(rect=(0, 0, 1, 0.92)); plt.savefig(os.path.join(FIG, "fig_e2_worstclass.png"), dpi=250); plt.close()
+fig.legend(h_, l_, loc="upper center", ncol=4, fontsize=8, frameon=False)
+plt.tight_layout(rect=(0, 0, 1, 0.86)); plt.savefig(os.path.join(FIG, "fig_e2_worstclass.png"), dpi=250); plt.close()
 print("wrote fig_e2_worstclass.png")
-# figure: rolling coverage curve O1+O2 -> O3b
-cv = pd.read_csv(os.path.join(R3, "E2_curves.csv"))
-c = cv[(cv.source == "O1+O2") & (cv.target == "O3b")]
-plt.figure(figsize=(6.5, 3.4))
-for m, lab in [("split_mondrian", "Split Mondrian"), ("aci_g0.005", "ACI"), ("mondrian_aci_g0.005", "Mondrian-ACI (ours)"),
-               ("rolling_mondrian", "Rolling Mondrian")]:
-    cc = c[c.method == m]; plt.plot(cc.chunk, cc.coverage, label=lab)
-plt.axhline(0.9, c="k", ls=":"); plt.xlabel("deployment chunk in GPS order (O3b)"); plt.ylabel("marginal coverage")
-plt.legend(fontsize=8); plt.tight_layout(); plt.savefig(os.path.join(FIG, "fig_e2_time.png"), dpi=250); plt.close()
-print("wrote fig_e2_time.png")
+# figure: silent failure over time, O1+O2 -> O3b
+rec = pd.read_csv(os.path.join(R5, "E2_records_O1O2_O3b.csv.gz"))
+rda = pd.read_csv(os.path.join(R6, "E2b_records_O1O2_O3b.csv.gz"))
+assert (rec.y.values == rda.y.values).all()
+rec["cov_da"] = rda["cov_da_g0.05"].values
+days = (rec.gps - rec.gps.iloc[0]) / 86400
+fig, ax = plt.subplots(1, 2, figsize=(11, 3.7), sharey=True)
+for col, lab, c_ in [("cov_split_mondrian", "Split CP, Mondrian", "tab:red"), ("cov_aci_g0.005", "ACI, marginal", "tab:orange"),
+                     ("cov_da", "DA Mondrian-ACI (delay)", "tab:blue")]:
+    ax[0].plot(days, rec[col].rolling(5000, min_periods=1000).mean(), color=c_, lw=1.4, label=lab)
+ax[0].axhline(0.9, c="k", ls=":", lw=1); ax[0].set_title("(a) marginal coverage, rolling 5000 glitches", fontsize=9)
+ax[0].set_xlabel("days since start of O3b"); ax[0].set_ylabel("coverage"); ax[0].legend(fontsize=8, frameon=False, loc="lower left")
+cls_cov = rec.groupby("y").agg(n=("y", "size"), c=("cov_split_mondrian", "mean"))
+worst = cls_cov[cls_cov.n >= 150].sort_values("c").index[:4]
+wk = (days // 7).astype(int)
+for j, cname in enumerate(worst):
+    sub = rec[rec.y == cname].assign(wk=wk[rec.y == cname]); col_ = plt.cm.tab10(j)
+    g_ = sub.groupby("wk").agg(n=("y", "size"), s=("cov_split_mondrian", "mean"), d=("cov_da", "mean")); g_ = g_[g_.n >= 5]
+    ax[1].plot(g_.index * 7 + 3.5, g_.s, color=col_, ls="--", lw=1.1, marker=".", ms=3)
+    ax[1].plot(g_.index * 7 + 3.5, g_.d, color=col_, lw=1.8, marker="o", ms=3, label=cname.replace("_", " ") + f" (n={len(sub)})")
+ax[1].axhline(0.9, c="k", ls=":", lw=1)
+ax[1].set_title("(b) weekly coverage of the four worst-covered classes", fontsize=9); ax[1].set_xlabel("days since start of O3b")
+ax[1].legend(fontsize=7, frameon=True, loc="center right", title="dashed: split CP; solid: DA Mondrian-ACI", title_fontsize=7)
+for a_ in ax: a_.grid(alpha=0.25); a_.set_ylim(0, 1.02)
+plt.tight_layout(); plt.savefig(os.path.join(FIG, "fig_e2_time.png"), dpi=250); plt.close(); print("wrote fig_e2_time.png", list(worst))
+# appendix figure: gamma sweep, worst-class coverage vs set size
+fig, axs = plt.subplots(1, 4, figsize=(13, 3.4), sharey=True)
+for a_, (s, t) in zip(axs, scen):
+    for pat, lab, mk in [("mondrian_aci_g{}", "no delay", "o"), ("mondrian_aci_g{}_d2000", "delay, plain step", "s"),
+                         ("da_mondrian_aci_g{}_d2000", "delay, DA step", "^")]:
+        gs = [0.001, 0.005, 0.01, 0.02, 0.05, 0.1]
+        pts = [(g, E(pat.format(g), s, t)) for g in gs if ((e2.method == pat.format(g)) & (e2.source == s) & (e2.target == t)).any()]
+        a_.plot([p.set_size for _, p in pts], [p.worst_class_cov for _, p in pts], marker=mk, ms=4, lw=1, label=lab)
+        for g, p in pts: a_.annotate(f"{g:g}", (p.set_size, p.worst_class_cov), fontsize=6, xytext=(2, 2), textcoords="offset points")
+    for m, mk, lab in [("rolling_mondrian", "x", "rolling (delay)"), ("oracle_mondrian", "*", "oracle")]:
+        p = E(m, s, t); a_.plot(p.set_size, p.worst_class_cov, mk, color="k", ms=7, label=lab)
+    a_.axhline(0.9, c="k", ls=":", lw=1); a_.set_title(f"{s}→{t}", fontsize=9); a_.set_xlabel("average set size"); a_.grid(alpha=0.25)
+axs[0].set_ylabel("worst-class coverage"); axs[0].legend(fontsize=7, frameon=False, loc="lower right")
+plt.tight_layout(); plt.savefig(os.path.join(FIG, "fig_gamma_sweep.png"), dpi=250); plt.close(); print("wrote fig_gamma_sweep.png")
+
+# ---------- E9: calibration agent ----------
+b9 = pd.read_csv(os.path.join(R6, "E9_budget.csv")); a9 = pd.read_csv(os.path.join(R6, "E9_alerts.csv"))
+lines = []
+for bud in [0.02, 0.05, 0.1, 0.25, 1.0]:
+    for pol_ in (["random", "agent"] if bud < 1 else ["all"]):
+        cells = []
+        for s, t in scen:
+            r = b9[(b9.source == s) & (b9.target == t) & (b9.budget == bud) & (b9.policy == pol_)].iloc[0]
+            o = b9[(b9.source == s) & (b9.target == t) & (b9.budget == bud) & (b9.policy == ("random" if pol_ == "agent" else "agent"))]
+            txt = f"{r.worst_class_cov:.2f} / {r.set_size:.1f}"
+            if pol_ == "agent" and len(o) and r.worst_class_cov > o.iloc[0].worst_class_cov + 1e-9: txt = r"\textbf{" + txt + "}"
+            cells.append(txt)
+        lab = {"random": "random", "agent": "agent", "all": "all labels"}[pol_]
+        lines.append((f"{int(bud * 100)}\\%" if pol_ != "agent" else "") + f" & {lab} & " + " & ".join(cells) + r"\\")
+    if bud < 1: lines.append(r"\addlinespace[2pt]")
+write("tab_e9.tex", r"""\begin{table}[!htbp]
+\caption{E9: calibration agent. Worst-class coverage / average set size of delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000)
+when only a fraction of the target glitches (the label budget) is labelled, with the glitches to label chosen at random or by the
+agent. Bold: the agent is better than random labelling at the same budget.}\label{tab:e9}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccc}\toprule
+Budget & Labelling & """ + hdr + r"""\\\midrule
+""" + "\n".join(lines) + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+""")
+al = []
+for (s, t), g in a9.groupby(["source", "target"], sort=False):
+    u = g.undercovered.astype(bool); al_ = g.alerted.astype(bool)
+    al.append(f"{s}$\\rightarrow${t} & {int(u.sum())} & {int((u & al_).sum())} & {int((~u & al_).sum())} & "
+              f"{g[u & al_].alert_days.median():.0f} & {g.run_days.iloc[0]:.0f}" + r"\\")
+write("tab_e9_alerts.tex", r"""\begin{table}[!htbp]
+\caption{E9: coverage alerts of the calibration agent on top of static split Mondrian CP (the deployment that fails silently), with 5\%
+of the glitches labelled at random and a label delay of 2000 glitches. An alert is raised for a class when the miss rate among its last
+50 labelled glitches exceeds $\alpha+0.1$; a class is under-covered if its coverage over the whole target run is below 0.8.}\label{tab:e9alerts}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}\toprule
+Transition & Under-covered & Detected & False alerts & Median delay (days) & Run length (days)\\\midrule
+""" + "\n".join(al) + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+""")
 
 # ---------- E3 ----------
 e3 = pd.read_csv(os.path.join(R3, "E3_openset_summary.csv")).set_index(["method", "k_out"])
@@ -278,7 +382,49 @@ Policy & Human (\%) & Error (\%)\\\midrule
 \end{tabular}
 \end{table}
 """)
-for f_ in ["E0_reproduction.png"]:
-    src = os.path.join(R3, "figs", f_)
-    if os.path.exists(src):
-        import shutil; shutil.copy(src, os.path.join(FIG, "fig_e0_reproduction.png")); print("copied", f_)
+# ---------- E8: end-to-end triage, natural samples (A: in-run, from v5; B: under shift, from v7) ----------
+pA_ = pd.read_csv(os.path.join(R5, "E8_policies.csv")); pA_ = pA_[pA_.setting == "A"]
+pB_ = pd.read_csv(os.path.join(R7, "E8_policies.csv")) if os.path.exists(os.path.join(R7, "E8_policies.csv")) else None
+PN8 = [("singletons auto", "Singletons automatic, every other set to a human"),
+       ("classifier_inset", "+ classifier top label for ambiguous sets"),
+       ("retrieval_inset", "+ retrieval (in set) for ambiguous sets"),
+       ("fusion_inset", "+ classifier--retrieval fusion for ambiguous sets"),
+       ("verifier", r"\textbf{+ verifier: automatic only if fusion and classifier agree}")]
+lines = []
+for i, (k_, lab) in enumerate(PN8):
+    ra = pA_[pA_.policy.str.contains(k_)].iloc[0]
+    rb = pB_[pB_.policy.str.contains(k_)].iloc[0] if pB_ is not None else None
+    f = lambda r: (f"{100 * r.human_frac:.1f} & {100 * r.error:.2f}") if r is not None else "-- & --"
+    lines.append(f"{lab} & {f(ra)} & {f(rb)}" + r"\\")
+    if i == 0: lines.append(r"\midrule")
+write("tab_e8.tex", r"""\begin{table}[!htbp]
+\caption{E8: end-to-end triage policies. Human: percentage of all deployment glitches (with images) sent to an expert; error:
+percentage of all glitches labelled automatically and wrongly (w.r.t.\ the final label). Error rates of the decision modules are
+estimated on a random sample of 800 ambiguous glitches that follows the natural class distribution. In-run: Mondrian split CP on the
+50/50 deployment split of E5/E6. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
+O3b in GPS order, with a retrieval memory built from O1+O2 only.}\label{tab:e8}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccc}\toprule
+ & \multicolumn{2}{c}{In-run} & \multicolumn{2}{c}{Under shift (O1+O2$\rightarrow$O3b)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Policy & Human (\%) & Error (\%) & Human (\%) & Error (\%)\\\midrule
+""" + "\n".join(lines) + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+""")
+
+# ---------- E0 figure: class-wise coverage as grey lines, min-max band, marginal coverage in bold ----------
+e0 = pd.read_csv(os.path.join(R3, "E0_malz_reproduction.csv"))
+lvl = 1 - e0["alpha"].values
+cc = e0[[c for c in e0.columns if c.startswith("cov_")]].values
+fig, ax = plt.subplots(1, 2, figsize=(9.5, 3.6))
+ax[0].fill_between(lvl, np.nanmin(cc, 1), np.nanmax(cc, 1), color="0.85", lw=0, label="range over 22 classes")
+for j in range(cc.shape[1]): ax[0].plot(lvl, cc[:, j], color="0.55", lw=0.6, alpha=0.7)
+ax[0].plot(lvl, e0["coverage"], color="k", lw=2.2, label="marginal coverage")
+ax[0].plot([0, 1], [0, 1], ls=":", color="tab:red", lw=1.2, label="nominal $1-\\alpha$")
+ax[0].set_xlabel(r"nominal coverage $1-\alpha$"); ax[0].set_ylabel("empirical coverage"); ax[0].legend(fontsize=8, frameon=False)
+ax[0].set_xlim(0, 1); ax[0].set_ylim(0, 1.02)
+ax[1].plot(lvl, e0["set_size"], color="k", lw=2.2); ax[1].set_xlabel(r"nominal coverage $1-\alpha$"); ax[1].set_ylabel("average set size")
+ax[1].set_xlim(0, 1)
+for a_ in ax: a_.grid(alpha=0.25)
+plt.tight_layout(); plt.savefig(os.path.join(FIG, "fig_e0_reproduction.png"), dpi=250); plt.close(); print("wrote fig_e0_reproduction.png")
