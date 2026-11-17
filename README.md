@@ -3,7 +3,7 @@
 Code and results for the paper
 
 > **Silent failure of conformal prediction across LIGO observing runs: class-conditional adaptive calibration and retrieval-verified glitch triage**
-> Kamran Qadir, Sohaib Sulman (submitted)
+> Kamran Qadir Abbasi, Sohaib Sulman (submitted)
 
 ![Pipeline](paper/figs/fig_architecture.png)
 

@@ -25,7 +25,7 @@ d = d[["O1", "O2", "O3a", "O3b", "unknown"]]
 rows = [f"{nice(c)} & " + " & ".join(f"{int(v):,}" for v in d.loc[c]) + r" \\" for c in d.index if c != "TOTAL"]
 write("tab_data.tex", r"""\begin{table}[!htbp]
 \caption{Glitches per class and observing run after joining the volunteer-classification release with the
-machine-learning catalogue. ``Unmatched'' glitches have no run information and are used only in E0, E1, E3 and E4.}\label{tab:data}
+machine-learning catalogue. ``Unmatched'' glitches have no run information and are used only in the experiments that do not need it.}\label{tab:data}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrrrr}\toprule
 Class & O1 & O2 & O3a & O3b & Unmatched\\\midrule
@@ -56,7 +56,7 @@ for regime, lab in [("full", "(a) Full data, 809\\,242 glitches"), ("balanced150
         if si < 2: lines.append(r"\addlinespace[2pt]")
     if regime == "full": lines.append(r"\midrule")
 write("tab_e1.tex", r"""\begin{table}[!htbp]
-\caption{E1: score functions and conditioning strategies at $\alpha=0.1$ (mean over 10 random 50/50 calibration/test splits;
+\caption{Score functions and conditioning strategies at $\alpha=0.1$ (mean over 10 random 50/50 calibration/test splits;
 worst-class coverage as mean$\pm$std). Coverage: fraction of test glitches whose reference label lies in the set; worst-class:
 lowest class-wise coverage; CovGap: mean absolute deviation of class-wise coverage from $1-\alpha$ in percentage points (both over
 classes with at least 30 test glitches); set size: average number of labels; singleton: fraction of sets with one label; set F1:
@@ -101,7 +101,7 @@ for bi, (col, lab, fmt) in enumerate(blocks):
     if bi < len(blocks) - 1: lines.append(r"\midrule")
 hdr = " & ".join(f"{s}$\\rightarrow${t}" for s, t in scen)
 write("tab_e2.tex", r"""\begin{table}[!htbp]
-\caption{E2: conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
+\caption{Conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
 order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. $^{\ast}$Labels are revealed with a delay of
 2000 glitches. DA: delay-aware step size (Sec.~\ref{sec:shiftmethods}). Worst-class intervals are 95\% bootstrap intervals of the
 minimum class-wise coverage (classes with at least 30 target glitches). The oracle is calibrated on a random half of the target run and
@@ -126,7 +126,7 @@ for col, lab in [("singleton", "(a) Singleton rate"), ("macro_f1", "(b) Set F1")
     for m, ml in INF: lines.append(ml + " & " + " & ".join(f"{E(m, s, t)[col]:.3f}" for s, t in scen) + r"\\")
     if col == "singleton": lines.append(r"\midrule")
 write("tab_e2_info.tex", r"""\begin{table}[!htbp]
-\caption{Informativeness of the sets in E2: singleton rate and set F1~\cite{malz2025} for the main methods.}\label{tab:e2info}
+\caption{Informativeness of the sets in the run-shift experiments: singleton rate and set F1~\cite{malz2025} for the main methods.}\label{tab:e2info}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lcccc}\toprule
 Method & """ + hdr + r"""\\\midrule
@@ -209,7 +209,7 @@ for bud in [0.02, 0.05, 0.1, 0.25, 1.0]:
         lines.append((f"{int(bud * 100)}\\%" if pol_ != "agent" else "") + f" & {lab} & " + " & ".join(cells) + r"\\")
     if bud < 1: lines.append(r"\addlinespace[2pt]")
 write("tab_e9.tex", r"""\begin{table}[!htbp]
-\caption{E9: calibration agent. Worst-class coverage / average set size of delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000)
+\caption{Calibration agent. Worst-class coverage / average set size of delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000)
 when only a fraction of the target glitches (the label budget) is labelled, with the glitches to label chosen at random or by the
 agent. Bold: the agent is better than random labelling at the same budget.}\label{tab:e9}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -226,7 +226,7 @@ for (s, t), g in a9.groupby(["source", "target"], sort=False):
     al.append(f"{s}$\\rightarrow${t} & {int(u.sum())} & {int((u & al_).sum())} & {int((~u & al_).sum())} & "
               f"{g[u & al_].alert_days.median():.0f} & {g.run_days.iloc[0]:.0f}" + r"\\")
 write("tab_e9_alerts.tex", r"""\begin{table}[!htbp]
-\caption{E9: coverage alerts of the calibration agent on top of static split Mondrian CP (the deployment that fails silently), with 5\%
+\caption{Coverage alerts of the calibration agent on top of static split Mondrian CP (the deployment that fails silently), with 5\%
 of the glitches labelled at random and a label delay of 2000 glitches. An alert is raised for a class when the miss rate among its last
 50 labelled glitches exceeds $\alpha+0.1$; a class is under-covered if its coverage over the whole target run is below 0.8.}\label{tab:e9alerts}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -247,7 +247,7 @@ for m, lab in NOV:
     lines.append(lab + " & " + " & ".join(f"{pm(e3.loc[(m, k)].auroc_mean, e3.loc[(m, k)].auroc_std)} & "
                                           f"{pm(e3.loc[(m, k)].fpr95_mean, e3.loc[(m, k)].fpr95_std)}" for k in [1, 3]) + r"\\")
 write("tab_e3.tex", r"""\begin{table}[!htbp]
-\caption{E3: detection of held-out glitch classes (mean$\pm$std over 10 random choices of the held-out classes; score-level
+\caption{Detection of held-out glitch classes (mean$\pm$std over 10 random choices of the held-out classes; score-level
 simulation in which the held-out score columns are removed and the remaining scores renormalized). AUROC: area under the ROC
 curve for separating held-out from known glitches (0.5 = chance); FPR@95: false-positive rate on known glitches at 95\% recall
 of held-out glitches. Coverage of the known classes stays at 0.90 and no held-out glitch receives an empty set.}\label{tab:e3}
@@ -273,7 +273,7 @@ for cal_ in e4.index.get_level_values(0).unique():
         lines.append(f"{LB.get(cal_, nice(cal_))} & {LB.get(ev_, nice(ev_))} & {r('all').coverage:.3f} & {r('contested').coverage:.3f} & "
                      f"{r('unanimous').coverage:.3f} & {r('all').worst_class_cov:.3f} & {r('all').set_size:.2f}" + r"\\")
 write("tab_e4.tex", r"""\begin{table}[!htbp]
-\caption{E4: sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label used for calibration and for evaluation, on glitches with at
+\caption{Sensitivity of Mondrian CP (LAC, $\alpha=0.1$) to the label used for calibration and for evaluation, on glitches with at
 least three volunteer votes (mean of 5 random splits). Coverage is given for all glitches and for two strata: contested (majority
 share below 0.7) and unanimous (all volunteers agree). Worst-class coverage and set size refer to all glitches.}\label{tab:e4}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -300,7 +300,7 @@ rows = [
 f = lambda v: "--" if pd.isna(v) else f"{v:.3f}"
 lines = [f"{a} & {f(b)} & {f(c)}" + r"\\" for a, b, c in rows]
 write("tab_e5.tex", r"""\begin{table}[!htbp]
-\caption{E5: accuracy of a general-purpose vision--language model (Qwen2.5-VL) on ambiguous glitches
+\caption{Accuracy of a general-purpose vision--language model (Qwen2.5-VL) on ambiguous glitches
 ($2\le|C(x)|\le4$), w.r.t.\ the final label. Chance level for a set of size 2--4 is about 0.33.
 n = """ + f"{int(v2.n)}" + r""" (3B) and """ + f"{int(v3.n)}" + r""" (7B, 4-bit).}\label{tab:e5}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -337,7 +337,7 @@ if os.path.exists(p6):
             lines.append(f"{lab} & {int(r.n)} & {acc} & {vv} & {esc} & {dec}" + r"\\")
         if gi == 0: lines.append(r"\midrule")
     write("tab_e6.tex", r"""\begin{table}[!htbp]
-\caption{E6: decision modules for ambiguous glitches ($2\le|C(x)|\le4$; class-stratified sample of the deployment split).
+\caption{Decision modules for ambiguous glitches ($2\le|C(x)|\le4$; class-stratified sample of the deployment split).
 Accuracy is measured against the final label and against the independent volunteer majority; escalated glitches count as not
 correct. Escalated: fraction sent to a human by the agent; Acc.\ (decided): accuracy on the glitches the agent did not escalate.
 Best accuracy in bold. $^\dagger$Run on the first 300 test glitches; on the same 300 glitches the classifier reaches 0.700 and
@@ -370,7 +370,7 @@ Decision module & $n$ & Final label & Volunteers & Escalated & Acc.\ (decided)\\
         lines.append(pname(r.policy) + f" & {100 * r.human_frac:.1f} & {e}" + r"\\")
         if i == 0: lines.append(r"\midrule")
     write("tab_e6_policy.tex", r"""\begin{table}[!htbp]
-\caption{E6: end-to-end triage policies on all deployment glitches with images. Singleton sets are always labelled automatically
+\caption{End-to-end triage policies on all deployment glitches with images. Singleton sets are always labelled automatically
 and sets with more than four labels always go to a human; the policies differ only in how ambiguous sets are handled. Human:
 percentage of all glitches sent to an expert; error: percentage of all glitches that are labelled automatically and wrongly
 (w.r.t.\ the final label).}\label{tab:e6pol}
@@ -398,10 +398,10 @@ for i, (k_, lab) in enumerate(PN8):
     lines.append(f"{lab} & {f(ra)} & {f(rb)}" + r"\\")
     if i == 0: lines.append(r"\midrule")
 write("tab_e8.tex", r"""\begin{table}[!htbp]
-\caption{E8: end-to-end triage policies. Human: percentage of all deployment glitches (with images) sent to an expert; error:
+\caption{End-to-end triage policies. Human: percentage of all deployment glitches (with images) sent to an expert; error:
 percentage of all glitches labelled automatically and wrongly (w.r.t.\ the final label). Error rates of the decision modules are
 estimated on a random sample of 800 ambiguous glitches that follows the natural class distribution. In-run: Mondrian split CP on the
-50/50 deployment split of E5/E6. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
+50/50 deployment split of Secs.~\ref{sec:e5} and~\ref{sec:e6}. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
 O3b in GPS order, with a retrieval memory built from O1+O2 only.}\label{tab:e8}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lcccc}\toprule
