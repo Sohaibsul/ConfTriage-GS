@@ -109,11 +109,11 @@ evaluated on the other half; it is not available in practice. The step sizes $\g
 experiments; $\gamma=0.05$ for the delay-aware variant was selected after inspecting the sweep of Appendix~\ref{app:gamma} and is
 therefore optimistic.}\label{tab:e2}
 \centering\scriptsize\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{lcccc}\toprule
+\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}\toprule
 Method & """ + hdr + r"""\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 """)
 # appendix table: informativeness of the main methods
@@ -404,12 +404,12 @@ estimated on a random sample of 800 ambiguous glitches that follows the natural 
 50/50 deployment split of Secs.~\ref{sec:e5} and~\ref{sec:e6}. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
 O3b in GPS order, with a retrieval memory built from O1+O2 only.}\label{tab:e8}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcccc}\toprule
+\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}\toprule
  & \multicolumn{2}{c}{In-run} & \multicolumn{2}{c}{Under shift (O1+O2$\rightarrow$O3b)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
 Policy & Human (\%) & Error (\%) & Human (\%) & Error (\%)\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 """)
 

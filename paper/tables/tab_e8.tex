@@ -5,7 +5,7 @@ estimated on a random sample of 800 ambiguous glitches that follows the natural 
 50/50 deployment split of Secs.~\ref{sec:e5} and~\ref{sec:e6}. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
 O3b in GPS order, with a retrieval memory built from O1+O2 only.}\label{tab:e8}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcccc}\toprule
+\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}\toprule
  & \multicolumn{2}{c}{In-run} & \multicolumn{2}{c}{Under shift (O1+O2$\rightarrow$O3b)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
 Policy & Human (\%) & Error (\%) & Human (\%) & Error (\%)\\\midrule
 Singletons automatic, every other set to a human & 84.3 & 1.13 & 96.2 & 0.18\\
@@ -15,5 +15,5 @@ Singletons automatic, every other set to a human & 84.3 & 1.13 & 96.2 & 0.18\\
 + classifier--retrieval fusion for ambiguous sets & 61.4 & 3.85 & 71.7 & 2.94\\
 \textbf{+ verifier: automatic only if fusion and classifier agree} & 62.8 & 3.16 & 73.8 & 1.69\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
