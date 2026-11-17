@@ -1,0 +1,37 @@
+\begin{table*}[!t]
+\caption{Score functions and conditioning strategies at $\alpha=0.1$ (mean over 10 random 50/50 calibration/test splits;
+worst-class coverage as mean$\pm$std). Coverage: fraction of test glitches whose reference label lies in the set; worst-class:
+lowest class-wise coverage; CovGap: mean absolute deviation of class-wise coverage from $1-\alpha$ in percentage points (both over
+classes with at least 30 test glitches); set size: average number of labels; singleton: fraction of sets with one label; set F1:
+class-averaged F1 of set membership. Best value per block in bold.}\label{tab:e1}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{llcccccc}\toprule
+Score & Conditioning & Coverage & Worst-class & CovGap & Set size & Singleton & Set F1\\\midrule
+\multicolumn{8}{l}{\emph{(a) Full data, 809\,242 glitches}}\\
+LAC & Marginal & 0.900 & 0.365$\pm$0.004 & 12.46 & 6.31 & 0.203 & 0.176\\
+ & Clustered & 0.900 & 0.645$\pm$0.005 & 6.05 & 6.92 & 0.172 & 0.276\\
+ & Mondrian & 0.900 & \textbf{0.883$\pm$0.009} & \textbf{0.49} & 7.25 & 0.134 & \textbf{0.282}\\
+\addlinespace[2pt]
+APS & Marginal & 0.900 & 0.394$\pm$0.004 & 11.82 & 6.75 & 0.228 & 0.167\\
+ & Clustered & 0.900 & 0.794$\pm$0.006 & 3.83 & 8.36 & 0.125 & 0.232\\
+ & Mondrian & 0.900 & 0.883$\pm$0.010 & 0.54 & 7.55 & 0.131 & 0.246\\
+\addlinespace[2pt]
+RAPS & Marginal & 0.900 & 0.138$\pm$0.005 & 18.30 & 5.91 & 0.000 & 0.201\\
+ & Clustered & 0.900 & 0.692$\pm$0.037 & 5.13 & 7.06 & 0.000 & 0.271\\
+ & Mondrian & 0.900 & 0.882$\pm$0.012 & 0.54 & 9.16 & 0.000 & 0.244\\
+\midrule
+\multicolumn{8}{l}{\emph{(b) Balanced subsample, 1500 glitches per class (setup of Malz et al.)}}\\
+LAC & Marginal & 0.900 & 0.521$\pm$0.013 & 9.91 & 11.59 & 0.072 & 0.145\\
+ & Clustered & 0.901 & 0.718$\pm$0.024 & 5.14 & 9.15 & 0.080 & 0.276\\
+ & Mondrian & 0.900 & 0.870$\pm$0.006 & 1.18 & 8.56 & 0.070 & \textbf{0.302}\\
+\addlinespace[2pt]
+APS & Marginal & 0.901 & 0.526$\pm$0.012 & 9.75 & 11.67 & 0.087 & 0.144\\
+ & Clustered & 0.900 & 0.763$\pm$0.026 & 4.46 & 9.13 & 0.085 & 0.250\\
+ & Mondrian & 0.900 & \textbf{0.872$\pm$0.007} & \textbf{1.13} & 8.96 & 0.071 & 0.261\\
+\addlinespace[2pt]
+RAPS & Marginal & 0.900 & 0.497$\pm$0.017 & 11.07 & 13.10 & 0.000 & 0.135\\
+ & Clustered & 0.902 & 0.796$\pm$0.018 & 4.55 & 9.08 & 0.000 & 0.270\\
+ & Mondrian & 0.901 & 0.871$\pm$0.008 & 1.22 & 9.35 & 0.000 & 0.267\\
+\bottomrule
+\end{tabular}
+\end{table*}

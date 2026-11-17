@@ -18,6 +18,8 @@ def nice(c): return c.replace("_", " ")
 def pm(m, s, d=3): return f"{m:.{d}f}$\\pm${s:.{d}f}"
 def write(name, s):
     open(os.path.join(TAB, name), "w", encoding="utf-8").write(s); print("wrote", name)
+    rt = s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
+    open(os.path.join(TAB, "rt_" + name), "w", encoding="utf-8").write(rt)   # REVTeX two-column version
 
 # ---------- data per run ----------
 d = pd.read_csv(os.path.join(R3, "data_summary.csv")).set_index("final_label")

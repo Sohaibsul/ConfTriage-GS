@@ -1,0 +1,51 @@
+"""Convert the Springer (sn-jnl) main.tex into a REVTeX 4.2 (APS, two-column) version: main_revtex.tex.
+Usage: python paper/to_revtex.py   (run after every change of main.tex)
+"""
+import os, re, hashlib
+HERE = os.path.dirname(os.path.abspath(__file__))
+s = open(os.path.join(HERE, "main.tex"), encoding="utf-8").read().replace("\r\n", "\n")
+
+title = re.search(r"\\title\[[^\]]*\]\{(.*?)\}\n", s).group(1)
+i = s.index("\\abstract{") + len("\\abstract{"); j = s.index("}\n\n\\keywords{", i); abstract = s[i:j]
+kw = re.search(r"\\keywords\{(.*?)\}\n", s).group(1)
+body = s[s.index("\\maketitle") + len("\\maketitle"):]
+
+head = r"""%% REVTeX 4.2 (APS, two-column) version, generated from main.tex by to_revtex.py -- edit main.tex, not this file.
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,floatfix]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\title{""" + title + r"""}
+
+\author{Kamran Qadir Abbasi}
+\email{kamranqadir@numl.edu.pk}
+\affiliation{Department of Mathematics, Faculty of Engineering and Computing (FE\&C), National University of Modern Languages (NUML), Islamabad, Pakistan}
+\author{Sohaib Sulman}
+\thanks{Corresponding author}
+\email{i248068@isb.nu.edu.pk}
+\affiliation{Department of Data Science \& AI, National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan}
+
+\begin{abstract}
+""" + abstract + r"""
+\end{abstract}
+
+\keywords{""" + kw + r"""}
+
+\maketitle
+"""
+b = body
+b = b.replace("\\begin{figure}[!htbp]", "\\begin{figure*}[!t]").replace("\\end{figure}", "\\end{figure*}")
+b = re.sub(r"\\input\{tables/(\w+)\}", r"\\input{tables/rt_\1}", b)
+b = re.sub(r"\\backmatter\n\\bmhead\{Acknowledgements\}\n(.*?)\n\n", r"\\begin{acknowledgments}\n\1\n\\end{acknowledgments}\n\n", b, flags=re.S)
+b = b.replace("\\begin{appendices}", "\\appendix").replace("\\end{appendices}", "")
+b = b.replace("\\bibliography{references}", "\\bibliographystyle{apsrev4-2}\n\\bibliography{references}")
+out = head + b
+open(os.path.join(HERE, "main_revtex.tex"), "w", encoding="utf-8", newline="\n").write(out)
+print("wrote main_revtex.tex", len(out), hashlib.sha256(out.encode("utf-8")).hexdigest()[:12])

@@ -1,0 +1,21 @@
+\begin{table*}[!t]
+\caption{Informativeness of the sets in the run-shift experiments: singleton rate and set F1~\cite{malz2025} for the main methods.}\label{tab:e2info}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccc}\toprule
+Method & O1+O2$\rightarrow$O3a & O1+O2$\rightarrow$O3b & O3a$\rightarrow$O3b & O1$\rightarrow$O2\\\midrule
+\multicolumn{5}{l}{\emph{(a) Singleton rate}}\\
+Split CP, Mondrian & 0.061 & 0.480 & 0.574 & 0.000\\
+Rolling recalibration, Mondrian & 0.091 & 0.173 & 0.188 & 0.000\\
+Mondrian-ACI ($\gamma=0.02$), no delay & 0.013 & 0.006 & 0.014 & 0.000\\
+DA Mondrian-ACI ($\gamma=0.05$), delay & 0.014 & 0.014 & 0.036 & 0.000\\
+Oracle Mondrian & 0.127 & 0.157 & 0.151 & 0.000\\
+\midrule
+\multicolumn{5}{l}{\emph{(b) Set F1}}\\
+Split CP, Mondrian & 0.322 & 0.360 & 0.371 & 0.366\\
+Rolling recalibration, Mondrian & 0.308 & 0.309 & 0.327 & 0.294\\
+Mondrian-ACI ($\gamma=0.02$), no delay & 0.268 & 0.253 & 0.279 & 0.252\\
+DA Mondrian-ACI ($\gamma=0.05$), delay & 0.312 & 0.290 & 0.312 & 0.271\\
+Oracle Mondrian & 0.338 & 0.338 & 0.338 & 0.308\\
+\bottomrule
+\end{tabular}
+\end{table*}

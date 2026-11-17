@@ -1,0 +1,65 @@
+\begin{table*}[!t]
+\caption{Conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
+order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. $^{\ast}$Labels are revealed with a delay of
+2000 glitches. MACI: Mondrian-ACI; DA: delay-aware step size (Sec.~\ref{sec:shiftmethods}). Worst-class intervals are 95\% bootstrap intervals of the
+minimum class-wise coverage (classes with at least 30 target glitches). The oracle is calibrated on a random half of the target run and
+evaluated on the other half; it is not available in practice. The step sizes $\gamma\in\{0.005,0.02\}$ were fixed before the
+experiments; $\gamma=0.05$ for the delay-aware variant was selected after inspecting the sweep of Appendix~\ref{app:gamma} and is
+therefore optimistic.}\label{tab:e2}
+\centering\scriptsize\setlength{\tabcolsep}{1.8pt}
+\begin{tabular}{lcccc}\toprule
+Method & O1+O2$\rightarrow$O3a & O1+O2$\rightarrow$O3b & O3a$\rightarrow$O3b & O1$\rightarrow$O2\\\midrule
+\multicolumn{5}{l}{\emph{(a) Marginal coverage}}\\
+Split CP, marginal & 0.903 & 0.880 & 0.877 & 0.891\\
+Split CP, Mondrian & 0.896 & 0.874 & 0.852 & 0.886\\
+Weighted CP, Mondrian & 0.942 & 0.901 & 0.883 & 0.954\\
+ACI, $\gamma=0.005$ & 0.900 & 0.900 & 0.900 & 0.900\\
+Rolling Mondrian$^{\ast}$ & 0.897 & 0.889 & 0.890 & 0.897\\
+\textbf{MACI, $\gamma=0.02$, no delay} & \textbf{0.900} & \textbf{0.900} & \textbf{0.900} & \textbf{0.900}\\
+MACI, $\gamma=0.02^{\ast}$ & 0.891 & 0.898 & 0.891 & 0.882\\
+DA-MACI, $\gamma=0.02^{\ast}$ & 0.915 & 0.926 & 0.904 & 0.926\\
+\textbf{DA-MACI, $\gamma=0.05^{\ast}$} & \textbf{0.915} & \textbf{0.914} & \textbf{0.903} & \textbf{0.924}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian} & 0.899 & 0.901 & 0.900 & 0.901\\
+\midrule
+\multicolumn{5}{l}{\emph{(b) Worst-class coverage (95\% bootstrap interval)}}\\
+Split CP, marginal & 0.060\,{\tiny(0.04--0.09)} & 0.052\,{\tiny(0.03--0.08)} & 0.052\,{\tiny(0.03--0.08)} & 0.019\,{\tiny(0.01--0.03)}\\
+Split CP, Mondrian & 0.084\,{\tiny(0.04--0.13)} & 0.071\,{\tiny(0.04--0.11)} & 0.444\,{\tiny(0.39--0.48)} & 0.267\,{\tiny(0.23--0.31)}\\
+Weighted CP, Mondrian & 0.112\,{\tiny(0.06--0.17)} & 0.459\,{\tiny(0.44--0.47)} & 0.610\,{\tiny(0.60--0.62)} & 0.855\,{\tiny(0.84--0.87)}\\
+ACI, $\gamma=0.005$ & 0.081\,{\tiny(0.05--0.11)} & 0.197\,{\tiny(0.15--0.23)} & 0.209\,{\tiny(0.17--0.25)} & 0.098\,{\tiny(0.08--0.12)}\\
+Rolling Mondrian$^{\ast}$ & 0.208\,{\tiny(0.11--0.32)} & 0.488\,{\tiny(0.42--0.56)} & 0.769\,{\tiny(0.65--0.82)} & 0.780\,{\tiny(0.73--0.81)}\\
+\textbf{MACI, $\gamma=0.02$, no delay} & \textbf{0.811}\,{\tiny(0.70--0.88)} & \textbf{0.871}\,{\tiny(0.81--0.89)} & \textbf{0.827}\,{\tiny(0.71--0.88)} & \textbf{0.881}\,{\tiny(0.84--0.89)}\\
+MACI, $\gamma=0.02^{\ast}$ & 0.774\,{\tiny(0.66--0.86)} & 0.818\,{\tiny(0.76--0.86)} & 0.739\,{\tiny(0.71--0.75)} & 0.727\,{\tiny(0.71--0.74)}\\
+DA-MACI, $\gamma=0.02^{\ast}$ & 0.762\,{\tiny(0.65--0.81)} & 0.600\,{\tiny(0.53--0.67)} & 0.788\,{\tiny(0.67--0.81)} & 0.789\,{\tiny(0.74--0.84)}\\
+\textbf{DA-MACI, $\gamma=0.05^{\ast}$} & \textbf{0.832}\,{\tiny(0.74--0.87)} & \textbf{0.735}\,{\tiny(0.67--0.80)} & \textbf{0.829}\,{\tiny(0.74--0.85)} & \textbf{0.819}\,{\tiny(0.77--0.86)}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian} & 0.842\,{\tiny(0.77--0.88)} & 0.882\,{\tiny(0.81--0.88)} & 0.875\,{\tiny(0.85--0.89)} & 0.878\,{\tiny(0.84--0.88)}\\
+\midrule
+\multicolumn{5}{l}{\emph{(c) Class-coverage gap CovGap (percentage points)}}\\
+Split CP, marginal & 26.72 & 29.95 & 30.18 & 25.44\\
+Split CP, Mondrian & 15.50 & 19.81 & 15.81 & 15.30\\
+Weighted CP, Mondrian & 12.15 & 14.06 & 8.07 & 5.80\\
+ACI, $\gamma=0.005$ & 23.87 & 22.34 & 22.41 & 17.89\\
+Rolling Mondrian$^{\ast}$ & 6.54 & 4.82 & 3.73 & 2.62\\
+\textbf{MACI, $\gamma=0.02$, no delay} & \textbf{1.91} & \textbf{0.78} & \textbf{0.99} & \textbf{0.32}\\
+MACI, $\gamma=0.02^{\ast}$ & 2.49 & 1.38 & 2.04 & 2.04\\
+DA-MACI, $\gamma=0.02^{\ast}$ & 5.68 & 5.63 & 5.08 & 2.85\\
+\textbf{DA-MACI, $\gamma=0.05^{\ast}$} & \textbf{3.77} & \textbf{3.15} & \textbf{2.81} & \textbf{1.92}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian} & 2.02 & 1.36 & 1.31 & 0.95\\
+\midrule
+\multicolumn{5}{l}{\emph{(d) Average set size}}\\
+Split CP, marginal & 2.42 & 1.48 & 1.46 & 1.92\\
+Split CP, Mondrian & 6.41 & 2.93 & 2.62 & 5.16\\
+Weighted CP, Mondrian & 16.24 & 14.99 & 12.49 & 14.71\\
+ACI, $\gamma=0.005$ & 2.89 & 2.70 & 2.71 & 2.74\\
+Rolling Mondrian$^{\ast}$ & 6.39 & 5.73 & 5.43 & 6.16\\
+\textbf{MACI, $\gamma=0.02$, no delay} & \textbf{7.86} & \textbf{7.91} & \textbf{7.54} & \textbf{8.04}\\
+MACI, $\gamma=0.02^{\ast}$ & 13.44 & 11.78 & 11.27 & 12.59\\
+DA-MACI, $\gamma=0.02^{\ast}$ & 7.31 & 6.51 & 6.30 & 7.10\\
+\textbf{DA-MACI, $\gamma=0.05^{\ast}$} & \textbf{7.83} & \textbf{6.91} & \textbf{7.40} & \textbf{7.76}\\
+\cmidrule(l){1-5}
+\emph{Oracle Mondrian} & 6.74 & 6.86 & 6.95 & 6.25\\
+\bottomrule
+\end{tabular}
+\end{table*}
