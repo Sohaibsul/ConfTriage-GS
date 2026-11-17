@@ -16,6 +16,7 @@ head = r"""%% REVTeX 4.2 (APS, two-column) version, generated from main.tex by t
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{xcolor}
+\usepackage{float}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[hidelinks]{hyperref}
@@ -46,6 +47,11 @@ b = re.sub(r"\\input\{tables/(\w+)\}", r"\\input{tables/rt_\1}", b)
 b = re.sub(r"\\backmatter\n\\bmhead\{Acknowledgements\}\n(.*?)\n\n", r"\\begin{acknowledgments}\n\1\n\\end{acknowledgments}\n\n", b, flags=re.S)
 b = b.replace("\\begin{appendices}", "\\appendix").replace("\\end{appendices}", "")
 b = b.replace("\\bibliography{references}", "\\bibliographystyle{apsrev4-2}\n\\bibliography{references}")
+# two-column fixes: algorithm float placed with [H]; split the long Mondrian-ACI update over two lines
+b = b.replace("\\begin{algorithm}[!htbp]", "\\begin{algorithm}[H]")
+b = b.replace("\\big),\\qquad \\alpha_{t+1}^{(y)}=\\alpha_t^{(y)}\\ \\ \\text{for } y\\ne y_t.\n\\end{equation}",
+              "\\big),\\\\\n\\alpha_{t+1}^{(y)}&=\\alpha_t^{(y)}\\quad \\text{for } y\\ne y_t.\n\\end{aligned}\\end{equation}")
+b = b.replace("\\begin{equation}\n\\alpha_{t+1}^{(y_t)} = \\alpha_t^{(y_t)}", "\\begin{equation}\\begin{aligned}\n\\alpha_{t+1}^{(y_t)} &= \\alpha_t^{(y_t)}")
 out = head + b
 open(os.path.join(HERE, "main_revtex.tex"), "w", encoding="utf-8", newline="\n").write(out)
 print("wrote main_revtex.tex", len(out), hashlib.sha256(out.encode("utf-8")).hexdigest()[:12])
