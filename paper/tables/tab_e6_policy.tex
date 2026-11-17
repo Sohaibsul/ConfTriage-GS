@@ -8,13 +8,13 @@ percentage of all glitches sent to an expert; error: percentage of all glitches 
 Policy & Human (\%) & Error (\%)\\\midrule
 Singletons automatic, every other set to a human & 84.3 & 1.1\\
 \midrule
-+ classifier top label for ambiguous sets & 61.4 & 7.5\\
-+ retrieval (in set) for ambiguous sets & 61.4 & 7.6\\
++ classifier top label & 61.4 & 7.5\\
++ retrieval in the set & 61.4 & 7.6\\
 + retrieval (all classes) for ambiguous sets & 61.4 & 8.6\\
-+ classifier--retrieval fusion for ambiguous sets & 61.4 & 6.8\\
++ classifier--retrieval fusion & 61.4 & 6.8\\
 + LLM agent over tools & 63.0 & 7.5\\
 + LLM agent over tools, no scores & 64.6 & 7.6\\
-\textbf{+ verifier: automatic only if fusion and classifier agree} & 64.2 & \textbf{5.2}\\
+\textbf{+ verifier (fusion agrees with classifier)} & 64.2 & \textbf{5.2}\\
 \bottomrule
 \end{tabular}
 \end{table}

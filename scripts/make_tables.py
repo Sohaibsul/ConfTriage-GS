@@ -77,13 +77,13 @@ e2 = pd.concat([pd.read_csv(os.path.join(R5, "E2_shift.csv")), pd.read_csv(os.pa
 scen = [(s, t) for (s, t), _ in e2.groupby(["source", "target"], sort=False)]
 def E(m, s, t): return e2[(e2.source == s) & (e2.target == t) & (e2.method == m)].iloc[0]
 keep = [("split_marginal", "Split CP, marginal", ""), ("split_mondrian", "Split CP, Mondrian", ""),
-        ("weighted_mondrian", "Weighted CP, Mondrian", ""), ("aci_g0.005", "ACI, marginal ($\\gamma=0.005$)", ""),
-        ("rolling_mondrian", "Rolling recalibration, Mondrian$^{\\ast}$", ""),
-        ("mondrian_aci_g0.02", "Mondrian-ACI ($\\gamma=0.02$), no delay", "b"),
-        ("mondrian_aci_g0.02_d2000", "Mondrian-ACI ($\\gamma=0.02$)$^{\\ast}$", ""),
-        ("da_mondrian_aci_g0.02_d2000", "DA Mondrian-ACI ($\\gamma=0.02$)$^{\\ast}$", ""),
-        ("da_mondrian_aci_g0.05_d2000", "DA Mondrian-ACI ($\\gamma=0.05$)$^{\\ast}$", "b"),
-        ("oracle_mondrian", "\\emph{Oracle Mondrian (target calibration)}", "")]
+        ("weighted_mondrian", "Weighted CP, Mondrian", ""), ("aci_g0.005", "ACI, $\\gamma=0.005$", ""),
+        ("rolling_mondrian", "Rolling Mondrian$^{\\ast}$", ""),
+        ("mondrian_aci_g0.02", "MACI, $\\gamma=0.02$, no delay", "b"),
+        ("mondrian_aci_g0.02_d2000", "MACI, $\\gamma=0.02^{\\ast}$", ""),
+        ("da_mondrian_aci_g0.02_d2000", "DA-MACI, $\\gamma=0.02^{\\ast}$", ""),
+        ("da_mondrian_aci_g0.05_d2000", "DA-MACI, $\\gamma=0.05^{\\ast}$", "b"),
+        ("oracle_mondrian", "\\emph{Oracle Mondrian}", "")]
 blocks = [("coverage", "(a) Marginal coverage", "{:.3f}"), ("worst_class_cov", "(b) Worst-class coverage (95\\% bootstrap interval)", "{:.3f}"),
           ("covgap", "(c) Class-coverage gap CovGap (percentage points)", "{:.2f}"), ("set_size", "(d) Average set size", "{:.2f}")]
 lines = []
@@ -103,17 +103,17 @@ hdr = " & ".join(f"{s}$\\rightarrow${t}" for s, t in scen)
 write("tab_e2.tex", r"""\begin{table}[!htbp]
 \caption{Conformal prediction calibrated on earlier observing runs and deployed on a later run, with glitches processed in GPS
 order ($\alpha=0.1$, LAC score). Each column is one source$\rightarrow$target transition. $^{\ast}$Labels are revealed with a delay of
-2000 glitches. DA: delay-aware step size (Sec.~\ref{sec:shiftmethods}). Worst-class intervals are 95\% bootstrap intervals of the
+2000 glitches. MACI: Mondrian-ACI; DA: delay-aware step size (Sec.~\ref{sec:shiftmethods}). Worst-class intervals are 95\% bootstrap intervals of the
 minimum class-wise coverage (classes with at least 30 target glitches). The oracle is calibrated on a random half of the target run and
 evaluated on the other half; it is not available in practice. The step sizes $\gamma\in\{0.005,0.02\}$ were fixed before the
 experiments; $\gamma=0.05$ for the delay-aware variant was selected after inspecting the sweep of Appendix~\ref{app:gamma} and is
 therefore optimistic.}\label{tab:e2}
 \centering\scriptsize\setlength{\tabcolsep}{2.5pt}
-\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}\toprule
+\begin{tabular}{lcccc}\toprule
 Method & """ + hdr + r"""\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 """)
 # appendix table: informativeness of the main methods
@@ -353,13 +353,13 @@ Decision module & $n$ & Final label & Volunteers & Escalated & Acc.\ (decided)\\
 """)
     pol = pd.read_csv(os.path.join(R4, "E6_workload_policies.csv"))
     PN = [("singleton auto, rest human", "Singletons automatic, every other set to a human"),
-          ("classifier_inset", "+ classifier top label for ambiguous sets"),
-          ("retrieval_inset", "+ retrieval (in set) for ambiguous sets"),
+          ("classifier_inset", "+ classifier top label"),
+          ("retrieval_inset", "+ retrieval in the set"),
           ("retrieval_unrestricted", "+ retrieval (all classes) for ambiguous sets"),
-          ("fusion_inset", "+ classifier--retrieval fusion for ambiguous sets"),
+          ("fusion_inset", "+ classifier--retrieval fusion"),
           ("agent_tools_noscores", "+ LLM agent over tools, no scores"),
           ("agent_tools on", "+ LLM agent over tools"),
-          ("verifier", r"\textbf{+ verifier: automatic only if fusion and classifier agree}")]
+          ("verifier", r"\textbf{+ verifier (fusion agrees with classifier)}")]
     def pname(p):
         for k, v in PN:
             if k in p: return v
@@ -385,11 +385,11 @@ Policy & Human (\%) & Error (\%)\\\midrule
 # ---------- E8: end-to-end triage, natural samples (A: in-run, from v5; B: under shift, from v7) ----------
 pA_ = pd.read_csv(os.path.join(R5, "E8_policies.csv")); pA_ = pA_[pA_.setting == "A"]
 pB_ = pd.read_csv(os.path.join(R7, "E8_policies.csv")) if os.path.exists(os.path.join(R7, "E8_policies.csv")) else None
-PN8 = [("singletons auto", "Singletons automatic, every other set to a human"),
-       ("classifier_inset", "+ classifier top label for ambiguous sets"),
-       ("retrieval_inset", "+ retrieval (in set) for ambiguous sets"),
-       ("fusion_inset", "+ classifier--retrieval fusion for ambiguous sets"),
-       ("verifier", r"\textbf{+ verifier: automatic only if fusion and classifier agree}")]
+PN8 = [("singletons auto", "Singletons automatic, rest to a human"),
+       ("classifier_inset", "+ classifier top label"),
+       ("retrieval_inset", "+ retrieval in the set"),
+       ("fusion_inset", "+ classifier--retrieval fusion"),
+       ("verifier", r"\textbf{+ verifier (fusion agrees with classifier)}")]
 lines = []
 for i, (k_, lab) in enumerate(PN8):
     ra = pA_[pA_.policy.str.contains(k_)].iloc[0]
@@ -404,12 +404,12 @@ estimated on a random sample of 800 ambiguous glitches that follows the natural 
 50/50 deployment split of Secs.~\ref{sec:e5} and~\ref{sec:e6}. Under shift: delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000) calibrated on O1+O2 and deployed on
 O3b in GPS order, with a retrieval memory built from O1+O2 only.}\label{tab:e8}
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
-\resizebox{\linewidth}{!}{\begin{tabular}{lcccc}\toprule
+\begin{tabular}{lcccc}\toprule
  & \multicolumn{2}{c}{In-run} & \multicolumn{2}{c}{Under shift (O1+O2$\rightarrow$O3b)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
 Policy & Human (\%) & Error (\%) & Human (\%) & Error (\%)\\\midrule
 """ + "\n".join(lines) + r"""
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 """)
 
