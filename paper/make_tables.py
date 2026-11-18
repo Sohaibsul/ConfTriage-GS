@@ -23,7 +23,7 @@ def write(name, s):
     if name in ("tab_e1.tex", "tab_e2.tex", "tab_e4.tex"):
         rt = s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
     else:
-      rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table}[H]").replace("\\footnotesize", "\\scriptsize")
+      rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table}[!htb]").replace("\\footnotesize", "\\scriptsize")
           .replace("\\begin{tabular}", "\\begin{adjustbox}{max width=\\columnwidth}\\begin{tabular}")
           .replace("\\end{tabular}", "\\end{tabular}\\end{adjustbox}"))
     open(os.path.join(TAB, "rt_" + name), "w", encoding="utf-8").write(rt)   # REVTeX two-column version
