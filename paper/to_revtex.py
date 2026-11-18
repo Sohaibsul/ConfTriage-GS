@@ -54,7 +54,7 @@ b = re.sub(r"\\begin\{figure\*\}\[!t\]\n\\centering\\includegraphics\[width=[^\]
 b = re.sub(r"\\input\{tables/(\w+)\}", r"\\input{tables/rt_\1}", b)
 b = re.sub(r"\\backmatter\n\\bmhead\{Acknowledgements\}\n(.*?)\n\n", r"\\begin{acknowledgments}\n\1\n\\end{acknowledgments}\n\n", b, flags=re.S)
 b = b.replace("\\begin{appendices}", "\\appendix").replace("\\end{appendices}", "")
-b = b.replace("\\bibliography{references}", "\\bibliographystyle{apsrev4-2}\n\\bibliography{references}")
+b = b.replace("\\bibliography{references}", "\\renewcommand{\\bibsection}{\\section*{References}}\n\\bibliographystyle{apsrev4-2}\n\\bibliography{references}")
 # two-column fixes: algorithm float placed with [H]; split the long Mondrian-ACI update over two lines
 b = b.replace("\\begin{algorithm}[!htbp]", "\\begin{algorithm}[H]")
 b = b.replace("\\big),\\qquad \\alpha_{t+1}^{(y)}=\\alpha_t^{(y)}\\ \\ \\text{for } y\\ne y_t.\n\\end{equation}",
