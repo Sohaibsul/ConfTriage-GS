@@ -4,8 +4,8 @@ worst-class coverage as mean$\pm$std). Coverage: fraction of test glitches whose
 lowest class-wise coverage; CovGap: mean absolute deviation of class-wise coverage from $1-\alpha$ in percentage points (both over
 classes with at least 30 test glitches); set size: average number of labels; singleton: fraction of sets with one label; set F1:
 class-averaged F1 of set membership. Best value per block in bold.}\label{tab:e1}
-\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{llcccccc}\toprule
+\centering\small\setlength{\tabcolsep}{3.5pt}
+\begin{adjustbox}{max width=\textwidth}\begin{tabular}{llcccccc}\toprule
 Score & Conditioning & Coverage & Worst-class & CovGap & Set size & Singleton & Set F1\\\midrule
 \multicolumn{8}{l}{\emph{(a) Full data, 809\,242 glitches}}\\
 LAC & Marginal & 0.900 & 0.365$\pm$0.004 & 12.46 & 6.31 & 0.203 & 0.176\\
@@ -33,5 +33,5 @@ RAPS & Marginal & 0.900 & 0.497$\pm$0.017 & 11.07 & 13.10 & 0.000 & 0.135\\
  & Clustered & 0.902 & 0.796$\pm$0.018 & 4.55 & 9.08 & 0.000 & 0.270\\
  & Mondrian & 0.901 & 0.871$\pm$0.008 & 1.22 & 9.35 & 0.000 & 0.267\\
 \bottomrule
-\end{tabular}
+\end{tabular}\end{adjustbox}
 \end{table*}

@@ -20,8 +20,11 @@ def write(name, s):
     open(os.path.join(TAB, name), "w", encoding="utf-8").write(s); print("wrote", name)
     # REVTeX: large/wide tables span both columns at the top of a page (readable size);
     # all other tables sit in one column, exactly where they are input ([H]), scaled to the column if needed
-    if name in ("tab_e1.tex", "tab_e2.tex", "tab_e4.tex"):
-        rt = s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
+    if name in ("tab_e1.tex", "tab_e2.tex"):
+        rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
+              .replace("\\scriptsize", "\\small").replace("\\footnotesize", "\\small")
+              .replace("\\begin{tabular}", "\\begin{adjustbox}{max width=\\textwidth}\\begin{tabular}")
+              .replace("\\end{tabular}", "\\end{tabular}\\end{adjustbox}"))
     else:
       rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table}[!htb]").replace("\\footnotesize", "\\scriptsize")
           .replace("\\begin{tabular}", "\\begin{adjustbox}{max width=\\columnwidth}\\begin{tabular}")
