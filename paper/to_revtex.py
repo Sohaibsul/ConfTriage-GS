@@ -44,6 +44,9 @@ head = r"""%% REVTeX 4.2 (APS, two-column) version, generated from main.tex by t
 """
 b = body
 b = b.replace("\\begin{figure}[!htbp]", "\\begin{figure*}[!t]").replace("\\end{figure}", "\\end{figure*}")
+# near-square figures go in one column, exactly where they are referenced
+b = re.sub(r"\\begin\{figure\*\}\[!t\]\n\\centering\\includegraphics\[width=[^\]]*\]\{(figs/fig_classwise_heatmap\.png)\}(.*?)\\end\{figure\*\}",
+           r"\\begin{figure}[H]\n\\centering\\includegraphics[width=\\columnwidth]{\1}\2\\end{figure}", b, flags=re.S)
 b = re.sub(r"\\input\{tables/(\w+)\}", r"\\input{tables/rt_\1}", b)
 b = re.sub(r"\\backmatter\n\\bmhead\{Acknowledgements\}\n(.*?)\n\n", r"\\begin{acknowledgments}\n\1\n\\end{acknowledgments}\n\n", b, flags=re.S)
 b = b.replace("\\begin{appendices}", "\\appendix").replace("\\end{appendices}", "")
