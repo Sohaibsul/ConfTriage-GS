@@ -23,6 +23,8 @@ def write(name, s):
     if name in ("tab_e1.tex", "tab_e2.tex"):
         rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
               .replace("\\scriptsize", "\\small").replace("\\footnotesize", "\\small")
+              .replace("\\setlength{\\tabcolsep}{1.8pt}", "\\setlength{\\tabcolsep}{9pt}")
+              .replace("\\setlength{\\tabcolsep}{3.5pt}", "\\setlength{\\tabcolsep}{7pt}")
               .replace("\\begin{tabular}", "\\begin{adjustbox}{max width=\\textwidth}\\begin{tabular}")
               .replace("\\end{tabular}", "\\end{tabular}\\end{adjustbox}"))
     else:
