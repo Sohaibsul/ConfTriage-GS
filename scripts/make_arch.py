@@ -1,154 +1,95 @@
-"""Architecture diagram of the full pipeline -> figs/fig_architecture.pdf (+ .png preview).
-Run:  python scripts/make_arch.py
-"""
+"""Pipeline (architecture) figure -> figs/fig_pipeline.pdf/.png.   Run: python paper/make_arch.py"""
 import os
+import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, Polygon, FancyArrowPatch
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle, Polygon
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(os.path.dirname(HERE), "paper", "figs")
-os.makedirs(OUT, exist_ok=True)
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(os.path.dirname(HERE), "paper", "figs"); os.makedirs(OUT, exist_ok=True)
+plt.rcParams.update({"font.family": "DejaVu Sans", "mathtext.fontset": "dejavusans", "font.size": 7})
+INK = "#1B2430"; MUTE = "#5B6675"
+COL = dict(data="#4C6A92", cal="#2F6DB5", tri="#1F8A70", tool="#D08A1E", ok="#2E8B57", hum="#C0473F", agent="#7A4FB5")
 
-plt.rcParams.update({"font.family": "DejaVu Sans", "mathtext.fontset": "dejavusans", "font.size": 6.6})
+fig = plt.figure(figsize=(7.4, 3.9)); ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 53); ax.axis("off")
 
-# palette (stage colours)
-INK = "#1F2933"
-C = {
-    "data":  ("#F3F5F8", "#6B7C93"),
-    "cal":   ("#EDF3FB", "#2F6DB5"),
-    "tri":   ("#EEF7F2", "#2E8B62"),
-    "tool":  ("#FFF7E8", "#C3841A"),
-    "auto":  ("#E3F4E8", "#2E8B57"),
-    "human": ("#FBE7E5", "#B5473F"),
-    "prop":  ("#D9E8FA", "#1D4F91"),
-}
+def card(x0, y0, w, h, color, title=None, fill=None, lw=1.1, dashed=False, r=1.2, z=1):
+    ax.add_patch(FancyBboxPatch((x0, y0), w, h, boxstyle=f"round,pad=0,rounding_size={r}", fc=fill or "white",
+                                ec=color, lw=lw, ls=(0, (3, 2)) if dashed else "-", zorder=z))
+    if title:
+        ax.add_patch(FancyBboxPatch((x0, y0 + h - 3.2), w, 3.2, boxstyle=f"round,pad=0,rounding_size={r}", fc=color, ec=color, lw=lw, zorder=z + 0.1))
+        ax.add_patch(plt.Rectangle((x0, y0 + h - 3.2), w, 1.6, fc=color, ec=color, lw=0, zorder=z + 0.2))
+        ax.text(x0 + w / 2, y0 + h - 1.6, title, color="white", ha="center", va="center", weight="bold", fontsize=7.2, zorder=z + 1)
+def txt(x, y, s, fs=6.6, c=INK, w="normal", ha="center", z=5, **kw): ax.text(x, y, s, fontsize=fs, color=c, weight=w, ha=ha, va="center", zorder=z, **kw)
+def arr(p, q, c=INK, ls="-", lw=1.0, cs="arc3", ms=8, z=4):
+    ax.add_patch(FancyArrowPatch(p, q, arrowstyle="-|>", mutation_scale=ms, color=c, lw=lw, ls=ls, connectionstyle=cs, shrinkA=0, shrinkB=0, zorder=z))
+def chip(x, y, s, color, w=None):
+    w = w or (len(s) * 0.62 + 1.4)
+    ax.add_patch(FancyBboxPatch((x - w / 2, y - 1.05), w, 2.1, boxstyle="round,pad=0,rounding_size=1.0", fc=color, ec="none", alpha=0.18, zorder=5))
+    txt(x, y, s, fs=6.0, c=color, w="bold", z=6)
 
-fig = plt.figure(figsize=(7.4, 4.3))
-ax = fig.add_axes([0, 0, 1, 1])
-ax.set_xlim(0, 100); ax.set_ylim(0, 58); ax.axis("off")
+# ---------- stage 1: input glitch with a stylized Omega scan ----------
+card(1, 9, 17, 41, COL["data"], "1  Glitch stream", fill="#F4F6F9")
+rng = np.random.default_rng(3); tt = np.linspace(0, 1, 60); ff = np.linspace(0, 1, 40); T, F = np.meshgrid(tt, ff)
+for k, (dx, dy) in enumerate([(0, 0), (1, 0), (0, 1), (1, 1)]):
+    sc = 1.0 + 0.5 * k
+    Z = np.exp(-((T - 0.5) * 9 / sc) ** 2 - ((F - 0.35 - 0.25 * (T - 0.5)) * 5) ** 2) + 0.12 * rng.random(T.shape)
+    x0, y0 = 2.6 + dx * 7.3, 32.6 - dy * 7.6
+    ax.imshow(Z, extent=(x0, x0 + 6.8, y0, y0 + 7.0), origin="lower", cmap="viridis", aspect="auto", zorder=3)
+txt(9.5, 24.0, "4 Omega scans (0.5–4 s)", fs=6.0, c=MUTE)
+txt(9.5, 19.6, "CNN scores $\\hat\\pi(x_t)$", fs=6.6, w="bold")
+txt(9.5, 16.8, "22 classes", fs=6.0, c=MUTE)
+txt(9.5, 13.2, "GPS order", fs=6.0, c=MUTE); txt(9.5, 11.0, "O1 → O2 → O3a → O3b", fs=6.0, c=MUTE)
 
+# ---------- stage 2: class-conditional online calibration ----------
+card(21, 9, 25, 41, COL["cal"], "2  Online calibration", fill="#F2F6FC")
+card(23, 37.5, 21, 8.5, COL["cal"], r=0.8, z=2)
+txt(33.5, 43.6, "Mondrian split CP", fs=6.8, w="bold"); txt(33.5, 40.0, "one threshold $\\hat q_y$ per class\n(calibrated on earlier runs)", fs=6.0, c=MUTE)
+card(23, 23.5, 21, 11, COL["cal"], r=0.8, lw=1.8, fill="#E3EDFA", z=2)
+txt(33.5, 32.2, "Mondrian-ACI  (ours)", fs=6.9, w="bold", c=COL["cal"])
+txt(33.5, 28.7, "$\\alpha^{(y)}\\leftarrow\\alpha^{(y)}+\\gamma_y(\\alpha-\\mathrm{miss})$", fs=6.6)
+txt(33.5, 25.5, "per class · delay-aware $\\gamma_y$", fs=6.0, c=MUTE)
+card(23, 11, 21, 10, COL["cal"], r=0.8, z=2)
+txt(33.5, 18.3, "Prediction set $C(x_t)$", fs=6.8, w="bold")
+chip(27.4, 14.2, "Blip", COL["cal"]); chip(33.5, 14.2, "Koi Fish", COL["cal"]); chip(39.6, 14.2, "Tomte", COL["cal"])
+arr((33.5, 37.5), (33.5, 34.5), c=COL["cal"]); arr((33.5, 23.5), (33.5, 21.0), c=COL["cal"])
+arr((18, 16), (23, 16), c=INK, lw=1.2)
 
-def panel(x0, y0, x1, y1, key, title, num):
-    fc, ec = C[key]
-    ax.add_patch(FancyBboxPatch((x0, y0), x1 - x0, y1 - y0, boxstyle="round,pad=0,rounding_size=1.2",
-                                fc=fc, ec=ec, lw=0.9, zorder=0))
-    ax.add_patch(FancyBboxPatch((x0, y1 - 4.2), x1 - x0, 4.2, boxstyle="round,pad=0,rounding_size=1.2",
-                                fc=ec, ec=ec, lw=0.9, zorder=0.5))
-    ax.add_patch(plt.Rectangle((x0, y1 - 4.2), x1 - x0, 2.0, fc=ec, ec=ec, lw=0, zorder=0.6))
-    ax.text(x0 + 1.4, y1 - 2.1, f"{num}  {title}", color="white", weight="bold", va="center", ha="left",
-            fontsize=7.0, zorder=1)
+# ---------- stage 3: set-gated triage ----------
+card(49, 9, 50, 41, COL["tri"], "3  Set-gated triage", fill="#F1F8F5")
+ax.add_patch(Polygon([(51.5, 29.5), (56, 34), (60.5, 29.5), (56, 25)], closed=True, fc="white", ec=COL["tri"], lw=1.3, zorder=3))
+txt(56, 30.2, "$|C|$", fs=7.2, w="bold"); txt(56, 27.6, "router", fs=5.6, c=MUTE)
+ax.plot([44, 47.6, 47.6], [16, 16, 29.5], color=INK, lw=1.2, zorder=4, solid_capstyle="butt")
+arr((47.6, 29.5), (51.5, 29.5), c=INK, lw=1.2)
+# outcome lanes
+card(51, 39.5, 10, 6.5, COL["ok"], fill="#E6F4EC", r=0.8, z=2); txt(56, 43.6, "auto-label", fs=6.6, w="bold", c=COL["ok"]); txt(56, 41.2, "$|C|=1$", fs=6.0, c=MUTE)
+card(51, 11, 10, 9.5, COL["hum"], fill="#FBE9E7", r=0.8, z=2); txt(56, 17.6, "expert /", fs=6.6, w="bold", c=COL["hum"]); txt(56, 15.2, "new class", fs=6.6, w="bold", c=COL["hum"]); txt(56, 12.7, "$|C|>4$", fs=6.0, c=MUTE)
+arr((56, 34), (56, 39.5), c=COL["ok"], lw=1.2); arr((56, 25), (56, 20.5), c=COL["hum"], lw=1.2)
+arr((60.5, 29.5), (64, 29.5), c=COL["tri"], lw=1.2); txt(62.2, 31.3, "2–4", fs=6.0, c=COL["tri"], w="bold")
+# decision module
+card(64, 11, 33.5, 35.5, COL["tri"], fill="white", dashed=True, r=1.0, z=1.5)
+txt(80.75, 44.2, "Retrieval-verified decision module", fs=6.8, w="bold", c=COL["tri"])
+card(65.5, 33.5, 14.5, 8, COL["tool"], fill="#FFF6E6", r=0.8, z=2); txt(72.75, 39.3, "CNN in set", fs=6.6, w="bold"); txt(72.75, 36.2, "$\\arg\\max_{y\\in C}\\hat\\pi_y$", fs=6.2, c=MUTE)
+card(81.5, 33.5, 14.5, 8, COL["tool"], fill="#FFF6E6", r=0.8, z=2); txt(88.75, 39.3, "DINOv2 retrieval", fs=6.6, w="bold"); txt(88.75, 36.2, "k-NN, labelled memory", fs=5.8, c=MUTE)
+card(65.5, 23.5, 30.5, 7.5, COL["tri"], fill="#EAF6F1", r=0.8, z=2)
+txt(80.75, 28.7, "fusion  $w\\log\\hat\\pi_y+(1-w)\\log r_y$", fs=6.6, w="bold"); txt(80.75, 25.6, "restricted to the conformal set", fs=6.0, c=MUTE)
+arr((72.75, 33.5), (72.75, 31.0), c=COL["tool"]); arr((88.75, 33.5), (88.75, 31.0), c=COL["tool"])
+ax.add_patch(Polygon([(75.5, 17.5), (80.75, 21.2), (86, 17.5), (80.75, 13.8)], closed=True, fc="white", ec=COL["tri"], lw=1.2, zorder=3))
+txt(80.75, 17.5, "agree?", fs=6.4, w="bold"); arr((80.75, 23.5), (80.75, 21.2), c=COL["tri"])
+card(65.5, 12.2, 8.5, 4.6, COL["ok"], fill="#E6F4EC", r=0.8, z=2); txt(69.75, 14.5, "yes: label", fs=6.0, w="bold", c=COL["ok"])
+card(87.5, 12.2, 8.5, 4.6, COL["hum"], fill="#FBE9E7", r=0.8, z=2); txt(91.75, 14.5, "no: expert", fs=6.0, w="bold", c=COL["hum"])
+arr((75.5, 17.5), (74.0, 15.6), c=COL["ok"]); arr((86, 17.5), (87.5, 15.6), c=COL["hum"])
 
+# ---------- calibration agent loop ----------
+card(21, 1.0, 76.5, 6.2, COL["agent"], fill="#F3EEFA", r=1.0, z=1.5)
+txt(23, 4.1, "Calibration agent:", fs=6.8, w="bold", c=COL["agent"], ha="left")
+txt(40.0, 4.1, "observe sets  →  request labels (budget)  →  update $\\alpha^{(y)}$  →  alert on under-covered classes",
+    fs=6.3, ha="left", c=INK)
+ax.add_patch(FancyArrowPatch((56, 11), (40, 7.2), arrowstyle="-|>", mutation_scale=8, color=COL["agent"], lw=1.1, ls=(0, (3, 2)),
+                             connectionstyle="arc3,rad=-0.25", zorder=4))
+ax.add_patch(FancyArrowPatch((25, 7.2), (23.0, 26), arrowstyle="-|>", mutation_scale=8, color=COL["agent"], lw=1.1, ls=(0, (3, 2)),
+                             connectionstyle="arc3,rad=-0.35", zorder=4))
+txt(62.5, 8.3, "expert / volunteer labels", fs=5.8, c=COL["agent"], ha="left")
 
-def box(x0, y0, x1, y1, key, text, bold_first=True, lw=0.9, dashed=False, fs=6.6):
-    fc, ec = C[key]
-    ax.add_patch(FancyBboxPatch((x0, y0), x1 - x0, y1 - y0, boxstyle="round,pad=0,rounding_size=0.8",
-                                fc=fc if key not in ("data", "cal", "tri") else "white", ec=ec, lw=lw,
-                                ls=(0, (3, 2)) if dashed else "-", zorder=2))
-    lines = text.split("\n")
-    n = len(lines)
-    h = 2.25  # line height in data units
-    ymid = (y0 + y1) / 2
-    for i, ln in enumerate(lines):
-        y = ymid + (n - 1) / 2 * h - i * h
-        ax.text((x0 + x1) / 2, y, ln, ha="center", va="center", color=INK, zorder=3, fontsize=fs,
-                weight="bold" if (bold_first and i == 0) else "normal")
-
-
-def arrow(p, q, color=INK, ls="-", lw=0.9, cs="arc3", label=None, lpos=0.5, loff=(0, 1.2), la="center"):
-    a = FancyArrowPatch(p, q, arrowstyle="-|>", mutation_scale=7, color=color, lw=lw, ls=ls,
-                        connectionstyle=cs, shrinkA=0, shrinkB=0, zorder=4)
-    ax.add_patch(a)
-    if label:
-        x = p[0] + (q[0] - p[0]) * lpos + loff[0]
-        y = p[1] + (q[1] - p[1]) * lpos + loff[1]
-        ax.text(x, y, label, ha=la, va="center", fontsize=6.0, color=color, zorder=5,
-                bbox=dict(fc="white", ec="none", pad=0.4, alpha=0.9))
-
-
-def poly(pts, color=INK, ls="-", lw=0.9):
-    xs, ys = zip(*pts[:-1])
-    ax.plot(xs, ys, color=color, ls=ls, lw=lw, zorder=4, solid_capstyle="butt")
-    arrow(pts[-2], pts[-1], color=color, ls=ls, lw=lw)
-
-
-# ---------------- panels ----------------
-panel(1, 6, 20.5, 56, "data", "Data", "1")
-panel(23, 6, 47, 56, "cal", "Online calibration", "2")
-panel(49.5, 6, 99, 56, "tri", "Set-gated triage", "3")
-
-# ---------------- 1. data ----------------
-box(2.5, 39, 19, 49, "data", "Volunteer release\nZenodo 5911227\n809k glitches, 22 classes\nscores, labels, votes")
-box(2.5, 25, 19, 35, "data", "ML catalogue\nZenodo 5649212\nGPS time, detector,\nOmicron, 4 Omega scans")
-box(2.5, 9, 19, 20.5, "data", "Glitch $x_t$\nin GPS order\nscores $\\hat\\pi(x_t)$,\nmetadata $m_t$, images")
-arrow((10.75, 39), (10.75, 35))
-arrow((10.75, 25), (10.75, 20.5), label="join on ID", loff=(0, 0))
-
-# ---------------- 2. calibration ----------------
-box(24.5, 39, 45.5, 49, "cal", "Mondrian split CP\ncalibrate on source runs\n(e.g. O1+O2): one\nthreshold $\\hat q_y$ per class")
-box(24.5, 24.5, 45.5, 35, "prop", "Mondrian-ACI (proposed)\nper-class level $\\alpha_t^{(y)}$\n$\\alpha^{(y_t)}_{t+1}=\\alpha^{(y_t)}_t+\\gamma(\\alpha-\\mathrm{err}_t)$\nonly class $y_t$ is updated", lw=1.4)
-box(24.5, 9, 45.5, 20.5, "cal", "Prediction set\n$C(x_t)=\\{y:\\ s(x_t,y)\\leq\\hat q_y(\\alpha_t^{(y)})\\}$\nscore $s=1-\\hat\\pi_y$ (LAC)\nclass-wise coverage $\\approx 1-\\alpha$")
-arrow((35, 39), (35, 35))
-arrow((35, 24.5), (35, 20.5))
-arrow((19, 14.75), (24.5, 14.75))
-
-# ---------------- 3. triage ----------------
-# router (diamond)
-rx, ry, rw, rh = 56.5, 31.5, 5.6, 7.0
-ax.add_patch(Polygon([(rx - rw, ry), (rx, ry + rh), (rx + rw, ry), (rx, ry - rh)], closed=True,
-                     fc="white", ec=C["tri"][1], lw=1.1, zorder=2))
-ax.text(rx, ry + 0.9, "$|C(x_t)|$", ha="center", va="center", fontsize=7, weight="bold", color=INK, zorder=3)
-ax.text(rx, ry - 1.6, "router", ha="center", va="center", fontsize=5.8, color="#52606D", zorder=3)
-poly([(45.5, 14.75), (48.2, 14.75), (48.2, ry), (rx - rw, ry)])
-
-box(51, 43.5, 62, 50.5, "auto", "Automatic\nlabel")
-box(51, 9, 62, 18.5, "human", "Human expert\n/ new-class\nqueue")
-arrow((rx, ry + rh), (rx, 43.5), label="$=1$", loff=(2.6, 0), la="center")
-arrow((rx, ry - rh), (rx, 18.5), label="$>4$", loff=(2.6, 0), la="center")
-
-# decision sub-panel
-dx0, dx1, dy0, dy1 = 65, 98, 8, 50.8
-ax.add_patch(FancyBboxPatch((dx0, dy0), dx1 - dx0, dy1 - dy0, boxstyle="round,pad=0,rounding_size=1",
-                            fc="white", ec=C["tri"][1], lw=0.9, ls=(0, (4, 2)), zorder=1))
-ax.text((dx0 + dx1) / 2, dy1 - 1.9, "Retrieval-verified decision module", ha="center",
-        va="center", fontsize=6.6, weight="bold", color=C["tri"][1], zorder=3)
-arrow((rx + rw, ry), (dx0, ry), label="$2$–$4$", lpos=0.5, loff=(0, 1.4))
-
-# tools
-box(66.5, 38.5, 75.5, 47, "tool", "Classifier\nscores\nrestricted\nto $C(x_t)$", fs=6.2)
-box(77, 38.5, 87.5, 47, "tool", "Retrieval tool\nDINOv2 $k$-NN\nmemory bank\n120 / class", fs=6.2)
-box(89, 38.5, 96.8, 47, "tool", "Physics\ntool\n$f_{\\rm peak}$, dur.,\nSNR, bw.", fs=6.2)
-
-# fusion
-box(66.5, 28.5, 87.5, 36, "tri", "Set-restricted fusion\n$\\hat y=\\arg\\max_{y\\in C}\\ w\\log\\hat\\pi_y$\n$+\\,(1-w)\\log r_y,\\ \\ w=0.2$", fs=6.2)
-arrow((71, 38.5), (71, 36))
-arrow((82.25, 38.5), (82.25, 36))
-
-# LLM agent (evaluated, not adopted)
-box(89, 23, 96.8, 35, "data", "LLM agent\nover all\ntools\n(tested,\nnot used)", dashed=True, fs=5.8)
-arrow((92.9, 38.5), (92.9, 35), ls=(0, (3, 2)), color="#6B7C93")
-
-# verifier
-box(70, 18, 84, 24.5, "tri", "Verifier\n$\\hat y_{\\rm fusion}=\\hat y_{\\rm clf}$ ?", fs=6.2)
-arrow((77, 28.5), (77, 24.5))
-
-# outcomes
-box(66.5, 9.5, 76.5, 14.5, "auto", "agree: auto label", bold_first=False, fs=6.0)
-box(78, 9.5, 89, 14.5, "human", "disagree: human", bold_first=False, fs=6.0)
-arrow((74, 18), (71.5, 14.5))
-arrow((80, 18), (83.5, 14.5))
-
-# result badge
-ax.text(93.4, 16.5, "error\n7.5%$\\rightarrow$5.2%", ha="center", va="center", fontsize=5.8,
-        color=C["tri"][1], weight="bold", zorder=3)
-
-# ---------------- feedback loop: labels -> Mondrian-ACI ----------------
-FB = "#B5473F"
-poly([(56.5, 9), (56.5, 2.6), (22, 2.6), (22, 29.75), (24.5, 29.75)], color=FB, ls=(0, (4, 2)))
-ax.text(39, 2.6, "revealed labels $y_t$ (volunteers / experts) update $\\alpha^{(y_t)}$",
-        ha="center", va="center", fontsize=6.0, color=FB, zorder=5, bbox=dict(fc="white", ec="none", pad=1.5))
-
-fig.savefig(os.path.join(OUT, "fig_architecture.pdf"))
-fig.savefig(os.path.join(OUT, "fig_architecture.png"), dpi=220)
-print("wrote figs/fig_architecture.pdf/.png")
+fig.savefig(os.path.join(OUT, "fig_pipeline.pdf")); fig.savefig(os.path.join(OUT, "fig_pipeline.png"), dpi=230)
+print("wrote figs/fig_pipeline.pdf/.png")
