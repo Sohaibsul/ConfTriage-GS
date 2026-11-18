@@ -18,8 +18,12 @@ def nice(c): return c.replace("_", " ")
 def pm(m, s, d=3): return f"{m:.{d}f}$\\pm${s:.{d}f}"
 def write(name, s):
     open(os.path.join(TAB, name), "w", encoding="utf-8").write(s); print("wrote", name)
-    # REVTeX: every table in one column, placed exactly where it is input ([H]); wide tables are scaled down to the column
-    rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table}[H]").replace("\\footnotesize", "\\scriptsize")
+    # REVTeX: large/wide tables span both columns at the top of a page (readable size);
+    # all other tables sit in one column, exactly where they are input ([H]), scaled to the column if needed
+    if name in ("tab_e1.tex", "tab_e2.tex", "tab_e4.tex"):
+        rt = s.replace("\\begin{table}[!htbp]", "\\begin{table*}[!t]").replace("\\end{table}", "\\end{table*}")
+    else:
+      rt = (s.replace("\\begin{table}[!htbp]", "\\begin{table}[H]").replace("\\footnotesize", "\\scriptsize")
           .replace("\\begin{tabular}", "\\begin{adjustbox}{max width=\\columnwidth}\\begin{tabular}")
           .replace("\\end{tabular}", "\\end{tabular}\\end{adjustbox}"))
     open(os.path.join(TAB, "rt_" + name), "w", encoding="utf-8").write(rt)   # REVTeX two-column version
