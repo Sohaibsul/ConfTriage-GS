@@ -1,121 +1,91 @@
-"""Pipeline figure as a graphical abstract -> figs/fig_pipeline.pdf/.png.   Run: python paper/make_arch.py"""
+"""Pipeline figure (flat flowchart, left-to-right) -> figs/fig_pipeline.pdf/.png.   Run: python paper/make_arch.py"""
 import os
-import numpy as np, pandas as pd
+import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle, Wedge, Polygon, Arc
 
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-OUT = os.path.join(HERE, "figs"); os.makedirs(OUT, exist_ok=True)
-plt.rcParams.update({"font.family": "DejaVu Sans", "mathtext.fontset": "dejavusans", "font.size": 7})
-INK, MUTE = "#1B2430", "#6B7684"
-BLUE, GREEN, RED, AMBER, PURPLE, SLATE = "#2F6DB5", "#1F8A70", "#C0473F", "#D08A1E", "#7A4FB5", "#4C6A92"
-W_, H_ = 7.2, 3.75
-fig = plt.figure(figsize=(W_, H_)); ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 52); ax.axis("off")
-def sub(x0, y0, w, h):  # inset axes in data coordinates of the canvas
-    return fig.add_axes([x0 / 100, y0 / 52, w / 100, h / 52])
-def card(x0, y0, w, h, col, title, num):
-    ax.add_patch(FancyBboxPatch((x0 + 0.5, y0 - 0.6), w, h, boxstyle="round,pad=0,rounding_size=1.8", fc="#00000012", ec="none", zorder=0))
-    ax.add_patch(FancyBboxPatch((x0, y0), w, h, boxstyle="round,pad=0,rounding_size=1.8", fc="white", ec=col, lw=1.2, zorder=1))
-    ax.add_patch(Circle((x0 + 3.0, y0 + h - 3.0), 1.9, fc=col, ec="none", zorder=2))
-    ax.text(x0 + 3.0, y0 + h - 3.0, num, color="white", ha="center", va="center", weight="bold", fontsize=7.5, zorder=3)
-    ax.text(x0 + 5.6, y0 + h - 3.0, title, color=col, ha="left", va="center", weight="bold", fontsize=7.6, zorder=3)
-def T(x, y, s, fs=6.3, c=INK, w="normal", ha="center"): ax.text(x, y, s, fontsize=fs, color=c, weight=w, ha=ha, va="center", zorder=5)
-def chevron(x, y, col):
-    ax.add_patch(FancyArrowPatch((x, y), (x + 2.6, y), arrowstyle="simple,head_width=1.2,head_length=0.9,tail_width=0.45",
-                                 mutation_scale=9, fc=col, ec="none", zorder=4))
-def omega(seed, kind=0):
-    r = np.random.default_rng(seed); Tt, Ff = np.meshgrid(np.linspace(0, 1, 50), np.linspace(0, 1, 36))
-    if kind == 0: Z = np.exp(-((Tt - .5) * 10) ** 2 - ((Ff - .38) * 4) ** 2)
-    elif kind == 1: Z = np.exp(-((Tt - .5) * 6) ** 2 - ((Ff - .3 - .3 * (Tt - .5)) * 6) ** 2)
-    else: Z = np.exp(-((Tt - .5) * 14) ** 2 - ((Ff - .25) * 7) ** 2) * 0.8
-    return Z + 0.15 * r.random(Tt.shape)
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(os.path.dirname(HERE), "paper", "figs"); os.makedirs(OUT, exist_ok=True)
+plt.rcParams.update({"font.family": "DejaVu Sans", "mathtext.fontset": "dejavusans"})
+INK, SUB, EDGE, ARW = "#1F2933", "#66717E", "#A7B4C4", "#55606E"
+BLUE, GREEN, AMBER, RED, PURPLE = "#2F6DB5", "#22906F", "#C9861A", "#C0473F", "#7A4FB5"
 
-# ---------- card 1: glitch + CNN scores ----------
-card(1, 13, 22, 37, SLATE, "Glitch", "1")
-for k, (dx, dy) in enumerate([(0, 0), (1, 0), (0, 1), (1, 1)]):
-    a = sub(3.4 + dx * 9.0, 36.2 - dy * 8.0, 8.4, 7.4); a.imshow(omega(k, 1), cmap="viridis", origin="lower", aspect="auto"); a.axis("off")
-T(12.2, 26.6, "4 Omega scans (0.5–4 s)", fs=5.8, c=MUTE)
-a = sub(9.6, 14.6, 11.6, 8.4)
-cls = ["Blip", "Koi Fish", "Tomte", "Whistle", "other"]; sc = [0.41, 0.33, 0.14, 0.05, 0.07]
-a.barh(range(5)[::-1], sc, color=[SLATE] * 4 + ["#C9D1DB"], height=0.7)
-a.set_yticks(range(5)[::-1]); a.set_yticklabels(cls, fontsize=5.4); a.set_xticks([]); a.set_xlim(0, 0.5)
-for s_ in ["top", "right", "bottom"]: a.spines[s_].set_visible(False)
-a.set_title("CNN scores (22 classes)", fontsize=5.8, pad=2, color=MUTE)
+fig = plt.figure(figsize=(7.2, 2.95)); ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 41); ax.axis("off")
+def rbox(x0, y0, w, h, ec=EDGE, fc="white", lw=1.0, r=1.2, z=2, ls="-"):
+    ax.add_patch(FancyBboxPatch((x0, y0), w, h, boxstyle=f"round,pad=0,rounding_size={r}", fc=fc, ec=ec, lw=lw, ls=ls, zorder=z))
+def T(x, y, s, fs=6.2, c=INK, w="normal", ha="center"): ax.text(x, y, s, fontsize=fs, color=c, weight=w, ha=ha, va="center", zorder=6)
+def arrow(p, q, c=ARW, lw=1.2, ls="-"):
+    ax.add_patch(FancyArrowPatch(p, q, arrowstyle="-|>", mutation_scale=8, color=c, lw=lw, ls=ls, shrinkA=0, shrinkB=0, zorder=4))
+def seg(xs, ys, c=ARW, lw=1.2): ax.plot(xs, ys, color=c, lw=lw, zorder=3, solid_capstyle="butt")
+def stage(x0, w, title, sub, icon, fc="white", ec=EDGE, tc=INK):
+    rbox(x0, 19.5, w, 14.0, ec=ec, fc=fc, lw=1.1)
+    icon(x0 + w / 2, 29.3); T(x0 + w / 2, 24.6, title, fs=6.6, w="bold", c=tc); T(x0 + w / 2, 21.9, sub, fs=5.5, c=SUB)
 
-# ---------- card 2: class-conditional online calibration (real O3b curve) ----------
-card(26, 13, 23, 37, BLUE, "Online calibration", "2")
-try:
-    rec = pd.read_csv(os.path.join(ROOT, "results_v5", "E2_records_O1O2_O3b.csv.gz"))
-    rda = pd.read_csv(os.path.join(ROOT, "results_v6", "E2b_records_O1O2_O3b.csv.gz"))
-    rec["da"] = rda["cov_da_g0.05"].values; rec["day"] = (rec.gps - rec.gps.iloc[0]) / 86400
-    sub_ = rec[rec.y == "Scratchy"].copy(); sub_["wk"] = (sub_.day // 10).astype(int)
-    g = sub_.groupby("wk").agg(s=("cov_split_mondrian", "mean"), d=("da", "mean"), n=("y", "size")); g = g[g.n >= 5]
-    xs, ys_s, ys_d = g.index * 10 + 5, g.s.values, g.d.values
-    mrg = rec.groupby((rec.day // 10).astype(int))["cov_aci_g0.005"].mean()
-except Exception:
-    xs = np.arange(5, 145, 10); ys_s = 0.3 + 0.1 * np.sin(xs / 20); ys_d = 0.9 + 0 * xs; mrg = pd.Series(0.9, index=xs // 10)
-a = sub(31.2, 23.0, 15.6, 12.4)
-a.axhline(0.9, color=INK, ls=":", lw=0.8)
-a.plot(mrg.index * 10 + 5, mrg.values, color=AMBER, lw=1.3, label="overall coverage")
-a.plot(xs, ys_s, color=RED, lw=1.3, ls="--", marker="o", ms=1.8, label="rare class, static CP")
-a.plot(xs, ys_d, color=BLUE, lw=1.6, marker="o", ms=1.8, label="rare class, Mondrian-ACI")
-a.set_ylim(0, 1.05); a.set_xlim(0, 145); a.tick_params(labelsize=5, length=2)
-a.set_xlabel("days in O3b", fontsize=5.5, labelpad=1); a.set_ylabel("coverage", fontsize=5.5, labelpad=1)
-for s_ in ["top", "right"]: a.spines[s_].set_visible(False)
-a.legend(fontsize=4.7, frameon=False, loc="lower center", bbox_to_anchor=(0.42, 1.0), handlelength=1.8, borderaxespad=0.2)
-T(37.5, 17.6, "Mondrian-ACI: one adaptive\nlevel per class", fs=5.9, w="bold", c=BLUE)
-T(37.5, 14.6, "$\\alpha^{(y)}\\leftarrow\\alpha^{(y)}+\\gamma_y(\\alpha-\\mathrm{miss})$", fs=6.0)
+# ---------------- icons ----------------
+def ic_spec(cx, cy):
+    Tt, Ff = np.meshgrid(np.linspace(0, 1, 40), np.linspace(0, 1, 30))
+    Z = np.exp(-((Tt - .5) * 7) ** 2 - ((Ff - .35 - .3 * (Tt - .5)) * 6) ** 2) + 0.1 * np.random.default_rng(1).random(Tt.shape)
+    ax.imshow(Z, extent=(cx - 3.2, cx + 3.2, cy - 2.6, cy + 2.6), cmap="viridis", origin="lower", aspect="auto", zorder=3)
+def ic_net(cx, cy):
+    cols = [(-2.6, [-1.6, 0, 1.6]), (0, [-2.2, -0.75, 0.75, 2.2]), (2.6, [-0.8, 0.8])]
+    for (x1, ys1), (x2, ys2) in zip(cols[:-1], cols[1:]):
+        for a in ys1:
+            for b in ys2: ax.plot([cx + x1, cx + x2], [cy + a, cy + b], color="#C5CEDA", lw=0.5, zorder=3)
+    for x, ys in cols:
+        for y in ys: ax.add_patch(Circle((cx + x, cy + y), 0.5, fc=SUB, ec="none", zorder=4))
+def ic_bars(cx, cy):
+    hs = [3.6, 2.6, 4.2, 1.8, 3.0]
+    for i, h in enumerate(hs):
+        ax.add_patch(plt.Rectangle((cx - 3.0 + i * 1.25, cy - 2.4), 0.85, h, fc=BLUE, ec="none", alpha=0.75, zorder=3))
+    ax.plot([cx - 3.4, cx + 3.4], [cy + 0.3, cy + 0.3], color=RED, lw=1.0, ls="--", zorder=4)
+def ic_set(cx, cy):
+    for i, (dx, dy) in enumerate([(-1.9, 1.1), (1.6, 1.1), (-0.2, -1.4)]):
+        rbox(cx + dx - 1.6, cy + dy - 0.8, 3.2, 1.6, ec="none", fc=BLUE if i < 3 else "#DDE3EA", r=0.8, z=3)
+    ax.add_patch(FancyBboxPatch((cx - 4.0, cy - 2.7), 8.0, 5.4, boxstyle="round,pad=0,rounding_size=2.4", fc="none", ec=BLUE, lw=1.0, ls=(0, (2, 1.5)), zorder=3))
+def ic_check(cx, cy, c):
+    ax.add_patch(Circle((cx, cy), 1.5, fc=c, ec="none", zorder=4))
+    ax.plot([cx - 0.7, cx - 0.15, cx + 0.8], [cy, cy - 0.6, cy + 0.65], color="white", lw=1.4, zorder=5, solid_capstyle="round")
+def ic_lens(cx, cy, c):
+    ax.add_patch(Circle((cx - 0.25, cy + 0.25), 1.0, fc="white", ec=c, lw=1.4, zorder=4))
+    ax.plot([cx + 0.45, cx + 1.3], [cy - 0.45, cy - 1.3], color=c, lw=1.8, zorder=4, solid_capstyle="round")
+def ic_person(cx, cy, c):
+    ax.add_patch(Circle((cx, cy + 0.65), 0.65, fc=c, ec="none", zorder=4)); ax.add_patch(Wedge((cx, cy - 1.0), 1.2, 0, 180, fc=c, ec="none", zorder=4))
 
-# ---------- card 3: conformal set ----------
-card(52, 13, 21, 37, BLUE, "Conformal set", "3")
-a = sub(59.0, 24.5, 12.0, 15.0)
-names = ["Blip", "Koi Fish", "Tomte", "Whistle", "Chirp", "Helix"]; sco = [0.41, 0.33, 0.14, 0.05, 0.03, 0.02]
-thr = [0.20, 0.25, 0.10, 0.20, 0.15, 0.15]; inset = [s >= t for s, t in zip(sco, thr)]
-yy = np.arange(len(names))[::-1]
-a.barh(yy, sco, color=[BLUE if i else "#D5DBE3" for i in inset], height=0.66)
-for y_, t_ in zip(yy, thr): a.plot([t_, t_], [y_ - 0.42, y_ + 0.42], color=RED, lw=1.1)
-a.set_yticks(yy); a.set_yticklabels(names, fontsize=5.4); a.set_xticks([]); a.set_xlim(0, 0.48)
-for s_ in ["top", "right", "bottom"]: a.spines[s_].set_visible(False)
-a.set_title("score vs. threshold $\\hat q_y$ (red)", fontsize=5.4, pad=2, color=MUTE)
-T(62.5, 20.0, "$C(x)=\\{$Blip, Koi Fish, Tomte$\\}$", fs=6.4, w="bold", c=BLUE)
-T(62.5, 16.6, "contains the true class with\nprobability 0.9 for every class", fs=5.5, c=MUTE)
+# ---------------- group backgrounds ----------------
+rbox(29.2, 16.0, 31.6, 24.4, ec="none", fc="#EEF3FA", r=1.6, z=0.5); T(45.0, 38.6, "Online conformal calibration", fs=6.4, w="bold", c=BLUE)
+rbox(62.0, 14.2, 37.4, 26.2, ec="none", fc="#EDF6F2", r=1.6, z=0.5); T(80.7, 38.6, "Set-gated triage", fs=6.4, w="bold", c=GREEN)
 
-# ---------- card 4: set-gated triage with icons ----------
-card(76, 13, 23, 37, GREEN, "Set-gated triage", "4")
-def check_icon(cx, cy, col):
-    ax.add_patch(Circle((cx, cy), 2.1, fc=col, ec="none", zorder=4))
-    ax.plot([cx - 1.0, cx - 0.2, cx + 1.1], [cy, cy - 0.9, cy + 0.9], color="white", lw=1.8, zorder=5, solid_capstyle="round")
-def person_icon(cx, cy, col):
-    ax.add_patch(Circle((cx, cy + 0.9), 0.85, fc=col, ec="none", zorder=4))
-    ax.add_patch(Wedge((cx, cy - 1.3), 1.6, 0, 180, fc=col, ec="none", zorder=4))
-def lens_icon(cx, cy, col):
-    ax.add_patch(Circle((cx - 0.3, cy + 0.3), 1.2, fc="white", ec=col, lw=1.6, zorder=4))
-    ax.plot([cx + 0.55, cx + 1.6], [cy - 0.55, cy - 1.6], color=col, lw=2.0, zorder=4, solid_capstyle="round")
-rows = [(41.0, "$|C|=1$", "auto-label"), (29.0, "$|C|=2$–$4$", "retrieval-verified"), (17.5, "$|C|>4$", "expert / new class")]
-check_icon(80.0, rows[0][0], GREEN); T(83.3, rows[0][0] + 1.0, rows[0][2], fs=6.4, w="bold", c=GREEN, ha="left"); T(83.3, rows[0][0] - 1.4, rows[0][1], fs=5.6, c=MUTE, ha="left")
-lens_icon(80.0, rows[1][0] + 2.2, AMBER); T(83.3, rows[1][0] + 3.2, rows[1][2], fs=6.4, w="bold", c=AMBER, ha="left"); T(83.3, rows[1][0] + 0.9, rows[1][1], fs=5.6, c=MUTE, ha="left")
-for k in range(3):
-    a = sub(83.3 + k * 5.2, 21.3, 4.6, 4.2); a.imshow(omega(10 + k, 1 if k < 2 else 0), cmap="viridis", origin="lower", aspect="auto"); a.set_xticks([]); a.set_yticks([])
-    for s_ in a.spines.values(): s_.set_color(AMBER); s_.set_linewidth(0.8)
-person_icon(80.0, rows[2][0], RED); T(83.3, rows[2][0] + 1.0, rows[2][2], fs=6.4, w="bold", c=RED, ha="left"); T(83.3, rows[2][0] - 1.4, rows[2][1], fs=5.6, c=MUTE, ha="left")
+# ---------------- main row ----------------
+stage(1.0, 12.0, "Glitch", "Omega scans", ic_spec)
+stage(15.5, 12.0, "CNN", "class scores $\\hat\\pi(x)$", ic_net)
+stage(31.0, 13.0, "Mondrian-ACI", "per-class thresholds,\nupdated online", ic_bars, fc="#E1EBF8", ec=BLUE, tc=BLUE)
+stage(46.5, 12.5, "Conformal set", "$C(x)$, 90% per class", ic_set)
+for x0, x1 in [(13.0, 15.5), (27.5, 31.0), (44.0, 46.5)]: arrow((x0, 26.5), (x1, 26.5))
+# router
+ax.add_patch(Polygon([(61.0, 26.5), (63.6, 29.1), (66.2, 26.5), (63.6, 23.9)], closed=True, fc="white", ec=GREEN, lw=1.2, zorder=3))
+T(63.6, 26.5, "$|C|$", fs=6.4, w="bold")
+arrow((59.0, 26.5), (61.0, 26.5))
+# fan-out to outcomes (orthogonal)
+BX = 68.0; seg([66.2, BX], [26.5, 26.5]); seg([BX, BX], [19.0, 34.0])
+outs = [(34.0, "1", "Automatic label", "singleton set", GREEN, ic_check),
+        (26.5, "2–4", "Retrieval-verified decision", "CNN ⊕ DINOv2; label only if both agree", AMBER, ic_lens),
+        (19.0, ">4", "Expert / new-class queue", "large set: human inspection", RED, ic_person)]
+for y, lab, title, sub, col, ic in outs:
+    arrow((BX, y), (70.5, y), c=ARW); T(69.25, y + 1.3, lab, fs=5.4, c=SUB)
+    rbox(70.5, y - 3.0, 28.2, 6.0, ec=col, fc="white", lw=1.1, r=1.0)
+    ic(73.2, y, col); T(75.6, y + 1.15, title, fs=6.3, w="bold", c=col, ha="left"); T(75.6, y - 1.35, sub, fs=5.3, c=SUB, ha="left")
 
-for x in (23.3, 49.3, 73.3): chevron(x, 31.5, "#9AA5B1")
+# ---------------- calibration agent (feedback) ----------------
+rbox(29.2, 1.2, 70.2, 7.6, ec=PURPLE, fc="#F5F0FB", lw=1.0, r=1.4, z=1)
+ax.add_patch(Arc((33.2, 5.0), 4.6, 4.6, theta1=50, theta2=320, color=PURPLE, lw=1.4, zorder=3))
+ax.add_patch(FancyArrowPatch((34.6, 6.8), (35.4, 5.7), arrowstyle="-|>", mutation_scale=6, color=PURPLE, lw=1.4, zorder=3))
+T(37.0, 6.4, "Calibration agent", fs=6.6, w="bold", c=PURPLE, ha="left")
+T(37.0, 3.4, "monitors class-wise coverage  ·  requests expert labels within a budget  ·  raises alerts", fs=5.6, c=INK, ha="left")
+arrow((84.6, 16.0), (84.6, 8.8), c=PURPLE, ls=(0, (3, 2)))       # expert labels -> agent
+T(85.3, 11.2, "labels", fs=5.2, c=PURPLE, ha="left")
+arrow((37.5, 8.8), (37.5, 19.5), c=PURPLE)                       # agent -> Mondrian-ACI
+T(38.2, 12.0, "update $\\alpha^{(y)}$", fs=5.2, c=PURPLE, ha="left")
 
-# ---------- calibration agent loop ----------
-ax.add_patch(FancyBboxPatch((26.5, 0.6), 72.5, 8.8, boxstyle="round,pad=0,rounding_size=1.8", fc="#F4EFFB", ec=PURPLE, lw=1.1, zorder=1))
-ax.add_patch(Arc((31.5, 5.0), 6.0, 6.0, theta1=40, theta2=330, color=PURPLE, lw=1.6, zorder=3))
-ax.add_patch(FancyArrowPatch((33.5, 7.2), (34.5, 5.9), arrowstyle="-|>", mutation_scale=7, color=PURPLE, lw=1.6, zorder=3))
-bell = Polygon([(30.4, 3.6), (32.6, 3.6), (32.2, 4.4), (32.1, 5.8), (31.5, 6.4), (30.9, 5.8), (30.8, 4.4)], closed=True, fc=PURPLE, ec="none", zorder=4)
-ax.add_patch(bell); ax.add_patch(Circle((31.5, 3.2), 0.35, fc=PURPLE, ec="none", zorder=4))
-T(36.5, 6.9, "Calibration agent", fs=7.0, w="bold", c=PURPLE, ha="left")
-T(36.5, 3.4, "observe class-wise coverage  →  request expert labels within a budget  →  update $\\alpha^{(y)}$  →  raise alerts",
-  fs=5.9, ha="left")
-ax.add_patch(FancyArrowPatch((87.5, 13.0), (87.5, 9.4), arrowstyle="-|>", mutation_scale=8, color=PURPLE, lw=1.3, ls=(0, (3, 2)), zorder=4))
-T(88.2, 11.2, "labels", fs=5.4, c=PURPLE, ha="left")
-ax.add_patch(FancyArrowPatch((37.5, 9.4), (37.5, 13.0), arrowstyle="-|>", mutation_scale=8, color=PURPLE, lw=1.3, zorder=4))
-T(38.2, 11.2, "updates", fs=5.4, c=PURPLE, ha="left")
-
-fig.savefig(os.path.join(OUT, "fig_pipeline.pdf")); fig.savefig(os.path.join(OUT, "fig_pipeline.png"), dpi=230)
+fig.savefig(os.path.join(OUT, "fig_pipeline.pdf")); fig.savefig(os.path.join(OUT, "fig_pipeline.png"), dpi=240)
 print("wrote figs/fig_pipeline.pdf/.png")
