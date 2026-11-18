@@ -1,9 +1,9 @@
-\begin{table}[!t]
+\begin{table}[H]
 \caption{Accuracy of a general-purpose vision--language model (Qwen2.5-VL) on ambiguous glitches
 ($2\le|C(x)|\le4$), w.r.t.\ the final label. Chance level for a set of size 2--4 is about 0.33.
 n = 396 (3B) and 286 (7B, 4-bit).}\label{tab:e5}
 \centering\scriptsize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcc}\toprule
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{lcc}\toprule
 Condition & 3B & 7B\\\midrule
 Classifier top-1 (reference) & 0.763 & 0.766\\
 VLM, unconstrained (22 classes) & 0.045 & 0.045\\
@@ -12,5 +12,5 @@ VLM in set, scores + reference images & 0.629 & --\\
 VLM in set, no scores & -- & 0.301\\
 VLM in set, no scores + reference images & -- & 0.287\\
 \bottomrule
-\end{tabular}
+\end{tabular}\end{adjustbox}
 \end{table}

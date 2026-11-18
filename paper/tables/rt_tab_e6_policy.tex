@@ -1,10 +1,10 @@
-\begin{table*}[!t]
+\begin{table}[H]
 \caption{End-to-end triage policies on all deployment glitches with images. Singleton sets are always labelled automatically
 and sets with more than four labels always go to a human; the policies differ only in how ambiguous sets are handled. Human:
 percentage of all glitches sent to an expert; error: percentage of all glitches that are labelled automatically and wrongly
 (w.r.t.\ the final label).}\label{tab:e6pol}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcc}\toprule
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{lcc}\toprule
 Policy & Human (\%) & Error (\%)\\\midrule
 Singletons automatic, every other set to a human & 84.3 & 1.1\\
 \midrule
@@ -16,5 +16,5 @@ Singletons automatic, every other set to a human & 84.3 & 1.1\\
 + LLM agent over tools, no scores & 64.6 & 7.6\\
 \textbf{+ verifier (fusion agrees with classifier)} & 64.2 & \textbf{5.2}\\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}\end{adjustbox}
+\end{table}

@@ -1,14 +1,14 @@
-\begin{table*}[!t]
+\begin{table}[H]
 \caption{Coverage alerts of the calibration agent on top of static split Mondrian CP (the deployment that fails silently), with 5\%
 of the glitches labelled at random and a label delay of 2000 glitches. An alert is raised for a class when the miss rate among its last
 50 labelled glitches exceeds $\alpha+0.1$; a class is under-covered if its coverage over the whole target run is below 0.8.}\label{tab:e9alerts}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lccccc}\toprule
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{lccccc}\toprule
 Transition & Under-covered & Detected & False alerts & Median delay (days) & Run length (days)\\\midrule
 O1+O2$\rightarrow$O3a & 5 & 3 & 2 & 57 & 183\\
 O1+O2$\rightarrow$O3b & 8 & 6 & 8 & 18 & 143\\
 O3a$\rightarrow$O3b & 10 & 7 & 5 & 23 & 143\\
 O1$\rightarrow$O2 & 6 & 4 & 6 & 137 & 260\\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}\end{adjustbox}
+\end{table}

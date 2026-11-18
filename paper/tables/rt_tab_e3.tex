@@ -1,10 +1,10 @@
-\begin{table*}[!t]
+\begin{table}[H]
 \caption{Detection of held-out glitch classes (mean$\pm$std over 10 random choices of the held-out classes; score-level
 simulation in which the held-out score columns are removed and the remaining scores renormalized). AUROC: area under the ROC
 curve for separating held-out from known glitches (0.5 = chance); FPR@95: false-positive rate on known glitches at 95\% recall
 of held-out glitches. Coverage of the known classes stays at 0.90 and no held-out glitch receives an empty set.}\label{tab:e3}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lcccc}\toprule
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{lcccc}\toprule
  & \multicolumn{2}{c}{1 class held out} & \multicolumn{2}{c}{3 classes held out}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
 Novelty score & AUROC & FPR@95 & AUROC & FPR@95\\\midrule
 Maximum softmax probability (MSP) & 0.687$\pm$0.075 & 0.754$\pm$0.113 & 0.670$\pm$0.035 & 0.789$\pm$0.041\\
@@ -12,5 +12,5 @@ Predictive entropy & 0.693$\pm$0.073 & 0.751$\pm$0.115 & 0.672$\pm$0.037 & 0.787
 Conformal set size & 0.661$\pm$0.069 & 0.783$\pm$0.091 & 0.633$\pm$0.042 & 0.850$\pm$0.045\\
 Conformal $p$-value, $1-\max_y p_y(x)$ & 0.528$\pm$0.116 & 0.848$\pm$0.057 & 0.498$\pm$0.071 & 0.910$\pm$0.017\\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}\end{adjustbox}
+\end{table}

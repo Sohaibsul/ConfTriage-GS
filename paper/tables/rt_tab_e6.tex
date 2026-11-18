@@ -1,11 +1,11 @@
-\begin{table*}[!t]
+\begin{table}[H]
 \caption{Decision modules for ambiguous glitches ($2\le|C(x)|\le4$; class-stratified sample of the deployment split).
 Accuracy is measured against the final label and against the independent volunteer majority; escalated glitches count as not
 correct. Escalated: fraction sent to a human by the agent; Acc.\ (decided): accuracy on the glitches the agent did not escalate.
 Best accuracy in bold. $^\dagger$Run on the first 300 test glitches; on the same 300 glitches the classifier reaches 0.700 and
 the fusion 0.727.}\label{tab:e6}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lccccc}\toprule
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{lccccc}\toprule
  & & \multicolumn{2}{c}{Accuracy} & & \\\cmidrule(lr){3-4}
 Decision module & $n$ & Final label & Volunteers & Escalated & Acc.\ (decided)\\\midrule
 \multicolumn{6}{l}{\emph{Single sources of evidence}}\\
@@ -18,5 +18,5 @@ Retrieval tool, all 22 classes & 589 & 0.676 & 0.600 & -- & --\\
 LLM agent over three tools$^\dagger$ & 300 & 0.653 & 0.517 & 0.067 & 0.700\\
 LLM agent over tools, no classifier scores$^\dagger$ & 300 & 0.580 & 0.503 & 0.137 & 0.672\\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}\end{adjustbox}
+\end{table}

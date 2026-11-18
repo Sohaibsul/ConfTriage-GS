@@ -1,9 +1,9 @@
-\begin{table*}[!t]
+\begin{table}[H]
 \caption{Calibration agent. Worst-class coverage / average set size of delay-aware Mondrian-ACI ($\gamma=0.02$, delay 2000)
 when only a fraction of the target glitches (the label budget) is labelled, with the glitches to label chosen at random or by the
 agent. Bold: the agent is better than random labelling at the same budget.}\label{tab:e9}
-\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llcccc}\toprule
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\columnwidth}\begin{tabular}{llcccc}\toprule
 Budget & Labelling & O1+O2$\rightarrow$O3a & O1+O2$\rightarrow$O3b & O3a$\rightarrow$O3b & O1$\rightarrow$O2\\\midrule
 2\% & random & 0.10 / 6.8 & 0.10 / 4.6 & 0.51 / 3.9 & 0.47 / 5.6\\
  & agent & \textbf{0.13 / 6.5} & \textbf{0.15 / 3.5} & 0.45 / 2.9 & 0.44 / 5.3\\
@@ -19,5 +19,5 @@ Budget & Labelling & O1+O2$\rightarrow$O3a & O1+O2$\rightarrow$O3b & O3a$\righta
 \addlinespace[2pt]
 100\% & all labels & 0.76 / 7.3 & 0.60 / 6.6 & 0.79 / 6.3 & 0.79 / 7.1\\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular}\end{adjustbox}
+\end{table}
