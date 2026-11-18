@@ -51,21 +51,22 @@ t(9.25, 21.8, "CNN scores $\\hat\\pi(x_t)$", w="bold"); t(9.25, 19.4, "22 classe
 t(9.25, 15.6, "GPS order: O1 → O3b", fs=5.9, c=MUTE)
 
 # ---------------- 2: calibration ----------------
-box(22, 36.5, 16.5, 7.0, C["cal"])
-t(30.25, 41.4, "Mondrian split CP", w="bold"); t(30.25, 38.6, "$\\hat q_y$ per class, earlier runs", fs=5.9, c=MUTE)
-box(22, 25.0, 16.5, 9.0, C["cal"], fc="#E2ECFA", lw=1.8)
-t(30.25, 31.4, "Mondrian-ACI (ours)", w="bold", c=C["cal"])
-t(30.25, 28.6, "$\\alpha^{(y)}\\!\\leftarrow\\alpha^{(y)}+\\gamma_y(\\alpha-\\mathrm{miss})$", fs=6.2)
-t(30.25, 26.3, "per class, delay-aware", fs=5.9, c=MUTE)
-box(22, 14.0, 16.5, 8.5, C["cal"])
-t(30.25, 19.9, "Conformal set $C(x_t)$", w="bold")
-chip(25.0, 16.6, "Blip", C["cal"]); chip(30.4, 16.6, "Koi Fish", C["cal"]); chip(35.9, 16.6, "Tomte", C["cal"])
-arrow((30.25, 36.5), (30.25, 34.0), c=C["cal"]); arrow((30.25, 25.0), (30.25, 22.5), c=C["cal"])
-arrow((17.5, 18.2), (22, 18.2), lw=1.3)
+# order: split CP (top) -> conformal set (middle) <- Mondrian-ACI (bottom, fed by the agent band below)
+box(22, 37.5, 16.5, 6.5, C["cal"])
+t(30.25, 42.0, "Mondrian split CP", w="bold"); t(30.25, 39.4, "$\\hat q_y$ per class, earlier runs", fs=5.9, c=MUTE)
+box(22, 26.0, 16.5, 8.5, C["cal"])
+t(30.25, 31.9, "Conformal set $C(x_t)$", w="bold")
+chip(25.0, 28.6, "Blip", C["cal"]); chip(30.4, 28.6, "Koi Fish", C["cal"]); chip(35.9, 28.6, "Tomte", C["cal"])
+box(22, 13.5, 16.5, 9.0, C["cal"], fc="#E2ECFA", lw=1.8)
+t(30.25, 19.9, "Mondrian-ACI (ours)", w="bold", c=C["cal"])
+t(30.25, 17.3, "$\\alpha^{(y)}\\!\\leftarrow\\alpha^{(y)}+\\gamma_y(\\alpha-\\mathrm{miss})$", fs=6.2)
+t(30.25, 15.0, "per class, delay-aware", fs=5.8, c=MUTE)
+arrow((30.25, 37.5), (30.25, 34.5), c=C["cal"]); arrow((30.25, 22.5), (30.25, 26.0), c=C["cal"])
+arrow((17.5, 30.2), (22, 30.2), lw=1.3)
 
 # ---------------- 3: routing by set size (vertical bus, horizontal branches) ----------------
 BX = 45.5; YT, YM, YB = 39.5, 28.5, 17.0
-line([38.5, BX], [18.2, 18.2], lw=1.3); line([BX, BX], [YB, YT], lw=1.3)
+line([38.5, BX], [30.2, 30.2], lw=1.3); line([BX, BX], [YB, YT], lw=1.3)
 t(BX, YT + 3.6, "$|C|$", fs=6.0, c=MUTE, w="bold")
 for y, lab in [(YT, "1"), (YM, "2–4"), (YB, ">4")]:
     arrow((BX, y), (49.5, y), lw=1.3); t(47.5, y + 1.4, lab, fs=5.6, c=MUTE)
@@ -99,7 +100,7 @@ t(22.0, 3.6, "observe sets  →  request labels within a budget  →  update $\\
 line([55.5, 55.5], [YB - 2.6, 9.0], c=C["agent"], ls=(0, (3, 2))); arrow((55.5, 10.2), (55.5, 9.0), c=C["agent"])
 t(56.3, 10.9, "labels", fs=5.6, c=C["agent"], ha="left")
 # agent updates Mondrian-ACI (vertical line in the left margin of panel 2)
-line([20.9, 20.9], [9.0, 29.5], c=C["agent"], ls=(0, (3, 2))); arrow((20.9, 29.5), (22.0, 29.5), c=C["agent"])
+arrow((30.25, 9.0), (30.25, 13.5), c=C["agent"], lw=1.3); t(31.0, 11.0, "updates", fs=5.6, c=C["agent"], ha="left")
 
 fig.savefig(os.path.join(OUT, "fig_pipeline.pdf")); fig.savefig(os.path.join(OUT, "fig_pipeline.png"), dpi=230)
 print("wrote figs/fig_pipeline.pdf/.png")
